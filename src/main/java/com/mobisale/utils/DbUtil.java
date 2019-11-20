@@ -1,4 +1,4 @@
-package com.mtn.mobisale.utils;
+package com.mobisale.utils;
 
 
 import java.sql.*;
@@ -18,7 +18,7 @@ public class DbUtil {
 
              */
 
-            conn = java.sql.DriverManager.getConnection(url,username,password);
+            conn = DriverManager.getConnection(url,username,password);
 
 
             return conn;
@@ -65,7 +65,7 @@ public class DbUtil {
                     : "jdbc:sqlserver://10.0.0.44\\MTNMSSQLSERVER;databaseName=Noa_B2B";
             String username=System.getenv("DB_USER") != null ? System.getenv("DB_USER"): "sa";
             String password=System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD"): "master2w";
-            conn = java.sql.DriverManager.getConnection(url,username,password);
+            conn = DriverManager.getConnection(url,username,password);
 
             return conn;
         } catch (SQLException e) {

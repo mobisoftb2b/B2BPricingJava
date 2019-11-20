@@ -1,12 +1,16 @@
-package com.mtn.mobisale.singleton;
+package com.mobisale.singleton;
 
 
-import com.mtn.mobisale.columns.ConditionTypes;
-import com.mtn.mobisale.constants.Tables;
-import com.mtn.mobisale.utils.DbUtil;
-import com.mtn.mobisale.utils.LogUtil;
+import com.mobisale.columns.ConditionTypes;
+import com.mobisale.constants.Tables;
+import com.mobisale.utils.DbUtil;
+import com.mobisale.utils.LogUtil;
+import com.mobisale.utils.SqlLiteUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 
 public class ConditionTypesData {
@@ -14,6 +18,7 @@ public class ConditionTypesData {
     private static final String TAG = "ConditionTypesData";
     private HashMap<String, ConditionTypeData> conditionTypesMap = new HashMap<String, ConditionTypeData>();
     private static ConditionTypesData m_instance = null;
+    private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
 
     public static ConditionTypesData getInstance() {
@@ -33,12 +38,16 @@ public class ConditionTypesData {
         Statement st = null;
         Connection conn = null;
         try {
-            conn = DbUtil.connect(conn);
+
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                conn = sqlLiteUtil.Connect();
+            else
+                conn = DbUtil.connect(conn);
 
             String query ="SELECT * FROM " + Tables.TABLE_PRICING_CONDITION_TYPES;
             // create the java statement
             st = conn.createStatement();
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             // execute the query, and get a java resultset
             rs = st.executeQuery(query);
 
@@ -53,9 +62,12 @@ public class ConditionTypesData {
                 conditionTypesMap.put(Condition, new ConditionTypeData(Condition, ConditionType, Comment));
             }
         } catch (SQLException e) {
-            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 121");
         } finally {
-            DbUtil.CloseConnection(conn,rs,st);
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                sqlLiteUtil.Disconnect(conn);
+            else
+                DbUtil.CloseConnection(conn,rs,st);
         }
     }
 

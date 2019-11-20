@@ -1,4 +1,4 @@
-package com.mtn.mobisale.data;
+package com.mobisale.data;
 
 /**
  * Created by israel on 3/17/14.

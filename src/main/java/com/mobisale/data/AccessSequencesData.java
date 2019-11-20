@@ -1,4 +1,4 @@
-package com.mtn.mobisale.data;
+package com.mobisale.data;
 
 import java.util.TreeMap;
 

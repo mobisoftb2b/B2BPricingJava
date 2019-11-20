@@ -1,13 +1,10 @@
-package com.mtn.mobisale.data;
+package com.mobisale.data;
 
-import com.mtn.mobisale.data.ConditionReturnData;
-import com.mtn.mobisale.data.ConditionReturnListData;
-import com.mtn.mobisale.data.PricingProcedureData;
-import com.mtn.mobisale.data.PricingProcedureListData;
-import com.mtn.mobisale.singleton.*;
-import com.mtn.mobisale.utils.LogUtil;
-import com.mtn.mobisale.utils.NumberUtil;
+import com.mobisale.singleton.*;
+import com.mobisale.utils.LogUtil;
+import com.mobisale.utils.NumberUtil;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -38,6 +35,7 @@ public class ItemPricingData {
     public static final String KG_UNIT = "KG";
     public final String Cust_Key;
     public final String ItemID;
+    public  String PricingProcedure = "";
     private final ArrayList<ItemPricingLine> itemPricingLines = new ArrayList<ItemPricingLine>();
     private float Quantity = 0;
     private double TotalValue = 0;
@@ -63,9 +61,11 @@ public class ItemPricingData {
     private boolean isRestoreManualPercentValueToOriginal = false;
 
 
-    public ItemPricingData(String cust_Key, String itemID) {
+
+    public ItemPricingData(String cust_Key, String itemID, float quantity) {
         Cust_Key = cust_Key;
         ItemID = itemID;
+        Quantity = quantity;
     }
 
     public synchronized void initPricing(boolean forceUpdate) {
@@ -74,13 +74,16 @@ public class ItemPricingData {
         }
         clearPricing();
 
-        PricingProcedureListData pricingProcedureListData = PricingProceduresData.getInstance().getPricingProcedureData();
+        PricingProcedureListData pricingProcedureListData = PricingProceduresData.getInstance().getPricingProcedureData(Cust_Key);
+        PricingProcedure = pricingProcedureListData.Procedure;
         if (pricingProcedureListData == null) {
             return;
         }
         String conditionTypeToSkip = null;
         for (PricingProcedureData pricingProcedureData : pricingProcedureListData.pricingProcedureDatas) {
-            ConditionReturnListData conditionReturnListData = PricingSequenceData.getInstance().getAccessSequenceData(pricingProcedureData.ConditionType, ConditionsAccessData.getInstance().getAccessSequence(pricingProcedureData.ConditionType), pricingProcedureData.ManualOnly);
+            String accessSequence = ConditionsAccessData.getInstance().getAccessSequence(pricingProcedureData.ConditionType);
+            LogUtil.LOG.info("stepNumber=" + pricingProcedureData.StepNumber + " ConditionType=" + pricingProcedureData.ConditionType + " access Sequence=" + accessSequence);
+            ConditionReturnListData conditionReturnListData = PricingSequenceData.getInstance().getAccessSequenceData(pricingProcedureData.ConditionType, accessSequence, pricingProcedureData.ManualOnly);
 //            if ((pricingProcedureData.ConditionType == null || pricingProcedureData.ConditionType.isEmpty()) && (pricingProcedureData.Subtotal == null || pricingProcedureData.Subtotal.isEmpty()) && !pricingProcedureData.Statistical) {
 //                continue;
 //            }
@@ -110,6 +113,14 @@ public class ItemPricingData {
                 conditionTypeToSkip = pricingProcedureData.SkipToCondition;
             }
         }
+
+        LogUtil.LOG.info("PricingProcedure " + PricingProcedure);
+        for(ItemPricingLine line : itemPricingLines)
+        {
+            if (line.ConditionReturnValue != 0)
+                LogUtil.LOG.info("ConditionValue " +  line.ConditionValue +  " Result " + line.ConditionReturnValue);
+
+          }
         //calculate discount
         if (!isUpdateAgentDiscountPrice()) {
             TotalValue = NumberUtil.roundDoublePrecisionByParameter(TotalValue + getConditionReturnCalculateValueForPromotionLine(false), false);
@@ -134,7 +145,7 @@ public class ItemPricingData {
         UnitType = "";
         PriceUnit = "";
         isSubTotalsPromotion = false;
-        Quantity = 0;
+        Quantity = quantity;
         if (isNeedToUpdateAgentDiscountManually)
             isUpdateAgentDiscountManually = false;
         for (ItemPricingLine itemPricingLine : itemPricingLines) {
@@ -167,7 +178,7 @@ public class ItemPricingData {
         itemPricingLines.clear();
         isUpdateAgentDiscountManually = false;
         isSubTotalsPromotion = false;
-        Quantity = 0;
+        //Quantity = 0;
     }
 
     public double getItemBasePrice() {
@@ -776,6 +787,7 @@ public class ItemPricingData {
                 try {
                     altCondBaseValueAsInt = Integer.valueOf(AltCondBaseValue);
                 } catch (Exception e) {
+                    LogUtil.LOG.error("This Will Be Printed On Error107");
                 }
             }
             if (altCondBaseValueAsInt == 992) {

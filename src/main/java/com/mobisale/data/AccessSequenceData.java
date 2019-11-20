@@ -1,8 +1,6 @@
-package com.mtn.mobisale.data;
+package com.mobisale.data;
 
-import com.mtn.mobisale.singleton.ActiveSelectionData;
-import com.mtn.mobisale.singleton.ConditionTypesData;
-import com.mtn.mobisale.singleton.MtnMappingData;
+import com.mobisale.singleton.*;
 
 import java.util.ArrayList;
 

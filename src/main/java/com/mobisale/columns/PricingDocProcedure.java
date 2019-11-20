@@ -1,4 +1,4 @@
-package com.mtn.mobisale.columns;
+package com.mobisale.columns;
 
 public class PricingDocProcedure {
     public static String  PRICING_DOC_PROCEDURE_SALES_ORGANIZATION = "SalesOrganization";

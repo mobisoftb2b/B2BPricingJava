@@ -1,4 +1,4 @@
-package com.mtn.mobisale.columns;
+package com.mobisale.columns;
 
 public class MtnMapping {
     public static String  MTN_MAPPING_SAP_FIELD = "SAPField";

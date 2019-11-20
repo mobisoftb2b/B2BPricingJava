@@ -88,7 +88,7 @@ public class PromotionItemHeader {
     }
 
     public void updateQuantity(float newQuantity) {
-        ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(ItemCode);
+        ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(ItemCode);
         for (PromotionItem promotionItem : itemsData) {
             if (itemPromotionData != null) {
                 promotionItem.updateQuantity(itemPromotionData.getTotalPCItemUserAmount());

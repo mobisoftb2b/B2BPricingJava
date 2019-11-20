@@ -1,4 +1,4 @@
-package com.mtn.mobisale.columns;
+package com.mobisale.columns;
 
 public class PricingSequence {
     public static String PRICING_ACCESS_SEQUENCE = "AccessSequence";

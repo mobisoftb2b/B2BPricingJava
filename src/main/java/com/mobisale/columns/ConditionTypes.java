@@ -1,4 +1,4 @@
-package com.mtn.mobisale.columns;
+package com.mobisale.columns;
 
 public class ConditionTypes {
     public static String  CONDITION_TYPES_CONDITION = "Condition";

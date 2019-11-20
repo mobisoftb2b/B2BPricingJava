@@ -40,16 +40,11 @@ public class Item {
     public String UomName;
     public String LineStatusText;
     public ItemValues Values;
-    public double PriceBruto;
-    public double PriceNeto;
-    public double DiscountPercent;
-    public String UnitType;
-    public double subTotalsPromotionDiscountValue;
 
-    public boolean partFromDeal;
-    public String stepDetailDescription;
-    public String espNumber;
-    public double promotionValue;
+    public ItemPricing Pricing;
+
+    public ItemPromotion Promotion;
+
 }
 
 

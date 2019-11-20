@@ -29,6 +29,10 @@ public class PricingResponse {
     }
 
     public void setItems(List<Item> items) {
+        for (Item item : items)
+        {
+            item.Pricing.PricingData = null;
+        }
         this.items = items;
     }
 

@@ -5,6 +5,7 @@ import com.promotions.manager.PromotionsDataManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by israel on 4/22/14.
@@ -20,11 +21,11 @@ public class PromotionStepBonus extends APromotionStep {
         super(espNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, bonusPrice, bonusDiscount, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, bonusQuantity, bonusQuantityUOM, bonusMultipleQty, bonusMultQtyUOM, stepDescription);
     }
 
-    public void setItems(int selectedCharacteristics, String materialCharValue) {
-        ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(selectedCharacteristics, materialCharValue);
+    public void setItems(int selectedCharacteristics, String materialCharValue, Set<String> possibleItems) {
+        ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(selectedCharacteristics, materialCharValue, possibleItems);
         for (String itemCode : itemCodes) {
             try {
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(itemCode);
+                ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(itemCode);
                 if (itemPromotionData == null) continue;
                 PromotionBonusItem promotionItem = new PromotionBonusItem(itemCode, BonusPrice, BonusDiscount, Math.round(itemPromotionData.getUnitInKar()), BonusQuantityUOM);
 //                OrderDataManager.getInstance().getOrderUIItem(itemCode).setItemParticipateInDeal(true);
@@ -77,20 +78,20 @@ public class PromotionStepBonus extends APromotionStep {
         for (Map.Entry<String, PromotionBonusItem> stringPromotionBonusItemEntry : PromotionBonusItems.entrySet()) {
             PromotionBonusItem promotionBonusItem = stringPromotionBonusItemEntry.getValue();
             promotionBonusItem.resetQuantity();
-            ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(promotionBonusItem.ItemCode, 0);
+            ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(promotionBonusItem.ItemCode, 0);
             if (itemPromotionData != null) {
-                PromotionsDataManager.getInstance().resetBonusData(ESPNumber);
+                PromotionsDataManager.resetBonusData(ESPNumber);
             }
         }
     }
 
     public void updateCurrentTotalBonusQuantityForUIItem(PromotionBonusItem promotionBonusItem) {
-        PromotionHeader promotionHeader = PromotionsDataManager.getInstance().getPromotionHeaderByESPNumber(ESPNumber);
+        PromotionHeader promotionHeader = PromotionsDataManager.getPromotionHeaderByESPNumber(ESPNumber);
         String description = "";
         if (promotionHeader != null) {
             description = promotionHeader.ESPDescription;
         }
-        ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(promotionBonusItem.ItemCode, 0);
+        ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(promotionBonusItem.ItemCode, 0);
         if (itemPromotionData != null) {
             double price = promotionBonusItem.getPromotionNetoPrice();
             double discount = promotionBonusItem.getPromotionNetoDiscount();
@@ -110,15 +111,15 @@ public class PromotionStepBonus extends APromotionStep {
                 updateTime = System.currentTimeMillis();
             } else {
                 // todo get last buy item time
-                updateTime = PromotionsDataManager.getInstance().getPromotionUpdateTime(ESPNumber, promotionBonusItem.ItemCode);
+                updateTime = PromotionsDataManager.getPromotionUpdateTime(ESPNumber, promotionBonusItem.ItemCode);
             }
             if (total == 0) {
-                PromotionsDataManager.getInstance().resetBonusData(ESPNumber);
+                PromotionsDataManager.resetBonusData(ESPNumber);
             } else {
                 if (!BonusQuantityUOM.isEmpty() && BonusQuantityUOM.equalsIgnoreCase(ItemPromotionData.KARTON_UNIT)) {
-                    PromotionsDataManager.getInstance().updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, 0, total, BonusQuantityUOM, discount, updateTime);
+                    PromotionsDataManager.updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, 0, total, BonusQuantityUOM, discount, updateTime);
                 } else {
-                    PromotionsDataManager.getInstance().updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, total, 0, BonusQuantityUOM, discount, updateTime);
+                    PromotionsDataManager.updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, total, 0, BonusQuantityUOM, discount, updateTime);
                 }
             }
         }

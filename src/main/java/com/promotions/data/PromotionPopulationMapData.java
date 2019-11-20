@@ -1,9 +1,10 @@
 package com.promotions.data;
 
+import com.mobisale.utils.SqlLiteUtil;
 import com.promotions.database.PromotionsContract;
 import com.promotions.database.PromotionsDatabase;
-import com.mtn.mobisale.utils.DbUtil;
-import com.mtn.mobisale.utils.LogUtil;
+import com.mobisale.utils.DbUtil;
+import com.mobisale.utils.LogUtil;
 import org.sqlite.SQLiteException;
 
 import java.sql.Connection;
@@ -12,12 +13,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class PromotionPopulationMapData {
 
     private static final String TAG = "PromotionPopulationMapData";
     private HashMap<Integer, PromotionItemMapListData> promotionItemsMap = new HashMap<>();
+    private HashMap<Integer, ArrayList<String>> promotionMappingItems = new HashMap<>();
     private static PromotionPopulationMapData m_instance = null;
+    private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
 
     public static PromotionPopulationMapData getInstance() {
@@ -28,6 +32,10 @@ public class PromotionPopulationMapData {
         return m_instance;
     }
 
+    public HashMap<Integer, ArrayList<String>> GetPromotionMappingItems() {
+        return promotionMappingItems;
+    }
+
     private PromotionPopulationMapData() {
     }
 
@@ -36,12 +44,20 @@ public class PromotionPopulationMapData {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
-        String sqlQ = "SELECT * FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS_MAPPING + " ORDER BY " + PromotionsContract.PromotionItemMapping.PROMOTION_ITEM_MAPPING_POPULATION_CODE + " ASC";
+        String sqlQ = "SELECT distinct m." + PromotionsContract.PromotionItemMapping.PROMOTION_ITEM_MAPPING_POPULATION_CODE + ", " + PromotionsContract.PromotionItemMapping.PROMOTION_ITEM_MAPPING_POPULATION_ITEMS_FILED_CODE
+                     + " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS_MAPPING + " m JOIN " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS
+                     + " i ON m." +  PromotionsContract.PromotionItemMapping.PROMOTION_ITEM_MAPPING_POPULATION_CODE + "=i." + PromotionsContract.PromotionItemMapping.PROMOTION_ITEM_MAPPING_POPULATION_CODE
+                     + " ORDER BY m." + PromotionsContract.PromotionItemMapping.PROMOTION_ITEM_MAPPING_POPULATION_CODE + " ASC";
         try {
-            conn = DbUtil.connect(conn);
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                conn = sqlLiteUtil.ConnectPromotions();
+            else
+                conn = DbUtil.connect(conn);
+
             st = conn.createStatement();
 
             // execute the query, and get a java resultset
+            LogUtil.LOG.error(sqlQ);
             rs = st.executeQuery(sqlQ);
 
             if (rs == null) {
@@ -57,6 +73,12 @@ public class PromotionPopulationMapData {
                 }
                 promotionItemMapListData.addPromotionItemMapData(promotionItemMapData);
                 promotionItemsMap.put(PopulationCode, promotionItemMapListData);
+                ArrayList<String> mappingValues = promotionMappingItems.get(PopulationCode);
+                if (mappingValues == null) {
+                    mappingValues = new ArrayList<>();
+                }
+                mappingValues.add(ItemsFiledCode);
+                promotionMappingItems.put(PopulationCode, mappingValues);
             }
         } catch (SQLiteException e) {
             // TODO: 2019-07-31 add log
@@ -64,7 +86,10 @@ public class PromotionPopulationMapData {
         } catch (SQLException e) {
             LogUtil.LOG.error("Error :"+e.getMessage());
         } finally {
-            DbUtil.CloseConnection(conn,rs,st);
+            if (sqlLiteUtil.IsSQlLite())
+                sqlLiteUtil.Disconnect(conn);
+            else
+               DbUtil.CloseConnection(conn,rs,st);
         }
     }
 
@@ -78,13 +103,13 @@ public class PromotionPopulationMapData {
         return query;
     }
 
-    public ArrayList<String> getItems(int populationCode, String whereCode) {
+    public ArrayList<String> getItems(int populationCode, String whereCode, Set<String> possibleItemIDs) {
         ArrayList<String> items = new ArrayList<String>();
         PromotionItemMapListData promotionItemMapListData = promotionItemsMap.get(populationCode);
         if (promotionItemMapListData == null) {
             return items;
         }
-        items = promotionItemMapListData.getItems(whereCode);
+        items = promotionItemMapListData.getItems(whereCode, possibleItemIDs);
         return items;
     }
 }

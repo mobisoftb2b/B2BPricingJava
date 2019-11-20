@@ -6,6 +6,7 @@ public class PricingRequest {
 
     private String customerCode;
     private List<Item> items;
+    private String Cust_Key;
 
     public PricingRequest() {
 
@@ -25,6 +26,14 @@ public class PricingRequest {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public String getCust_Key() {
+        return Cust_Key;
+    }
+
+    public void setCust_Key(String Cust_Key) {
+        this.Cust_Key = Cust_Key;
     }
 
 }

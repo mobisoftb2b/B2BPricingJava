@@ -1,0 +1,1142 @@
+2019-09-19T13:59:43,616 INFO  [Sample][main|DockerApp] 98 main2 Info : number is 8
+2019-09-19T13:59:43,616 INFO  [Sample][main|DockerApp] 98 main2 Info : number is 8
+2019-09-19T13:59:43,620 WARN  [Sample][main|DockerApp] 99 main2 Warning : number is 8
+2019-09-19T13:59:43,620 ERROR [Sample][main|DockerApp] 101 main2 Error : number is 8
+2019-09-19T13:59:43,620 ERROR [Sample][main|DockerApp] 101 main2 Error : number is 8
+2019-09-19T13:59:43,621 FATAL [Sample][main|DockerApp] 102 main2 Fatal : number is 8
+2019-09-19T13:59:43,621 FATAL [Sample][main|DockerApp] 102 main2 Fatal : number is 8
+2019-09-19T13:59:43,621 INFO  [Sample][main|DockerApp] 111 main2 Info : You chose a number < 100 
+2019-09-19T13:59:43,621 INFO  [Sample][main|DockerApp] 111 main2 Info : You chose a number < 100 
+2019-09-19T13:59:43,622 WARN  [Sample][main|DockerApp] 112 main2 Warning : You chose a number < 100 
+2019-09-19T13:59:43,622 ERROR [Sample][main|DockerApp] 114 main2 Error : You chose a number < 100 
+2019-09-19T13:59:43,622 ERROR [Sample][main|DockerApp] 114 main2 Error : You chose a number < 100 
+2019-09-19T13:59:43,622 FATAL [Sample][main|DockerApp] 115 main2 Fatal : You chose a number < 100 
+2019-09-19T13:59:43,622 FATAL [Sample][main|DockerApp] 115 main2 Fatal : You chose a number < 100 
+2019-09-19T13:59:43,623 INFO  [Sample][main|DockerApp] 120 main2 Info : Your number has the digit 8
+2019-09-19T13:59:43,623 INFO  [Sample][main|DockerApp] 120 main2 Info : Your number has the digit 8
+2019-09-19T13:59:43,623 WARN  [Sample][main|DockerApp] 121 main2 Warning : Your number has the digit 8
+2019-09-19T13:59:43,623 ERROR [Sample][main|DockerApp] 123 main2 Error : Your number has the digit 8
+2019-09-19T13:59:43,623 ERROR [Sample][main|DockerApp] 123 main2 Error : Your number has the digit 8
+2019-09-19T13:59:43,624 FATAL [Sample][main|DockerApp] 124 main2 Fatal : Your number has the digit 8
+2019-09-19T13:59:43,624 FATAL [Sample][main|DockerApp] 124 main2 Fatal : Your number has the digit 8
+2019-09-19T14:03:34,959 INFO  [Sample][main|DockerApp] 98 main2 Info : number is 7
+2019-09-19T14:03:34,959 INFO  [Sample][main|DockerApp] 98 main2 Info : number is 7
+2019-09-19T14:03:34,963 WARN  [Sample][main|DockerApp] 99 main2 Warning : number is 7
+2019-09-19T14:03:34,964 ERROR [Sample][main|DockerApp] 101 main2 Error : number is 7
+2019-09-19T14:03:34,964 ERROR [Sample][main|DockerApp] 101 main2 Error : number is 7
+2019-09-19T14:03:34,964 FATAL [Sample][main|DockerApp] 102 main2 Fatal : number is 7
+2019-09-19T14:03:34,964 FATAL [Sample][main|DockerApp] 102 main2 Fatal : number is 7
+2019-09-19T14:03:34,965 INFO  [Sample][main|DockerApp] 111 main2 Info : You chose a number < 100 
+2019-09-19T14:03:34,965 INFO  [Sample][main|DockerApp] 111 main2 Info : You chose a number < 100 
+2019-09-19T14:03:34,965 WARN  [Sample][main|DockerApp] 112 main2 Warning : You chose a number < 100 
+2019-09-19T14:03:34,965 ERROR [Sample][main|DockerApp] 114 main2 Error : You chose a number < 100 
+2019-09-19T14:03:34,965 ERROR [Sample][main|DockerApp] 114 main2 Error : You chose a number < 100 
+2019-09-19T14:03:34,965 FATAL [Sample][main|DockerApp] 115 main2 Fatal : You chose a number < 100 
+2019-09-19T14:03:34,965 FATAL [Sample][main|DockerApp] 115 main2 Fatal : You chose a number < 100 
+2019-09-19T14:03:34,966 INFO  [Sample][main|DockerApp] 120 main2 Info : Your number has the digit 7
+2019-09-19T14:03:34,966 INFO  [Sample][main|DockerApp] 120 main2 Info : Your number has the digit 7
+2019-09-19T14:03:34,966 WARN  [Sample][main|DockerApp] 121 main2 Warning : Your number has the digit 7
+2019-09-19T14:03:34,967 ERROR [Sample][main|DockerApp] 123 main2 Error : Your number has the digit 7
+2019-09-19T14:03:34,967 ERROR [Sample][main|DockerApp] 123 main2 Error : Your number has the digit 7
+2019-09-19T14:03:34,967 FATAL [Sample][main|DockerApp] 124 main2 Fatal : Your number has the digit 7
+2019-09-19T14:03:34,967 FATAL [Sample][main|DockerApp] 124 main2 Fatal : Your number has the digit 7
+2019-09-19T14:12:31,653 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:12:31,653 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:12:31,822 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 17700 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:12:31,822 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 17700 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:12:31,824 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:12:31,824 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:12:36,617 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:12:36,617 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:12:36,779 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 4904 ms
+2019-09-19T14:12:36,779 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 4904 ms
+2019-09-19T14:12:37,006 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:12:37,006 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:12:37,245 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:12:37,245 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:12:37,248 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.739 seconds (JVM running for 6.47)
+2019-09-19T14:12:37,248 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.739 seconds (JVM running for 6.47)
+2019-09-19T14:12:37,479 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:12:37,479 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:12:37,555 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:12:37,555 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:12:37,597 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:12:37,597 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:12:37,629 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:12:37,629 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:12:37,629 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:12:37,629 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:12:37,686 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:12:37,686 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:12:37,727 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:12:37,727 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:12:37,760 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:12:37,760 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:12:37,793 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:12:37,793 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:12:37,829 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:12:37,829 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:12:37,858 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:12:37,858 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:12:37,887 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:12:37,887 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:12:37,916 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:12:37,916 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:12:37,950 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:12:37,950 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:21:26,982 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-19T14:21:26,982 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-19T14:21:26,990 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 8 ms
+2019-09-19T14:21:26,990 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 8 ms
+2019-09-19T14:21:27,093 WARN  [Sample][http-nio-8800-exec-1|LogUtil] 83 GetPricing GetPricing - before getPricingWithPromotions2019-09-19
+2019-09-19T14:21:27,093 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:21:27,093 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:21:27,094 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:21:27,094 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:21:27,094 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:21:27,094 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:21:27,096 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:21:27,096 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:21:27,129 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=16730717
+2019-09-19T14:21:27,129 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=16730717
+2019-09-19T14:21:27,150 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:21:27,150 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:21:27,152 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=20 2019-09-19
+2019-09-19T14:21:27,152 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=20 2019-09-19
+2019-09-19T14:21:27,182 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:27,182 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:27,189 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:27,189 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:27,222 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,222 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,252 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,252 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,289 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,289 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,297 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:27,297 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:27,326 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:27,326 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:27,331 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:27,331 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:27,357 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,357 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,386 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,386 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,419 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,419 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,448 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,448 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,478 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,478 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,505 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,505 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,509 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:27,509 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:27,535 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:27,535 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:27,539 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:27,539 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:27,569 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,569 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,597 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,597 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,622 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,622 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,626 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:27,626 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:27,650 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:27,650 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:27,654 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:27,654 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:27,680 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,680 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,707 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,707 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,735 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,735 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,763 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,763 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,793 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,793 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,796 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:27,796 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:27,822 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:27,822 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:27,826 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:27,826 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:27,853 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,853 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,883 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,883 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,914 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,914 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:27,918 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:27,918 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:27,944 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:27,944 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:27,949 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:27,949 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:27,977 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:27,977 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,006 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,006 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,037 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,037 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,042 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:28,042 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:28,069 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:28,069 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:28,073 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:28,073 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:28,108 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,108 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,138 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,138 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,166 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,166 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,195 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,195 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,225 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,225 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,254 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,254 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,258 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:28,258 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:28,285 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:28,285 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:28,290 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:28,290 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:28,319 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,319 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,348 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,348 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,378 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,378 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,381 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:28,381 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:28,409 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:28,409 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:28,414 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:28,414 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:28,442 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,442 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,468 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,468 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,496 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,496 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,525 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,525 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,552 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,552 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,555 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:28,555 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:28,582 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:28,582 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:28,586 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:28,586 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:28,611 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,611 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,637 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,637 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,667 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,667 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,670 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:28,670 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:28,695 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:28,695 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:28,699 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:28,699 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:28,723 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,723 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,749 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,749 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,777 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,777 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,780 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:28,780 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:28,805 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:28,805 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:28,810 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:28,810 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:28,835 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,835 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:28,863 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,863 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,891 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,891 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,919 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,919 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,946 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,946 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,973 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,973 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:28,976 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:28,976 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:29,001 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:29,001 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:29,005 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:29,005 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:29,031 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,031 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,058 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,058 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,085 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,085 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,088 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:29,088 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:29,113 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:29,113 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:29,117 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:29,117 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:29,146 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,146 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,173 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,173 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,200 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,200 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,228 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,228 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,256 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,256 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,259 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:29,259 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:29,285 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:29,285 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:29,290 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:29,290 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:29,315 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,315 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,342 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,342 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,369 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,369 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,372 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:29,372 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:29,397 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:29,397 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=1008
+2019-09-19T14:21:29,400 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:29,400 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=1008 2019-09-19
+2019-09-19T14:21:29,426 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,426 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,453 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,453 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,483 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,483 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='1008' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,487 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:29,487 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 110.0, DiscountPercent:-28.2, PriceNeto:141.02, UnitType:-28.2
+2019-09-19T14:21:29,512 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:29,512 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-19T14:21:29,517 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:29,517 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-19
+2019-09-19T14:21:29,542 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,542 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,568 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,568 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,597 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,597 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,624 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,624 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,652 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,652 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10056' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,683 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,683 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,686 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:29,686 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:0.0, PriceNeto:120.0, UnitType:0.0
+2019-09-19T14:21:29,710 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:29,710 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10103
+2019-09-19T14:21:29,715 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:29,715 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10103 2019-09-19
+2019-09-19T14:21:29,739 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,739 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,768 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,768 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,796 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,796 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10103' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,799 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:29,799 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 200.0, DiscountPercent:13.1, PriceNeto:173.8, UnitType:13.1
+2019-09-19T14:21:29,824 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:29,824 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10085
+2019-09-19T14:21:29,828 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:29,828 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10085 2019-09-19
+2019-09-19T14:21:29,853 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,853 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:29,879 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,879 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,905 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,905 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,930 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,930 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10085' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,958 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,958 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10085' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:29,961 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:29,961 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 180.0, DiscountPercent:-25.7, PriceNeto:226.26, UnitType:-25.7
+2019-09-19T14:21:29,984 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:29,984 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10187
+2019-09-19T14:21:29,988 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:29,988 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10187 2019-09-19
+2019-09-19T14:21:30,012 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:30,012 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:21:30,039 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:30,039 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:30,067 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:30,067 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='10187' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:21:30,070 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:30,070 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 67.0, DiscountPercent:-38.9, PriceNeto:93.063, UnitType:-38.9
+2019-09-19T14:21:30,071 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:21:30,071 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:24:22,176 WARN  [Sample][http-nio-8800-exec-2|LogUtil] 83 GetPricing GetPricing - before getPricingWithPromotions2019-09-19
+2019-09-19T14:24:22,177 ERROR [Sample][http-nio-8800-exec-2|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:24:22,177 ERROR [Sample][http-nio-8800-exec-2|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:24:22,177 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:24:22,177 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:24:22,178 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:24:22,178 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:24:22,178 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:24:22,178 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:24:22,208 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=921153
+2019-09-19T14:24:22,208 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=921153
+2019-09-19T14:24:22,228 ERROR [Sample][http-nio-8800-exec-2|LogUtil] 165 updateCustomerSelection Error in line: 259, Error Message:Conversion failed when converting the nvarchar value '16730823.' to data type int.
+2019-09-19T14:24:22,228 ERROR [Sample][http-nio-8800-exec-2|LogUtil] 165 updateCustomerSelection Error in line: 259, Error Message:Conversion failed when converting the nvarchar value '16730823.' to data type int.
+2019-09-19T14:24:22,229 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:24:22,229 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:24:22,229 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-19
+2019-09-19T14:24:22,229 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-19
+2019-09-19T14:24:22,256 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=995009620015
+2019-09-19T14:24:22,256 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=995009620015
+2019-09-19T14:24:22,261 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=995009620015 2019-09-19
+2019-09-19T14:24:22,261 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=995009620015 2019-09-19
+2019-09-19T14:24:22,287 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:24:22,287 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:24:22,314 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,314 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='16730717' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,350 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,350 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,379 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='0' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,379 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='0' AND PriceList='2' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,407 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,407 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,411 ERROR [Sample][http-nio-8800-exec-2|LogUtil] 268 executeQuery Error106 in line: 259, Error Message:Invalid column name 'Cust_Key'.
+2019-09-19T14:24:22,411 ERROR [Sample][http-nio-8800-exec-2|LogUtil] 268 executeQuery Error106 in line: 259, Error Message:Invalid column name 'Cust_Key'.
+2019-09-19T14:24:22,435 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A300 WHERE KSCHL='PRC' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,435 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A300 WHERE KSCHL='PRC' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,463 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,463 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='16730717' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,502 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,502 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:24:22,505 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 253 getPricingOnly PriceBruto: 0.0, DiscountPercent:0.0, PriceNeto:0.0, UnitType:0.0
+2019-09-19T14:24:22,505 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 253 getPricingOnly PriceBruto: 0.0, DiscountPercent:0.0, PriceNeto:0.0, UnitType:0.0
+2019-09-19T14:24:22,506 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:24:22,506 INFO  [Sample][http-nio-8800-exec-2|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:29:20,379 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:29:20,379 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:29:20,570 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 7104 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:29:20,570 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 7104 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:29:20,571 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:29:20,571 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:29:25,673 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:29:25,673 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:29:25,845 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5225 ms
+2019-09-19T14:29:25,845 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5225 ms
+2019-09-19T14:29:26,136 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:29:26,136 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:29:26,398 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:29:26,398 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:29:26,401 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.17 seconds (JVM running for 6.954)
+2019-09-19T14:29:26,401 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.17 seconds (JVM running for 6.954)
+2019-09-19T14:29:26,646 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:29:26,646 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:29:26,734 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:29:26,734 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:29:26,777 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:29:26,777 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:29:26,811 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:29:26,811 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:29:26,811 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:29:26,811 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:29:26,870 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:29:26,870 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:29:26,916 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:29:26,916 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:29:26,952 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:29:26,952 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:29:26,982 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:29:26,982 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:29:27,013 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:29:27,013 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:29:27,044 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:29:27,044 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:29:27,074 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:29:27,074 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:29:27,102 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:29:27,102 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:29:27,137 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:29:27,137 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:30:49,152 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:30:49,152 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:30:49,331 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 7260 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:30:49,331 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 7260 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:30:49,332 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:30:49,332 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:30:54,786 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:30:54,786 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:30:54,981 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5603 ms
+2019-09-19T14:30:54,981 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5603 ms
+2019-09-19T14:30:55,276 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:30:55,276 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:30:55,598 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:30:55,598 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:30:55,602 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.595 seconds (JVM running for 7.39)
+2019-09-19T14:30:55,602 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.595 seconds (JVM running for 7.39)
+2019-09-19T14:30:55,917 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:30:55,917 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:30:56,008 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:30:56,008 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:30:56,053 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:30:56,053 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:30:56,098 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:30:56,098 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:30:56,098 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:30:56,098 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:30:56,158 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:30:56,158 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:30:56,205 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:30:56,205 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:30:56,243 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:30:56,243 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:30:56,279 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:30:56,279 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:30:56,314 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:30:56,314 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:30:56,345 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:30:56,345 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:30:56,378 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:30:56,378 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:30:56,417 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:30:56,417 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:30:56,457 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:30:56,457 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:37:10,844 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:37:10,844 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:37:11,012 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 2800 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:37:11,012 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 2800 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:37:11,014 DEBUG [Sample][main|DockerApp] 53 logStarting Running with Spring Boot v2.1.1.RELEASE, Spring v5.1.3.RELEASE
+2019-09-19T14:37:11,015 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:37:11,015 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:37:15,989 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:37:15,989 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:37:16,162 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5100 ms
+2019-09-19T14:37:16,162 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5100 ms
+2019-09-19T14:37:16,408 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:37:16,408 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:37:16,661 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:37:16,661 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:37:16,664 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.977 seconds (JVM running for 6.804)
+2019-09-19T14:37:16,664 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.977 seconds (JVM running for 6.804)
+2019-09-19T14:37:16,897 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:37:16,897 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:37:16,980 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:37:16,980 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:37:17,021 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:37:17,021 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:37:17,054 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:37:17,054 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:37:17,054 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:37:17,054 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:37:17,113 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:37:17,113 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:37:17,158 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:37:17,158 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:37:17,201 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:37:17,201 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:37:17,234 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:37:17,234 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:37:17,264 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:37:17,264 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:37:17,301 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:37:17,301 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:37:17,331 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:37:17,331 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:37:17,360 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:37:17,360 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:37:17,394 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:37:17,394 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:37:30,244 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-19T14:37:30,244 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-19T14:37:30,253 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 9 ms
+2019-09-19T14:37:30,253 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 9 ms
+2019-09-19T14:37:30,362 WARN  [Sample][http-nio-8800-exec-1|LogUtil] 83 GetPricing GetPricing - before getPricingWithPromotions2019-09-19
+2019-09-19T14:37:30,363 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:37:30,363 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:37:30,363 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:37:30,363 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:37:30,364 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:37:30,364 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:37:30,366 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:37:30,366 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:37:30,400 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=921153
+2019-09-19T14:37:30,400 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=921153
+2019-09-19T14:37:30,423 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 165 updateCustomerSelection Error in line: 259, Error Message:Conversion failed when converting the nvarchar value '16730823.' to data type int.
+2019-09-19T14:37:30,423 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 165 updateCustomerSelection Error in line: 259, Error Message:Conversion failed when converting the nvarchar value '16730823.' to data type int.
+2019-09-19T14:37:30,424 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:37:30,424 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:37:30,424 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-19
+2019-09-19T14:37:30,424 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-19
+2019-09-19T14:37:30,456 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=995009620015
+2019-09-19T14:37:30,456 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=995009620015
+2019-09-19T14:37:30,463 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=995009620015 2019-09-19
+2019-09-19T14:37:30,463 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=995009620015 2019-09-19
+2019-09-19T14:37:30,494 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:37:30,494 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:37:30,525 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,525 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,558 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,558 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,591 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='0' AND PriceList='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,591 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='0' AND PriceList='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,620 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,620 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,623 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 268 executeQuery Error106 in line: 259, Error Message:Invalid column name 'Cust_Key'.
+2019-09-19T14:37:30,623 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 268 executeQuery Error106 in line: 259, Error Message:Invalid column name 'Cust_Key'.
+2019-09-19T14:37:30,649 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A300 WHERE KSCHL='PRC' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,649 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A300 WHERE KSCHL='PRC' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,687 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,687 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,718 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,718 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='0' AND ItemID='0' AND '20190919' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-19T14:37:30,725 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 0.0, DiscountPercent:0.0, PriceNeto:0.0, UnitType:0.0
+2019-09-19T14:37:30,725 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 0.0, DiscountPercent:0.0, PriceNeto:0.0, UnitType:0.0
+2019-09-19T14:37:30,725 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:37:30,725 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:38:03,456 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:38:03,456 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:38:03,640 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 19660 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:38:03,640 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 19660 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:38:03,643 DEBUG [Sample][main|DockerApp] 53 logStarting Running with Spring Boot v2.1.1.RELEASE, Spring v5.1.3.RELEASE
+2019-09-19T14:38:03,644 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:38:03,644 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:38:09,000 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:38:09,000 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:38:09,162 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5469 ms
+2019-09-19T14:38:09,162 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5469 ms
+2019-09-19T14:38:09,388 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:38:09,388 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:38:09,631 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:38:09,631 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:38:09,634 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.362 seconds (JVM running for 7.222)
+2019-09-19T14:38:09,634 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.362 seconds (JVM running for 7.222)
+2019-09-19T14:38:09,861 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:38:09,861 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:38:09,943 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:38:09,943 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:38:09,983 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:38:09,983 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:38:10,016 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:10,016 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:10,016 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:10,016 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:10,083 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:38:10,083 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:38:10,126 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:38:10,126 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:38:10,160 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:38:10,160 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:38:10,194 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:38:10,194 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:38:10,224 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:38:10,224 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:38:10,256 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:38:10,256 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:38:10,291 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:38:10,291 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:38:10,322 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:38:10,322 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:38:10,361 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:38:10,361 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:38:36,138 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:38:36,138 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:38:36,325 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 19700 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:38:36,325 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 19700 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:38:36,329 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:38:36,329 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:38:42,298 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:38:42,298 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:38:42,474 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 6078 ms
+2019-09-19T14:38:42,474 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 6078 ms
+2019-09-19T14:38:42,722 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:38:42,722 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:38:43,054 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:38:43,054 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:38:43,058 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 7.069 seconds (JVM running for 7.922)
+2019-09-19T14:38:43,058 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 7.069 seconds (JVM running for 7.922)
+2019-09-19T14:38:43,193 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-19T14:38:43,193 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-19T14:38:43,202 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 8 ms
+2019-09-19T14:38:43,202 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 8 ms
+2019-09-19T14:38:43,344 WARN  [Sample][http-nio-8800-exec-1|LogUtil] 83 GetPricing GetPricing - before getPricingWithPromotions2019-09-19
+2019-09-19T14:38:43,345 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:38:43,345 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-19T14:38:43,346 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:38:43,346 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-19
+2019-09-19T14:38:43,347 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:38:43,347 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-19
+2019-09-19T14:38:43,349 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:38:43,349 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-19
+2019-09-19T14:38:43,377 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:38:43,377 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:38:43,401 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=921153
+2019-09-19T14:38:43,401 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 135 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=921153
+2019-09-19T14:38:43,432 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 165 updateCustomerSelection Error in line: 259, Error Message:Conversion failed when converting the nvarchar value '16730823.' to data type int.
+2019-09-19T14:38:43,432 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 165 updateCustomerSelection Error in line: 259, Error Message:Conversion failed when converting the nvarchar value '16730823.' to data type int.
+2019-09-19T14:38:43,433 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:38:43,433 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-19
+2019-09-19T14:38:43,434 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-19
+2019-09-19T14:38:43,434 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-19
+2019-09-19T14:38:43,471 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=995009620015
+2019-09-19T14:38:43,471 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 229 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=995009620015
+2019-09-19T14:38:43,472 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:38:43,472 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:38:43,478 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=995009620015 2019-09-19
+2019-09-19T14:38:43,478 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=995009620015 2019-09-19
+2019-09-19T14:38:43,510 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:38:43,510 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-19T14:38:43,517 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:38:43,517 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:38:43,520 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 0.0, DiscountPercent:0.0, PriceNeto:0.0, UnitType:0.0
+2019-09-19T14:38:43,520 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 0.0, DiscountPercent:0.0, PriceNeto:0.0, UnitType:0.0
+2019-09-19T14:38:43,521 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:38:43,521 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-19
+2019-09-19T14:38:43,556 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:43,556 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:43,556 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:43,556 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:38:43,612 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:38:43,612 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:38:43,657 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:38:43,657 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:38:43,699 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:38:43,699 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:38:43,737 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:38:43,737 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:38:43,774 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:38:43,774 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:38:43,805 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:38:43,805 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:38:43,834 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:38:43,834 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:38:43,868 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:38:43,868 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:38:43,908 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:38:43,908 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T14:43:50,124 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T14:43:50,309 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 13192 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T14:43:50,311 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T14:43:54,864 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T14:43:55,028 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 4671 ms
+2019-09-19T14:43:55,267 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T14:43:55,514 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T14:43:55,518 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.528 seconds (JVM running for 6.266)
+2019-09-19T14:43:55,763 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T14:43:55,838 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T14:43:55,878 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T14:43:55,910 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:43:55,910 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T14:43:55,965 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T14:43:56,010 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T14:43:56,047 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T14:43:56,077 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T14:43:56,113 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T14:43:56,145 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T14:43:56,175 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T14:43:56,206 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T14:43:56,242 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T17:41:34,955 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T17:41:35,143 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 10044 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T17:41:35,145 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T17:41:39,790 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T17:41:39,940 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 4751 ms
+2019-09-19T17:41:40,173 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T17:41:40,426 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T17:41:40,429 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.62 seconds (JVM running for 6.357)
+2019-09-19T17:41:40,677 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T17:41:40,757 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T17:41:40,796 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T17:41:40,827 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T17:41:40,827 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T17:41:40,884 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T17:41:40,927 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T17:41:40,964 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T17:41:40,997 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T17:41:41,025 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T17:41:41,054 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T17:41:41,083 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T17:41:41,117 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T17:41:41,151 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-19T17:42:36,463 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-19T17:42:36,638 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 12880 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-19T17:42:36,640 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-19T17:42:41,400 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-19T17:42:41,553 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 4864 ms
+2019-09-19T17:42:41,777 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19T17:42:42,025 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-19T17:42:42,028 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 5.706 seconds (JVM running for 6.428)
+2019-09-19T17:42:42,276 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-19T17:42:42,364 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-19T17:42:42,404 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-19T17:42:42,434 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T17:42:42,434 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-19T17:42:42,493 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-19T17:42:42,536 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-19T17:42:42,573 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-19T17:42:42,603 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-19T17:42:42,633 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-19T17:42:42,663 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-19T17:42:42,691 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-19T17:42:42,721 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-19T17:42:42,755 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-22T16:53:21,422 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-22T16:53:21,599 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 14408 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-22T16:53:21,601 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-22T16:53:26,653 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-22T16:53:26,801 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5161 ms
+2019-09-22T16:53:27,075 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-22T16:53:27,339 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-22T16:53:27,343 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.086 seconds (JVM running for 7.369)
+2019-09-22T16:53:27,345 INFO  [Sample][main|DockerApp] 82 main loggerNameD:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing\log4j2.xml
+2019-09-22T16:53:27,707 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-22T16:53:27,786 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-22T16:53:27,824 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-22T16:53:27,857 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-22T16:53:27,857 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-22T16:53:27,917 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-22T16:53:27,960 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-22T16:53:27,995 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-22T16:53:28,027 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-22T16:53:28,059 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-22T16:53:28,092 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-22T16:53:28,137 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-22T16:53:28,172 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-22T16:53:28,228 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-22T16:54:38,125 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-22T16:54:38,295 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 21140 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-22T16:54:38,298 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-22T16:54:43,509 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-22T16:54:43,707 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5358 ms
+2019-09-22T16:54:43,993 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-22T16:54:44,334 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-22T16:54:44,338 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.384 seconds (JVM running for 7.964)
+2019-09-22T16:54:44,342 INFO  [Sample][main|DockerApp] 82 main loggerNameD:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing\log4j2.xml
+2019-09-22T16:54:44,640 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-22T16:54:44,730 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-22T16:54:44,770 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-22T16:54:44,801 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-22T16:54:44,802 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-22T16:54:44,903 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-22T16:54:44,949 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-22T16:54:44,985 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-22T16:54:45,018 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-22T16:54:45,051 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-22T16:54:45,089 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-22T16:54:45,122 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-22T16:54:45,156 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-22T16:54:45,196 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-22T16:56:36,059 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-22T16:56:36,293 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 28252 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-22T16:56:36,295 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-22T16:56:41,705 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-22T16:56:41,931 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5575 ms
+2019-09-22T16:56:42,224 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-22T16:56:42,570 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-22T16:56:42,575 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.73 seconds (JVM running for 7.846)
+2019-09-22T16:56:42,577 INFO  [Sample][main|DockerApp] 82 main loggerNameD:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing\log4j2.xml
+2019-09-22T16:56:42,872 INFO  [Sample][main|LogUtil] 45 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-22T16:56:42,985 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-22T16:56:43,035 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-22T16:56:43,075 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-22T16:56:43,075 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-22T16:56:43,148 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-22T16:56:43,199 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-22T16:56:43,236 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-22T16:56:43,269 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-22T16:56:43,301 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-22T16:56:43,335 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-22T16:56:43,366 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-22T16:56:43,399 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-22T16:56:43,445 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-23T09:38:31,603 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-23T09:38:31,792 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 28488 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-23T09:38:31,793 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-23T09:38:37,177 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8080 (http)
+2019-09-23T09:38:37,377 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5531 ms
+2019-09-23T09:38:37,619 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-23T09:38:37,904 INFO  [Sample][main|ConditionEvaluationReportLoggingListener] 142 logMessage 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-09-23T09:38:37,906 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2019-09-23T09:38:37,908 INFO  [Sample][main|ThreadPoolTaskExecutor] 208 shutdown Shutting down ExecutorService 'applicationTaskExecutor'
+2019-09-23T09:44:32,888 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-23T09:44:33,098 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 11888 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-23T09:44:33,101 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-23T09:44:38,148 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8080 (http)
+2019-09-23T09:44:38,314 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5163 ms
+2019-09-23T09:44:38,554 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-23T09:44:38,825 INFO  [Sample][main|ConditionEvaluationReportLoggingListener] 142 logMessage 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-09-23T09:44:38,826 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2019-09-23T09:44:38,837 INFO  [Sample][main|ThreadPoolTaskExecutor] 208 shutdown Shutting down ExecutorService 'applicationTaskExecutor'
+2019-09-23T09:45:05,288 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-23T09:45:05,487 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 28284 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-23T09:45:05,489 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-23T09:45:10,484 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-23T09:45:10,676 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5145 ms
+2019-09-23T09:45:10,879 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-23T09:45:11,139 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-23T09:45:11,142 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.013 seconds (JVM running for 6.799)
+2019-09-23T09:45:11,487 INFO  [Sample][main|LogUtil] 47 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-23T09:45:11,560 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-23T09:45:11,599 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-23T09:45:11,633 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-23T09:45:11,633 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-23T09:45:11,689 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-23T09:45:11,727 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-23T09:45:11,765 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-23T09:45:11,794 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-23T09:45:11,823 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-23T09:45:11,852 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-23T09:45:11,882 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-23T09:45:11,911 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-23T09:45:11,952 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-23T10:01:35,831 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-23T10:01:35,841 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 10 ms
+2019-09-23T10:01:35,980 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-23T10:01:35,981 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-23
+2019-09-23T10:01:35,982 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-23
+2019-09-23T10:01:35,983 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-23
+2019-09-23T10:01:36,016 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 138 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=1177
+2019-09-23T10:01:36,041 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-23
+2019-09-23T10:01:36,043 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-23
+2019-09-23T10:01:36,071 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 232 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-23T10:01:36,077 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-23
+2019-09-23T10:01:36,110 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-23T10:01:36,141 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:01:36,179 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:01:36,216 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:01:36,260 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:01:36,276 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:-45.7, PriceNeto:174.84, UnitType:-45.7
+2019-09-23T10:01:36,277 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-23
+2019-09-23T10:03:00,175 ERROR [Sample][http-nio-8800-exec-3|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-23T10:03:00,175 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-23
+2019-09-23T10:03:00,176 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 228 getPricingOnly getPricing - before 2019-09-23
+2019-09-23T10:03:00,176 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-23
+2019-09-23T10:03:00,207 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 138 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=1177
+2019-09-23T10:03:00,226 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-23
+2019-09-23T10:03:00,227 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-23
+2019-09-23T10:03:00,255 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 232 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-23T10:03:00,263 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-23
+2019-09-23T10:03:00,291 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-23T10:03:00,319 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:00,350 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:00,384 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:00,415 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:00,418 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:-45.7, PriceNeto:174.84, UnitType:-45.7
+2019-09-23T10:03:00,419 INFO  [Sample][http-nio-8800-exec-3|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-23
+2019-09-23T10:03:06,595 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-23T10:03:06,774 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 26192 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-23T10:03:06,776 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-23T10:03:12,002 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-23T10:03:12,159 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5331 ms
+2019-09-23T10:03:12,384 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-23T10:03:12,675 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-23T10:03:12,678 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.231 seconds (JVM running for 7.072)
+2019-09-23T10:03:12,951 INFO  [Sample][main|LogUtil] 47 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-23T10:03:13,023 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-23T10:03:13,063 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-23T10:03:13,097 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-23T10:03:13,098 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-23T10:03:13,156 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-23T10:03:13,201 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-23T10:03:13,234 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-23T10:03:13,266 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-23T10:03:13,299 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-23T10:03:13,331 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-23T10:03:13,363 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-23T10:03:13,396 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-23T10:03:13,435 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-23T10:03:31,826 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-23T10:03:31,834 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 8 ms
+2019-09-23T10:03:31,971 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-23T10:03:31,972 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-23
+2019-09-23T10:03:31,973 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-23
+2019-09-23T10:03:31,975 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-23
+2019-09-23T10:03:32,007 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 138 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=1177
+2019-09-23T10:03:32,029 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-23
+2019-09-23T10:03:32,032 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-23
+2019-09-23T10:03:32,063 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 232 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-23T10:03:32,070 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-23
+2019-09-23T10:03:32,101 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-23T10:03:32,131 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:32,163 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:32,196 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:32,237 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:03:32,246 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:-45.7, PriceNeto:174.84, UnitType:-45.7
+2019-09-23T10:03:32,247 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-23
+2019-09-23T10:03:53,009 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-23T10:03:53,213 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 27420 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-23T10:03:53,215 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-23T10:03:58,663 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-23T10:03:58,883 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5613 ms
+2019-09-23T10:03:59,243 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-23T10:03:59,593 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-23T10:03:59,597 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 6.805 seconds (JVM running for 7.921)
+2019-09-23T10:03:59,937 INFO  [Sample][main|LogUtil] 47 executeQuery SELECT * FROM MTN_Mapping ORDER BY TableName
+2019-09-23T10:04:00,028 INFO  [Sample][main|LogUtil] 44 executeQuery SELECT * FROM [dbo].[MTN_Prc_ConditionTypes]
+2019-09-23T10:04:00,074 INFO  [Sample][main|LogUtil] 43 executeQuery SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM [dbo].[Prc_Condtions_Access_T685] ORDER BY ConditionType ASC
+2019-09-23T10:04:00,110 INFO  [Sample][main|LogUtil] 37 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-23T10:04:00,111 INFO  [Sample][main|LogUtil] 39 executeQuery SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+2019-09-23T10:04:00,196 INFO  [Sample][main|LogUtil] 53 executeQuery SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM [dbo].[Prc_AccSequence_T682I] ORDER BY AccessSequence,Access ASC
+2019-09-23T10:04:00,253 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=10
+2019-09-23T10:04:00,295 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='DIS' AND Access=11
+2019-09-23T10:04:00,332 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=10
+2019-09-23T10:04:00,366 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=11
+2019-09-23T10:04:00,398 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=20
+2019-09-23T10:04:00,428 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=21
+2019-09-23T10:04:00,458 INFO  [Sample][main|LogUtil] 85 executeQuery SELECT ConditionField,DocStruct,DocField FROM [dbo].[Prc_ConditionFields_T682Z] WHERE AccessSequence='PRC' AND Access=30
+2019-09-23T10:04:00,495 INFO  [Sample][main|LogUtil] 46 executeQuery SELECT * FROM [dbo].[PricingProcedures_T683S] ORDER BY 'Procedure',StepNumber ASC
+2019-09-23T10:04:15,477 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 524 initServletBean Initializing Servlet 'dispatcherServlet'
+2019-09-23T10:04:15,486 INFO  [Sample][http-nio-8800-exec-1|DispatcherServlet] 546 initServletBean Completed initialization in 8 ms
+2019-09-23T10:04:15,670 ERROR [Sample][http-nio-8800-exec-1|LogUtil] 87 GetPricing hasPromotions=false
+2019-09-23T10:04:15,671 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 104 getPricingNoPromotions getPricingNoPromotions - before getPricing2019-09-23
+2019-09-23T10:04:15,672 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 228 getPricingOnly getPricing - before 2019-09-23
+2019-09-23T10:04:15,685 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 231 getPricingOnly getPricing - after updateSupplyDateSelection 2019-09-23
+2019-09-23T10:04:15,718 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 138 updateCustomerSelection SELECT *  FROM [dbo].[B2B_Customers] WHERE Cust_Key=1177
+2019-09-23T10:04:15,736 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 236 getPricingOnly getPricing - after updateCustomerSelection 2019-09-23
+2019-09-23T10:04:15,739 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 237 getPricingOnly getPricing - objectItems count=1 2019-09-23
+2019-09-23T10:04:15,770 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 232 updateItemSelection SELECT *  FROM [dbo].[B2B_Items] WHERE ItemID=10056
+2019-09-23T10:04:15,777 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 244 getPricingOnly getPricing - loop before initPricing ItemCode=10056 2019-09-23
+2019-09-23T10:04:15,808 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 102 getPricingProcedureName SELECT PricingProcedure FROM [dbo].[PricingDocProcedure_T683V]
+2019-09-23T10:04:15,841 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:04:15,871 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A100 WHERE KSCHL='PRC' AND Cust_Key='0' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:04:15,910 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A200 WHERE KSCHL='PRC' AND ItemID='10056' AND PriceList='2' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:04:15,953 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 201 executeQuery SELECT * FROM A250 WHERE KSCHL='DIS' AND Cust_Key='1177' AND ItemID='10056' AND '20190923' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+2019-09-23T10:04:15,962 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 253 getPricingOnly PriceBruto: 120.0, DiscountPercent:-45.7, PriceNeto:174.84, UnitType:-45.7
+2019-09-23T10:04:15,963 INFO  [Sample][http-nio-8800-exec-1|LogUtil] 106 getPricingNoPromotions getPricingNoPromotions - after getPricing2019-09-23
+2019-09-23T10:05:19,786 INFO  [Sample][background-preinit|Version] 21 <clinit> HV000001: Hibernate Validator 6.0.13.Final
+2019-09-23T10:05:20,016 INFO  [Sample][main|DockerApp] 50 logStarting Starting DockerApp on DESKTOP-41KF6H9 with PID 16640 (D:\Development\MobiSoft_B2B\microservices\B2BPricing\target\classes\production\B2BPricing started by Andrey in D:\Development\MobiSoft_B2B\microservices\B2BPricing)
+2019-09-23T10:05:20,018 INFO  [Sample][main|DockerApp] 675 logStartupProfileInfo No active profile set, falling back to default profiles: default
+2019-09-23T10:05:25,829 INFO  [Sample][main|TomcatWebServer] 90 initialize Tomcat initialized with port(s): 8800 (http)
+2019-09-23T10:05:26,011 INFO  [Sample][main|ContextLoader] 296 prepareWebApplicationContext Root WebApplicationContext: initialization completed in 5937 ms
+2019-09-23T10:05:26,304 INFO  [Sample][main|ThreadPoolTaskExecutor] 171 initialize Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-23T10:05:26,618 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
+2019-09-23T10:05:26,622 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 7.027 seconds (JVM running for 8.055)
+2019-09-23T10:06:27,338 INFO  [Sample][Thread-2|ThreadPoolTaskExecutor] 208 shutdown Shutting down ExecutorService 'applicationTaskExecutor'

@@ -1,12 +1,13 @@
-package com.mtn.mobisale.singleton;
+package com.mobisale.singleton;
 
-import com.mtn.mobisale.utils.DbUtil;
-import com.mtn.mobisale.utils.LogUtil;
+import com.mobisale.utils.DbUtil;
+import com.mobisale.utils.LogUtil;
 
-import java.sql.*;
-import java.util.HashMap;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
 
 public class PricingExistsTablesData {
 
@@ -33,9 +34,9 @@ public class PricingExistsTablesData {
             String query ="SELECT TABLE_NAME\n" +
                     "FROM INFORMATION_SCHEMA.TABLES\n" +
                     "WHERE TABLE_TYPE = 'BASE TABLE'";
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             st = conn.createStatement();
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             // execute the query, and get a java resultset
             rs = st.executeQuery(query);
 
@@ -48,7 +49,7 @@ public class PricingExistsTablesData {
                 pricingExistsTablesMap.put(tableName, true);
             }
         } catch (SQLException e) {
-            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 120");
         } finally {
             DbUtil.CloseConnection(conn,rs,st);
         }

@@ -4,6 +4,7 @@ package com.promotions.data;
 import com.promotions.manager.PromotionsDataManager;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Created by israel on 4/22/14.
@@ -35,14 +36,14 @@ public class PromotionItemMapListData {
         return query.toString();
     }
 
-    public ArrayList<String> getItems(String whereCode) {
+    public ArrayList<String> getItems(String whereCode, Set<String> possibleItemIDs) {
         ArrayList<String> items = new ArrayList<String>();
         PromotionItemMapData promotionItemMapData = PromotionItemMapDatas.get(0);
         if (promotionItemMapData.PopulationCode == 0) {
-            items.addAll(PromotionsDataManager.getInstance().getAllItemsCode());
+            items.addAll(PromotionsDataManager.getAllItemsCode());
         } else {
             for (PromotionItemMapData promotionItemData : PromotionItemMapDatas) {
-                items.addAll(PromotionsDataManager.getInstance().getItemCodesFromField(promotionItemData.ItemFiledCode, whereCode));
+                items.addAll(PromotionsDataManager.getItemCodesFromField(promotionItemData.ItemFiledCode, whereCode, possibleItemIDs));
             }
         }
         return items;

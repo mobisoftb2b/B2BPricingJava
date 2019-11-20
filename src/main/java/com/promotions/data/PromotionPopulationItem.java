@@ -6,6 +6,7 @@ import com.promotions.manager.PromotionsDataManager;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by israel on 4/22/14.
@@ -27,7 +28,7 @@ public class PromotionPopulationItem {
     public double totalVal;
     private DecimalFormat df = new DecimalFormat("#,##0.00");
 
-    public PromotionPopulationItem(String ESPNumber, int recordNumber, int recordSequence, int selectedCharacteristics, String materialCharValue, int minVarProd, int minTotQty, boolean mandatory, String UOMForMinQty, int minTotVal) {
+    public PromotionPopulationItem(String ESPNumber, int recordNumber, int recordSequence, int selectedCharacteristics, String materialCharValue, int minVarProd, int minTotQty, boolean mandatory, String UOMForMinQty, int minTotVal, Set<String> possibleItemIDs) {
         this.ESPNumber = ESPNumber;
         RecordNumber = recordNumber;
         RecordSequence = recordSequence;
@@ -38,14 +39,14 @@ public class PromotionPopulationItem {
         Mandatory = mandatory;
         this.UOMForMinQty = UOMForMinQty == null ? ItemPromotionData.PC_UNIT : UOMForMinQty;
         MinTotVal = minTotVal;
-        setItems();
+        setItems(possibleItemIDs);
     }
 
-    private void setItems() {
-        ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(SelectedCharacteristics, MaterialCharValue);
+    private void setItems(Set<String> possibleItemIDs) {
+        ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(SelectedCharacteristics, MaterialCharValue, possibleItemIDs);
         for (String itemCode : itemCodes) {
             try {
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(itemCode);
+                ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(itemCode);
                 if (itemPromotionData == null) continue;
                 PromotionItem promotionItem = new PromotionItem(itemCode, itemPromotionData.getItemPricingData().getTotalStartValue(), 0, Math.round(itemPromotionData.getUnitInKar()), ItemPromotionData.PC_UNIT);
                 PromotionItemHeaderMap.buildMainItem(promotionItem);
@@ -118,11 +119,11 @@ public class PromotionPopulationItem {
 
 
     public void updatePriceAndDiscount(APromotionStep activePromotionStep, boolean excludeDiscount) {
-        PromotionHeader activePromotionHeader = PromotionsDataManager.getInstance().getPromotionHeaderByESPNumber(ESPNumber);
+        PromotionHeader activePromotionHeader = PromotionsDataManager.getPromotionHeaderByESPNumber(ESPNumber);
         boolean isAllowDiscountWithPromotion = true;
         for (PromotionItemHeader promotionItemHeader : PromotionItemHeaderMap.getAllPromotionItemHeader()) {
             for (PromotionItem promotionItem : promotionItemHeader.getAllItem()) {
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(promotionItemHeader.ItemCode, promotionItem.getUiIndex());
+                ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(promotionItemHeader.ItemCode, promotionItem.getUiIndex());
                 if (itemPromotionData.isItemPricingInitialized()) {
                     double netoPrice = 0;
                     double netoDiscount = 0;
@@ -218,7 +219,7 @@ public class PromotionPopulationItem {
         ArrayList<ItemPromotionData> itemsData = new ArrayList<>();
         for (PromotionItemHeader promotionItemHeader : PromotionItemHeaderMap.getAllPromotionItemHeader()) {
             for (PromotionItem promotionItem : promotionItemHeader.getAllItem()) {
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(promotionItemHeader.ItemCode, promotionItem.getUiIndex());
+                ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(promotionItemHeader.ItemCode, promotionItem.getUiIndex());
 //                itemPromotionData.setItemPercent(promotionItem.getNetoDiscount());
 //                itemPromotionData.setItemPriceNeto(promotionItem.getNetoPrice());
 //                itemPromotionData.setTotalItemPriceNeto(promotionItem.getNetoTotalPrice());

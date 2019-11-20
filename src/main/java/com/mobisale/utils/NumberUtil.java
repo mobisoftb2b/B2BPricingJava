@@ -1,7 +1,8 @@
-package com.mtn.mobisale.utils;
+package com.mobisale.utils;
 
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class NumberUtil {
@@ -65,7 +66,7 @@ public class NumberUtil {
         unRounded = (Double.isNaN(unRounded) || Double.isInfinite(unRounded)) ? 0 : unRounded;
         BigDecimal a = new BigDecimal(unRounded + "");
         int round = 3;
-        a = a.setScale(round, BigDecimal.ROUND_HALF_UP);
+        a = a.setScale(round, RoundingMode.HALF_UP);
         return a.doubleValue();
     }
 
@@ -73,7 +74,7 @@ public class NumberUtil {
         int round = 4;
         unRounded = Double.isNaN(unRounded) ? 0 : unRounded;
         BigDecimal a = new BigDecimal(unRounded + "");
-        a = a.setScale(round, BigDecimal.ROUND_HALF_DOWN);
+        a = a.setScale(round, RoundingMode.HALF_DOWN);
         return a.doubleValue();
     }
 
@@ -81,7 +82,7 @@ public class NumberUtil {
         //BigDecimal a = new BigDecimal("12345.0789");
         BigDecimal a = new BigDecimal(unRounded);
         //a = a.divide(new BigDecimal("1"), 2, BigDecimal.ROUND_HALF_UP);
-        a = a.setScale(2, BigDecimal.ROUND_HALF_UP);
+        a = a.setScale(2, RoundingMode.HALF_UP);
         //System.out.println("a >> "+a.toPlainString()); //Returns 12345.08
         return a.doubleValue();
     }
@@ -91,7 +92,7 @@ public class NumberUtil {
         //BigDecimal a = new BigDecimal("12345.0789");
         BigDecimal a = new BigDecimal(unRounded);
         //a = a.divide(new BigDecimal("1"), 2, BigDecimal.ROUND_HALF_UP);
-        a = a.setScale(2, BigDecimal.ROUND_HALF_UP);
+        a = a.setScale(2, RoundingMode.HALF_UP);
         //System.out.println("a >> "+a.toPlainString()); //Returns 12345.08
         return a.floatValue();
     }
@@ -100,14 +101,14 @@ public class NumberUtil {
         //BigDecimal a = new BigDecimal("12345.0789");
         BigDecimal a = new BigDecimal(unRounded);
         //a = a.divide(new BigDecimal("1"), 2, BigDecimal.ROUND_HALF_UP);
-        a = a.setScale(2, BigDecimal.ROUND_HALF_UP);
+        a = a.setScale(2, RoundingMode.HALF_UP);
         //System.out.println("a >> "+a.toPlainString()); //Returns 12345.08
         return a.floatValue();
     }
 
     public static String formatedRoundPrecision2(String unRounded) {
         float theNum = roundPrecision2(unRounded);
-        String retVal = dfN.format(new Float(theNum));
+        String retVal = dfN.format(theNum);
 //        MobisaleLog.d("MTN", "retVal = " + retVal);
 //        MobisaleLog.d("MTN", "retVal length = " + retVal.length());
 //        MobisaleLog.d("MTN", "DecimalPoint position = " + retVal.indexOf('.'));
@@ -124,7 +125,7 @@ public class NumberUtil {
 
     public static float roundPrecision1(String unRounded) {
         BigDecimal a = new BigDecimal(unRounded);
-        a = a.setScale(1, BigDecimal.ROUND_HALF_UP);
+        a = a.setScale(1, RoundingMode.HALF_UP);
         return a.floatValue();
     }
 
@@ -132,7 +133,7 @@ public class NumberUtil {
         String retVal = " ";
         try {
             float theNum = roundPrecision1(unRounded);
-            retVal = dfnn.format(new Float(theNum));
+            retVal = dfnn.format(theNum);
             int pointPos = retVal.indexOf('.');
             if (retVal.length() - pointPos == 1) {
                 retVal += "0";

@@ -20,6 +20,7 @@ public class PromotionStepManager {
         this.stepRecordNumbers = stepRecordNumbers;
     }
 
+
     public boolean isPromotionHeaderActiveAndOpen(String itemCode, float newQuantity, int definitionMethod, String StepsBasedUOM) {
         StepRecordNumber ActiveStepRecordNumber = null;
         IsOpen = true;
@@ -238,5 +239,9 @@ public class PromotionStepManager {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             stepRecordNumber.resetPromotions();
         }
+    }
+
+    public void ClearSteps() {
+        stepRecordNumbers.clear();
     }
 }

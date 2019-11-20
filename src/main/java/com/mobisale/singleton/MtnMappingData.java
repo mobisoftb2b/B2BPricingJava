@@ -1,11 +1,19 @@
-package com.mtn.mobisale.singleton;;
+package com.mobisale.singleton;
 
-import com.mtn.mobisale.utils.DbUtil;
-import com.mtn.mobisale.utils.LogUtil;
+import com.mobisale.utils.DbUtil;
+import com.mobisale.utils.LogUtil;
+import com.mobisale.utils.SqlLiteUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.config.Configuration;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+;
 
 
 public class MtnMappingData {
@@ -13,6 +21,7 @@ public class MtnMappingData {
     private HashMap<String, ArrayList<FieldMapData>> mtnMappingData = new HashMap<String, ArrayList<FieldMapData>>();
     private HashMap<String, String> sapToMtnData = new HashMap<String, String>();
     private static MtnMappingData m_instance = null;
+    //private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
 
     public static MtnMappingData getInstance() {
@@ -31,13 +40,18 @@ public class MtnMappingData {
         Statement st = null;
         Connection conn = null;
         try {
-
             mtnMappingData.clear();
             sapToMtnData.clear();
+
+            //if (sqlLiteUtil.IsSQlLite())
+            //    conn = sqlLiteUtil.Connect();
+            //else
             conn = DbUtil.connect(conn);
 
+            //conn = DbUtil.connect(conn);
+
             String query = "SELECT * FROM " + "MTN_Mapping" + " ORDER BY " + "TableName";
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             // create the java statement
             st = conn.createStatement();
 
@@ -62,8 +76,11 @@ public class MtnMappingData {
                 sapToMtnData.put(sapField, mtnField);
             }
         } catch (SQLException e) {
-            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 124");
         } finally {
+            //if (sqlLiteUtil.IsSQlLite())
+            //    sqlLiteUtil.Disconnect(conn);
+            //else
             DbUtil.CloseConnection(conn,rs,st);
         }
     }

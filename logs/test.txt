@@ -1,0 +1,2 @@
+robocopy /MIR d:\a D:\AppData
+kaka

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+    <Properties>
+        <Property name="log-path">logs</Property>
+        <Property name="log-project-name">pricing</Property>
+        <Property name="log-pattern">%d{ISO8601} %-5p [Sample][%t|%c{1}] %L %M %m\n</Property>
+        <Property name="rollover-strategy-max">7</Property>
+        <Property name="rolling-size-based">1 MB</Property>
+    </Properties>
+    <appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>${log-pattern}</pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="ERROR" fileName="${log-path}/${log-project-name}-log.log" filePattern="${log-path}/${log-project-name}-error-%d-%i.log.zip">
+            <PatternLayout>
+                <pattern>${log-pattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="${rolling-size-based}" />
+            </Policies>
+            <DefaultRolloverStrategy max="${rollover-strategy-max}" />
+        </RollingFile>
+        <RollingFile name="INFO" fileName="${log-path}/${log-project-name}-log.log" filePattern="${log-path}/${log-project-name}-info-%d-%i.log.zip">
+            <PatternLayout>
+                <pattern>${log-pattern}</pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="${rolling-size-based}" />
+            </Policies>
+            <DefaultRolloverStrategy max="${rollover-strategy-max}" />
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+    </appenders>
+    <Loggers>
+        <Root level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="ERROR" level="error" />
+            <AppenderRef ref="INFO" level="info" />-->
+        </Root>
+    </Loggers>
+</Configuration>

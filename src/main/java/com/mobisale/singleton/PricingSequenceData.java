@@ -1,23 +1,31 @@
-package com.mtn.mobisale.singleton;
+package com.mobisale.singleton;
 
-import com.mtn.mobisale.data.ItemPricingData;
-import com.mtn.mobisale.columns.PricingCondition;
-import com.mtn.mobisale.columns.PricingSequence;
-import com.mtn.mobisale.constants.Tables;
-import com.mtn.mobisale.data.*;
-import com.mtn.mobisale.utils.DbUtil;
-import com.mtn.mobisale.utils.LogUtil;
+import com.mobisale.columns.PricingCondition;
+import com.mobisale.columns.PricingSequence;
+import com.mobisale.constants.Tables;
+import com.mobisale.data.*;
+import com.mobisale.data.ItemPricingData;
+import com.mobisale.utils.DbUtil;
+import com.mobisale.utils.LogUtil;
+import com.mobisale.utils.SqlLiteUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+
+
+
 public class PricingSequenceData {
 
     private TreeMap<String, AccessSequencesData> accessSequencesDataMap = new TreeMap<String, AccessSequencesData>();
     private static PricingSequenceData m_instance = null;
+    private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
     public static PricingSequenceData getInstance() {
         if (m_instance == null) {
@@ -39,7 +47,11 @@ public class PricingSequenceData {
         Connection conditionConn = null;
 
         try {
-            conn = DbUtil.connect(conn);
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                conn = sqlLiteUtil.Connect();
+            else
+                conn = DbUtil.connect(conn);
+
             String query = "SELECT DISTINCT " + PricingSequence.PRICING_ACCESS_SEQUENCE + "," +
                     PricingSequence.PRICING_ACCESS + "," + PricingSequence.PRICING_TABLE_NAME +
                     "," + PricingSequence.PRICING_EXCLUSIVE_ACCESS + "," + PricingSequence.PRICING_REQUIREMENT +
@@ -47,7 +59,7 @@ public class PricingSequenceData {
                     "," + PricingSequence.PRICING_ACCESS + " ASC";
 
             st = conn.createStatement();
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             // execute the query, and get a java resultset
             rs = st.executeQuery(query);
 
@@ -75,11 +87,14 @@ public class PricingSequenceData {
                         PricingCondition.PRICING_CONDITION_DOC_STRUCT + "," +
                         PricingCondition.PRICING_CONDITION_ACTIVE_FIELD + " FROM " +
                         Tables.TABLE_PRICING_CONDITION + " WHERE " + PricingCondition.PRICING_CONDITION_ACCESS_SEQUENCE +
-                        "=" + "'" + AccessSequence + "'" + " AND " + PricingCondition.PRICING_CONDITION_ACCESS + "=" + Access;
+                        "=" + "'" + AccessSequence + "'" + " AND " + PricingCondition.PRICING_CONDITION_ACCESS + "=" + Access + " AND DocField IS NOT NULL";
                 try {
-                    conditionConn =DbUtil.connect(conn);
+                    if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                        conditionConn = sqlLiteUtil.Connect();
+                    else
+                        conditionConn = DbUtil.connect(conn);
                     conditionST = conditionConn.createStatement();
-                    LogUtil.LOG.error(conditionQuery);
+                    LogUtil.LOG.info(conditionQuery);
                     conditionCursor = conditionST.executeQuery(conditionQuery);
                     if (conditionCursor == null) {
                         continue;
@@ -93,37 +108,46 @@ public class PricingSequenceData {
                     }
                 }
                 catch (SQLException e) {
-                    LogUtil.LOG.error("Error :"+e.getMessage());
+                    LogUtil.LOG.error("Error101 :"+e.getMessage());
                     System.out.println(e.getStackTrace()[0].getLineNumber());
                 }
                 finally {
                     if (conditionCursor != null) {
                         conditionCursor.close();
                     }
-                    DbUtil.CloseConnection(conditionConn,conditionCursor,conditionST);
+                    if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                        sqlLiteUtil.Disconnect(conditionConn);
+                    else
+                        DbUtil.CloseConnection(conditionConn,conditionCursor,conditionST);
+
                     accessSequenceData.buildSequenceData();
                 }
 
             }
         } catch (SQLException e) {
-            LogUtil.LOG.error("Error :"+e.getMessage());
+            LogUtil.LOG.error("Error102 :"+e.getMessage());
             System.out.println(e.getStackTrace()[0].getLineNumber());
         } finally {
             if (rs != null) {
                 try {
                     rs.close();
-                } catch (SQLException e) { LogUtil.LOG.error("Error :"+e.getMessage());}
+                } catch (SQLException e) { LogUtil.LOG.error("Error103 :"+e.getMessage());}
             }
             if (st != null) {
                 try {
                     st.close();
-                } catch (SQLException e) {  LogUtil.LOG.error("Error :"+e.getMessage());}
+                } catch (SQLException e) {  LogUtil.LOG.error("Error104 :"+e.getMessage());}
             }
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (SQLException e) {  LogUtil.LOG.error("Error :"+e.getMessage());}
+                } catch (SQLException e) {  LogUtil.LOG.error("Error105 :"+e.getMessage());}
             }
+            //if (sqlLiteUtil.IsSQlLite())
+            //    sqlLiteUtil.Disconnect(conn);
+            //else
+             //   DbUtil.CloseConnection(conn,rs,st);
+
         }
     }
 
@@ -158,6 +182,8 @@ public class PricingSequenceData {
         Set<Map.Entry<Integer, AccessSequenceData>> entrySet = accessSequencesData.accessSequenceDataTreeMap.entrySet();
         for (Map.Entry<Integer, AccessSequenceData> next : entrySet) {
             AccessSequenceData accessSequenceData = next.getValue();
+            LogUtil.LOG.info("access=" + accessSequenceData.Access);
+
             if (!PricingExistsTablesData.getInstance().isTableExist(accessSequenceData.TableName)) {
                 continue;
             }
@@ -179,6 +205,8 @@ public class PricingSequenceData {
         return conditionReturnListData;
     }
 
+    private String[] badPatterns = {"KUNNR='0'"};
+
     private ConditionReturnData executeQuery(AccessSequenceData accessSequenceData, String[] selectionArgs, boolean isManual) {
         ConditionReturnData conditionReturnData = null;
         ResultSet rs = null;
@@ -186,16 +214,27 @@ public class PricingSequenceData {
         Connection conn = null;
 
 
-
         try {
-            conn = DbUtil.connect(conn);
+            if (sqlLiteUtil.IsSQlLite())
+                conn = sqlLiteUtil.Connect();
+            else
+                conn = DbUtil.connect(conn);
+
             String query = accessSequenceData.query;
             for (String selectionArg : selectionArgs) {
                 query = query.replaceFirst("\\?", "'" + selectionArg + "'");
             }
 
+            for (String pattern : badPatterns){
+                if (query.matches("(.*)" + pattern + "(.*)"))
+                {
+                    LogUtil.LOG.info("bad pattern:" + query);
+                    return null;
+                }
+            }
+
             st = conn.createStatement();
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             rs = st.executeQuery(query);
 
             if (rs == null) {
@@ -248,20 +287,27 @@ public class PricingSequenceData {
                         LogUtil.LOG.error("This Will Be Printed On Error10");
                         System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
                     }
-                    try {
-                        priceUnit = rs.getString(rs.findColumn(AccessSequenceData.SEQUENCE_PRICE_UNIT));
-                    } catch (Exception e) {
-                        LogUtil.LOG.error("This Will Be Printed On Error11");
-                        System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+                    String provider =  System.getenv("PROVIDER");
+                    System.out.println("PROVIDER=" + provider);
+                    if (provider.equalsIgnoreCase("tambour")) {
+                        try {
+                            priceUnit = rs.getString(rs.findColumn(AccessSequenceData.SEQUENCE_PRICE_UNIT));
+                        } catch (Exception e) {
+                            LogUtil.LOG.error("This Will Be Printed On Error11");
+                            System.out.println("Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage());
+                        }
                     }
                 }
                 conditionReturnData = new ConditionReturnData(accessSequenceData.AccessSequence, accessSequenceData.Access, accessSequenceData.TableName, sapConstant, (valueType != null && valueType.equalsIgnoreCase("A")) ? ConditionReturnData.RETURN_VALUE_TYPE_DISCOUNT : ConditionReturnData.RETURN_VALUE_TYPE_PRICE, value, creditTerms, discountFrom, discountTo, UnitType, divideValue, priceUnit);
             }
         } catch (SQLException e) {
 
-            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+            LogUtil.LOG.error("Error106 in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
         } finally {
-            DbUtil.CloseConnection(conn,rs,st);
+            if (sqlLiteUtil.IsSQlLite())
+                sqlLiteUtil.Disconnect(conn);
+            else
+                DbUtil.CloseConnection(conn,rs,st);
         }
         return conditionReturnData;
     }

@@ -1,4 +1,4 @@
-package com.mtn.mobisale.columns;
+package com.mobisale.columns;
 
 public class ConditionsAccess {
     public static String  CONDITION_ACCESS_TYPE = "ConditionType";

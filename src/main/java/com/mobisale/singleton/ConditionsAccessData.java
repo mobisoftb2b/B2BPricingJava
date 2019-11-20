@@ -1,18 +1,23 @@
-package com.mtn.mobisale.singleton;
+package com.mobisale.singleton;
 
 
-import com.mtn.mobisale.columns.ConditionsAccess;
-import com.mtn.mobisale.constants.Tables;
-import com.mtn.mobisale.utils.DbUtil;
-import com.mtn.mobisale.utils.LogUtil;
+import com.mobisale.columns.ConditionsAccess;
+import com.mobisale.constants.Tables;
+import com.mobisale.utils.DbUtil;
+import com.mobisale.utils.LogUtil;
+import com.mobisale.utils.SqlLiteUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 
 public class ConditionsAccessData {
 
     private HashMap<String, ConditionAccessData> conditionsAccessMap = new HashMap<String, ConditionAccessData>();
     private static ConditionsAccessData m_instance = null;
+    private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
 
     public static ConditionsAccessData getInstance() {
@@ -32,12 +37,15 @@ public class ConditionsAccessData {
         Connection conn = null;
         conditionsAccessMap.clear();
         try {
-            conn = DbUtil.connect(conn);
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                conn = sqlLiteUtil.Connect();
+            else
+                conn = DbUtil.connect(conn);
             String query ="SELECT DISTINCT " + ConditionsAccess.CONDITION_ACCESS_TYPE + "," + ConditionsAccess.CONDITION_ACCESS_SEQUENCE + "," + ConditionsAccess.CONDITION_REF_COND
                     + " FROM " + Tables.TABLE_PRICING_CONDITIONS_ACCESS + " ORDER BY " + ConditionsAccess.CONDITION_ACCESS_TYPE + " ASC";
 
             st = conn.createStatement();
-            LogUtil.LOG.error(query);
+            LogUtil.LOG.info(query);
             // execute the query, and get a java resultset
             rs = st.executeQuery(query);
 
@@ -62,16 +70,20 @@ public class ConditionsAccessData {
         } catch (SQLException e) {
             LogUtil.LOG.error("Error :"+e.getMessage());
         } finally {
-            DbUtil.CloseConnection(conn,rs,st);
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                sqlLiteUtil.Disconnect(conn);
+            else
+                DbUtil.CloseConnection(conn,rs,st);
         }
     }
 
     public String getAccessSequence(String conditionType) {
         String accessSequence = conditionType;
         try {
-            accessSequence = conditionsAccessMap.get(conditionType).AccessSequence;
+            if (conditionsAccessMap.containsKey(conditionType))
+                accessSequence = conditionsAccessMap.get(conditionType).AccessSequence;
         } catch (Exception e) {
-            System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+            System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 122");
         }
         return accessSequence == null ? "" : accessSequence;
     }
@@ -81,7 +93,7 @@ public class ConditionsAccessData {
         try {
             refCond = conditionsAccessMap.get(conditionType).RefCond;
         } catch (Exception e) {
-            System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage());
+            System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + "123");
         }
         return refCond == null ? conditionType : refCond;
     }
