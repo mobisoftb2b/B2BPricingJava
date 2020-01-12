@@ -39,8 +39,10 @@ public class PromotionPopulationMapData {
     private PromotionPopulationMapData() {
     }
 
-    public void executeQuery() {
+    public void clearResources(){
         promotionItemsMap.clear();
+    }
+    public void executeQuery() {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;

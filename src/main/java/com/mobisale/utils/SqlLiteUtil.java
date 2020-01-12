@@ -3,7 +3,10 @@ package com.mobisale.utils;
 import com.mobisale.data.AccessSequenceData;
 import com.mobisale.data.ConditionReturnData;
 import com.mobisale.data.ItemPricingData;
+import com.promotions.database.PromotionsContract;
+import com.promotions.database.PromotionsDatabase;
 
+import java.io.Console;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -99,7 +102,8 @@ public class SqlLiteUtil {
             pstmt.setDouble(2, capacity);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            LogUtil.LOG.error(e);
+            //System.out.println(e.getMessage());
         }
     }
 
@@ -116,18 +120,49 @@ public class SqlLiteUtil {
             int columnsNumber = rsmd.getColumnCount();
             while (rs.next()) {
                 for (int i = 1; i <= columnsNumber; i++) {
-                    if (i > 1) System.out.print(",  ");
+                    if (i > 1)
+                        System.out.print(",  ");
                     String columnValue = rs.getString(i);
                     System.out.print(columnValue + " " + rsmd.getColumnName(i));
                 }
                 System.out.println("");
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            LogUtil.LOG.error(e);
+            //System.out.println(e.getMessage());
         }
         Disconnect(conn);
     }
 
+    public void selectPromotions(){
+
+        ResultSet rs = null;
+        Statement st = null;
+        Connection conn = null;
+
+        String rawQuery = "SELECT ESPNumber FROM v_CustPromotions WHERE Cust_Key IN ('1100100010091257','0')";
+        try {
+                conn = ConnectPromotions();
+
+            st = conn.createStatement();
+            System.out.print(rawQuery);
+            rs = st.executeQuery(rawQuery);
+            if (rs == null) {
+                return;
+            }
+            int columnIndex;
+            while (rs.next()) {
+                columnIndex = rs.findColumn(PromotionsContract.PromotionCustomers.PROMOTION_CUSTOMERS_ESP_NUMBER);
+                String dealCode = rs.getString(columnIndex);
+                System.out.print(" espnumber " + dealCode);
+            }
+        } catch (Exception e) {
+            System.out.print("error query for promotion-keys :"+e.getMessage());
+        } finally {
+            Disconnect(conn);
+        }
+
+    }
     public  void executeCommandSqlLite(String sql){
         Connection conn = Connect();
         try{
@@ -136,7 +171,8 @@ public class SqlLiteUtil {
             stmt.executeUpdate(sql);
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            LogUtil.LOG.error(e);
+            //System.out.println(e.getMessage());
         }
         Disconnect(conn);
     }
@@ -157,10 +193,11 @@ public class SqlLiteUtil {
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 
-            System.out.println("Connection to SQLite has been established.");
+            //System.out.println("Connection to SQLite has been established.");
 
 
         } catch (SQLException e) {
+            LogUtil.LOG.error(e);
             System.out.println(e.getMessage());
         }
         return conn;
@@ -174,10 +211,11 @@ public class SqlLiteUtil {
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 
-            System.out.println("Connection to SQLite has been established.");
+            //System.out.println("Connection to SQLite has been established.");
 
 
         } catch (SQLException e) {
+            LogUtil.LOG.error(e);
             System.out.println(e.getMessage());
         }
         return conn;
@@ -190,6 +228,7 @@ public class SqlLiteUtil {
                 conn.close();
             }
         } catch (SQLException ex) {
+            LogUtil.LOG.error(ex);
             System.out.println(ex.getMessage());
         }
     }
@@ -207,7 +246,7 @@ public class SqlLiteUtil {
 
         Set<String> keyset = result.typeMap.keySet();
         if (keyset.size() == 0) {
-            System.out.println(tableName + "is empty");
+            LogUtil.LOG.warn(tableName + "is empty");
             return -1;
         }
         String sqlCreateTable = "CREATE TABLE IF NOT EXISTS " + tableName + " (";
@@ -317,11 +356,13 @@ public class SqlLiteUtil {
 
             Disconnect(conn);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            LogUtil.LOG.error(e);
+            //System.out.println(e.getMessage());
             return -1;
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
+            LogUtil.LOG.error(e);
+            //System.out.println(e.getMessage());
             return -1;
         }
         return 0;
@@ -339,7 +380,7 @@ public class SqlLiteUtil {
         int result = ReadTableToSqlLite(queryColumnsFull, tableName, addDateTimePriceFilter, orderByFull);
         if (result == 0)
         {
-            System.out.println( tableName + " from SQlLite");
+            LogUtil.LOG.info( tableName + " from SQlLite");
             selectAllTableValues(queryColumns + " FROM " + tableName, 2);
         }
         return result;
@@ -395,6 +436,7 @@ public class SqlLiteUtil {
 
     public void ReadStraussPricingDB(){
         selectAllTableValues("select * from A002", 5);
+        selectPromotions();
     }
 
     public void ReadNoaPricingDB(){
@@ -520,52 +562,6 @@ public class SqlLiteUtil {
         */
     }
 
-    public void TestCanConnect() {
-        Connection conn = null;
-        Statement stmt = null;
-        try {
-            // create a connection to the database
-            conn = Connect();
 
-            String sql = "CREATE TABLE IF NOT EXISTS warehouses (\n"
-                    + "    id integer PRIMARY KEY,\n"
-                    + "    name text NOT NULL,\n"
-                    + "    capacity real\n"
-                    + ");";
-            stmt = conn.createStatement();
-            stmt.execute(sql);
-
-            String sqlDelete = "DELETE FROM warehouses";
-            stmt = conn.createStatement();
-            stmt.execute(sqlDelete);
-
-            insert(conn, "Raw Materials", 3000);
-            insert(conn, "Semifinished Goods", 4000);
-            insert(conn, "Finished Goods", 5000);
-
-            //selectAll(conn);
-
-            ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
-            while (rs.next()) {
-                System.out.println(rs.getString("TABLE_NAME"));
-            }
-			/*
-			// Ensure we can query the actors table
-			stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(".table");
-
-			while ( rs.next() ) {
-
-				String  name = rs.getString("name");
-
-				System.out.println(String.format("Found %s", name));
-			}
-            */
-            rs.close();
-            Disconnect(conn);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
 }

@@ -21,6 +21,7 @@ public class ItemPromotionData {
     private boolean partFromDeal;
     private String stepDetailDescription = "";
     private String espNumber = "";
+    private String espDescription = "";
 
 
     public ItemPromotionData(String itemCode) {
@@ -32,9 +33,17 @@ public class ItemPromotionData {
         return espNumber == null ? "" : espNumber;
     }
 
+    public String getEspDescription() {
+        return espDescription == null ? "" : espDescription;
+    }
+
     public void setPromotionHeader(PromotionHeader promotionHeader) {
         this.promotionHeader = promotionHeader;
-        if (promotionHeader != null) espNumber = promotionHeader.ESPNumber;
+        if (promotionHeader != null)
+        {
+            espNumber = promotionHeader.ESPNumber;
+            espDescription = promotionHeader.ESPDescription;
+        }
     }
 
     public PromotionHeader getPromotionHeader() {

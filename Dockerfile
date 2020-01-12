@@ -1,4 +1,4 @@
-# Use an official OpenJDK runtime as a parent image
+#Use an official OpenJDK runtime as a parent image
 FROM openjdk:12-jdk-oracle
 
 # set shell to bash
@@ -20,3 +20,5 @@ CMD ["java", "-jar", "B2BPricing.jar"]
 
 RUN mkdir /myvol
 VOLUME /myvol
+
+

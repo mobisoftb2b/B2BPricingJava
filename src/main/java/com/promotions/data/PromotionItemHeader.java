@@ -87,8 +87,8 @@ public class PromotionItemHeader {
         return totalValQuantity;
     }
 
-    public void updateQuantity(float newQuantity) {
-        ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(ItemCode);
+    public void updateQuantity(String customerKey, float newQuantity) {
+        ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance(customerKey).getOrderUIItem(ItemCode);
         for (PromotionItem promotionItem : itemsData) {
             if (itemPromotionData != null) {
                 promotionItem.updateQuantity(itemPromotionData.getTotalPCItemUserAmount());
@@ -102,16 +102,16 @@ public class PromotionItemHeader {
         }
     }
 
-    public void resetPriceAndDiscount(String espNumber) {
+    public void resetPriceAndDiscount(String customerKey, String espNumber) {
         for (PromotionItem promotionItem : itemsData) {
-            promotionItem.resetPriceAndDiscount(espNumber);
+            promotionItem.resetPriceAndDiscount(customerKey, espNumber);
         }
     }
 
-    public void resetPromotions(String espNumber) {
+    public void resetPromotions(String customerKey, String espNumber) {
         for (PromotionItem promotionItem : itemsData) {
             promotionItem.resetQuantity();
-            promotionItem.resetPriceAndDiscount(espNumber);
+            promotionItem.resetPriceAndDiscount(customerKey, espNumber);
         }
     }
 }

@@ -25,6 +25,10 @@ public class PricingExistsTablesData {
 
     private PricingExistsTablesData() {
     }
+
+    public void clearResources(){
+        pricingExistsTablesMap.clear();
+    }
     public void executeQuery()     {
         ResultSet rs = null;
         Statement st = null;

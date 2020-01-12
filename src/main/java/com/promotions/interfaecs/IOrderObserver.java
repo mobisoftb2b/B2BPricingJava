@@ -3,6 +3,7 @@ package com.promotions.interfaecs;
 
 import com.promotions.data.ItemPromotionData;
 import com.promotions.data.PromotionHeader;
+import com.promotions.manager.PromotionsDataManager;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,8 +14,6 @@ import com.promotions.data.PromotionHeader;
  */
 public interface IOrderObserver {
 
-    public void onDealsUpdate(int position, String itemCode, PromotionHeader promotionHeader);
-
-    public void onPriorityUpdate(ItemPromotionData itemPromotionData, PromotionHeader promotionHeader);
+    public void onDealsUpdate(String itemCode, PromotionHeader promotionHeader);
 
 }

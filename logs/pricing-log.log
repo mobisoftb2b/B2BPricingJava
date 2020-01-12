@@ -1140,3 +1140,23 @@ WHERE TABLE_TYPE = 'BASE TABLE'
 2019-09-23T10:05:26,618 INFO  [Sample][main|TomcatWebServer] 204 start Tomcat started on port(s): 8800 (http) with context path ''
 2019-09-23T10:05:26,622 INFO  [Sample][main|DockerApp] 59 logStarted Started DockerApp in 7.027 seconds (JVM running for 8.055)
 2019-09-23T10:06:27,338 INFO  [Sample][Thread-2|ThreadPoolTaskExecutor] 208 shutdown Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-30T17:19:12,679 ERROR [Sample][main|LogUtil] 60 executeQuery SELECT distinct m.SelectedCharacteristics, ItemField FROM PromotionItemMapping m JOIN PromotionItems_zsdt_espmtr i ON m.SelectedCharacteristics=i.SelectedCharacteristics ORDER BY m.SelectedCharacteristics ASC
+2019-12-30T17:19:12,831 ERROR [Sample][main|LogUtil] 164 queryForDealHeader SELECT * FROM PromotionHeader_zsdt_esp WHERE StartDate <= 20191230 AND EndDate >= 20191230 ORDER BY ESPPriority ASC ,ESPNumber DESC
+2019-12-30T17:19:12,870 ERROR [Sample][main|LogUtil] 140 main init finished
+2019-12-31T11:35:52,152 ERROR [Sample][main|LogUtil] 60 executeQuery SELECT distinct m.SelectedCharacteristics, ItemField FROM PromotionItemMapping m JOIN PromotionItems_zsdt_espmtr i ON m.SelectedCharacteristics=i.SelectedCharacteristics ORDER BY m.SelectedCharacteristics ASC
+2019-12-31T11:35:52,313 ERROR [Sample][main|LogUtil] 164 queryForDealHeader SELECT * FROM PromotionHeader_zsdt_esp WHERE StartDate <= 20191231 AND EndDate >= 20191231 ORDER BY ESPPriority ASC ,ESPNumber DESC
+2019-12-31T11:35:52,356 ERROR [Sample][main|LogUtil] 158 main init finished
+2020-01-07T12:11:57,389 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+

@@ -1,0 +1,13 @@
+version: "2.1"
+
+services:
+  pricing:
+    image: mobisoftb2b/pricing-windows:latest
+    restart: always
+    env_file:
+      - config_java.env
+    ports:
+      - 85:8080
+    volumes:
+      - ./logs:C:/usr/src/myapp/logs
+      - ./db:C:/usr/src/myapp/db

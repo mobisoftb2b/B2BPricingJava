@@ -8,7 +8,7 @@ import com.promotions.manager.PromotionsDataManager;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PromotionsAPI // implements IOrderObserver
+public class PromotionsAPI //implements IOrderObserver
 {
 
     public static int test() {
@@ -16,8 +16,10 @@ public class PromotionsAPI // implements IOrderObserver
     }
 
     public void runPromotionsForCustomer(String customerKey, HashMap<String, ItemPromotionData> itemsDataMap) {
-        PromotionsDataManager promotionsManager = new PromotionsDataManager();
+        PromotionsDataManager promotionsManager = PromotionsDataManager.getInstance(customerKey);
+        //promotionsManager.setObserver(this);
         promotionsManager.resetAllBonusData();
+        promotionsManager.startQueryForCustomer(customerKey);
         promotionsManager.queryForDealKeys(customerKey);
 
         promotionsManager.queryForDealsByCustomer(customerKey, itemsDataMap);
@@ -39,21 +41,17 @@ public class PromotionsAPI // implements IOrderObserver
         }
     }
 
-    /*
+/*
     @Override
-    public void onDealsUpdate(int position, String itemCode, PromotionHeader promotionHeader) {
+    public void onDealsUpdate(String itemCode, String customerKey, PromotionHeader promotionHeader) {
         if (promotionHeader != null) {
             promotionHeader.updateItemsPriceAndDiscount(PromotionsDataManager.getItemsDataMap());
-            ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(itemCode);
+            ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(itemCode);
             if (itemPromotionData != null) {
                 itemPromotionData.setStepDetailDescription(promotionHeader.getSelectedStepDetailDescription(itemCode));
             }
         }
     }
+*/
 
-    @Override
-    public void onPriorityUpdate(ItemPromotionData itemPromotionData, PromotionHeader promotionHeader) {
-
-    }
-     */
 }

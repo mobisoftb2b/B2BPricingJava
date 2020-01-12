@@ -32,6 +32,10 @@ public class ConditionTypesData {
     private ConditionTypesData() {
     }
 
+    public void clearResources(){
+        conditionTypesMap.clear();
+    }
+
     public void executeQuery() {
         //conditionTypesMap.clear();
         ResultSet rs = null;

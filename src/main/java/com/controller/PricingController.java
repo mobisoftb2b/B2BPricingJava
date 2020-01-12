@@ -1,5 +1,8 @@
 package com.controller;
 
+import com.mobisale.singleton.*;
+import com.mobisale.utils.SqlLiteUtil;
+import com.promotions.data.PromotionPopulationMapData;
 import com.promotions.models.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +23,6 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mobisale.data.ItemPricingData;
-import com.mobisale.singleton.ActiveSelectionData;
 import com.mobisale.utils.DbUtil;
 import com.promotions.data.ItemBonusData;
 import com.promotions.data.ItemPricingPromotionsData;
@@ -74,6 +76,47 @@ public class PricingController {
         }
         return "";
     }
+    @RequestMapping(value = "/ResetAll", method = RequestMethod.GET)
+    @ResponseBody
+    public String ResetAll() {
+
+        try {
+            MtnMappingData.getInstance().clearResources();
+            MtnMappingData.getInstance().executeQuery();
+
+            ConditionTypesData.getInstance().clearResources();
+            ConditionTypesData.getInstance().executeQuery();
+
+            ConditionsAccessData.getInstance().clearResources();
+            ConditionsAccessData.getInstance().executeQuery();
+
+            PricingExistsTablesData.getInstance().clearResources();
+            PricingExistsTablesData.getInstance().executeQuery();
+
+            PricingSequenceData.getInstance().clearResources();
+            PricingSequenceData.getInstance().executeQuery();
+
+            PricingProceduresData.getInstance().clearResources();
+             PricingProceduresData.getInstance().executeQuery();
+
+            if (System.getenv("HAS_PROMOTIONS").equalsIgnoreCase("true")) {
+                PromotionPopulationMapData.getInstance().clearResources();
+                PromotionPopulationMapData.getInstance().executeQuery();
+                PromotionsDataManager.initStaticResources();
+            }
+            if (System.getenv("PRICING_CACHE").equalsIgnoreCase("true"))
+            {
+                PricingProcessData.getInstance().clearResources();
+            }
+
+            System.out.println("reset all init finished");
+        }
+        catch (Exception e) {
+            LogUtil.LOG.error(e);
+            e.printStackTrace();
+        }
+        return "reset finished";
+    }
 
     @RequestMapping(value = "/GetPricing", method = RequestMethod.POST)
     @ResponseBody
@@ -82,7 +125,7 @@ public class PricingController {
         try {
 
             PricingRequest jsonReq = new ObjectMapper().readValue(req, PricingRequest.class);
-            System.out.println("customerCode:" + jsonReq.getCustomerCode()+",items: "+ new ObjectMapper().writeValueAsString(jsonReq.getItems()));
+            LogUtil.LOG.info("customerCode:" + jsonReq.getCustomerCode()+",items: "+ new ObjectMapper().writeValueAsString(jsonReq.getItems()));
             LogUtil.LOG.warn("GetPricing - before getPricingWithPromotions" + LocalDate.now());
             Boolean hasPromotions = false;
             if (System.getenv("HAS_PROMOTIONS") != null)
@@ -94,6 +137,7 @@ public class PricingController {
                 return getPricingNoPromotions(jsonReq.getCustomerCode(),jsonReq.getCust_Key(),jsonReq.getItems());
         }
         catch (Exception e) {
+            LogUtil.LOG.error(e);
             e.printStackTrace();
         }
         return "";
@@ -126,13 +170,13 @@ public class PricingController {
         try {
             LogUtil.LOG.info("getPricingWithPromotions - before getPricing" + LocalDate.now());
             List<Item> objectItemsWithPrice = getPricingOnly(customerCode, Cust_Key, objectItems);
-            HashMap<String, ItemPromotionData> itemsDataMap = getItemsPromotionData(objectItemsWithPrice);
+            HashMap<String, ItemPromotionData> itemsDataMap = getItemsPromotionData(customerCode, Cust_Key, objectItemsWithPrice);
             LogUtil.LOG.info("getPricingWithPromotions - after getPricing" + LocalDate.now());
             itemsDataMap = getPromotions(Cust_Key, itemsDataMap);
             LogUtil.LOG.info("getPricingWithPromotions - after getPromotions" + LocalDate.now());
             List<Item> itemsWithPrice = getPricingAfterPromotions(customerCode, Cust_Key, objectItemsWithPrice, itemsDataMap);
             LogUtil.LOG.info("getPricingWithPromotions - after getPricingAfterPromotions" + LocalDate.now());
-            HashMap<String, ArrayList<ItemBonusData>> itemBonusDataMap = PromotionsDataManager.getAllItemBonusDataMap();
+            HashMap<String, ArrayList<ItemBonusData>> itemBonusDataMap = PromotionsDataManager.getInstance(Cust_Key).getAllItemBonusDataMap();
             LogUtil.LOG.info("getPricingWithPromotions - after getAllItemBonusDataMap" + LocalDate.now());
 
 
@@ -148,111 +192,59 @@ public class PricingController {
         return jsonResult;
     }
 
-    /*
-    private HashMap<String, ItemPromotionData> getPricing(String customerCode, String Cust_Key, List<com.promotions.models.Item> objectItems) {
-        HashMap<String, ItemPromotionData> itemsDataMap = new HashMap<>();
-        try {
-            LogUtil.LOG.info("getPricing - before " + LocalDate.now());
-            String supplyDate = new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());
-            ActiveSelectionData.getInstance().updateSupplyDateSelection(supplyDate);
-            LogUtil.LOG.info("getPricing - after updateSupplyDateSelection " + LocalDate.now());
-            ActiveSelectionData.getInstance().UpdateCustomerTablesSelection(customerCode, Cust_Key);
-            LogUtil.LOG.info("getPricing - after updateCustomerSelection " + LocalDate.now());
-            List<Item> itemsWithPrice = new ArrayList<>();
-            LogUtil.LOG.info("getPricing - objectItems count=" + objectItems.size() + " "+ LocalDate.now());
-            for (Item item : objectItems) {
-                ActiveSelectionData.getInstance().UpdateItemTablesSelection(item.ItemCode);
-                ItemPricingData itemPricingData = new ItemPricingData(Cust_Key, item.ItemCode);
-                LogUtil.LOG.info("getPricing - loop before initPricing ItemCode=" + item.ItemCode + " "
-                        + LocalDate.now());
-                itemPricingData.initPricing( true);
-                double PriceBruto = itemPricingData.getItemBasePrice();
-                double PriceNeto = itemPricingData.getItemNetoPrice();
-                double DiscountPercent = itemPricingData.getItemDiscountValue();
-                String UnitType = itemPricingData.getPriceUnitType();
-                double subTotalsPromotionDiscountValue = itemPricingData.getSubTotalsPromotionDiscountValue();
-
-                LogUtil.LOG.info("PriceBruto: " + PriceBruto + ", DiscountPercent:" + DiscountPercent + ", PriceNeto:" + PriceNeto + ", UnitType:" + DiscountPercent);
-                if (item.Pricing == null)
-                    item.Pricing = new ItemPricing();
-                item.Pricing.PriceBruto = PriceBruto;
-                item.Pricing.PriceNeto = PriceNeto;
-                item.Pricing.DiscountPercent = DiscountPercent;
-                item.Pricing.UnitType = UnitType;
-                item.Pricing.SubTotalsPromotionDiscountValue = subTotalsPromotionDiscountValue;
-
-                int unitInCar = 1;
-                try {
-                    unitInCar = Integer.parseInt(item.UnitInCart);
-                } catch (Exception e) {
-
-                }
-                int unitQuantity = 0;
-                try {
-                    unitQuantity = Integer.parseInt(item.UnitQuantity);
-                } catch (Exception e) {
-
-                }
-                int cartQuantity = 0;
-                try {
-                    cartQuantity = Integer.parseInt(item.CartQuantity);
-                } catch (Exception e) {
-
-                }
-
-                ItemPricingPromotionsData itemPricingPromotionsData =  new ItemPricingPromotionsData(PriceBruto, PriceNeto, DiscountPercent, UnitType, subTotalsPromotionDiscountValue);
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance().getOrderUIItem(item.ItemCode);
-                if (itemPromotionData == null) {
-                    itemPromotionData = new ItemPromotionData(item.ItemCode);
-                    PromotionsDataManager.getInstance().addItemPromotionData(item.ItemCode, itemPromotionData);
-                }
-                itemPromotionData.setUnitInKar(unitInCar);
-                itemPromotionData.setUnitWeight(1);
-                itemPromotionData.setPcQuantity(unitQuantity);
-                itemPromotionData.setKarQuantity(cartQuantity);
-                itemPromotionData.setItemPricingData(itemPricingPromotionsData);
-                itemPromotionData.setItem(item);
-
-                itemsDataMap.put(item.ItemCode, itemPromotionData);
-
-                itemsWithPrice.add(item);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
-        return itemsDataMap;
-    }*/
-
-     private ItemPromotionData getItemPromotionData(Item item)
+     private ItemPromotionData getItemPromotionData(String customerCode, String Cust_Key, Item item)
      {
          ItemPricingPromotionsData itemPricingPromotionsData = new ItemPricingPromotionsData(item.Pricing.PriceBruto, item.Pricing.PriceNeto, item.Pricing.DiscountPercent, item.Pricing.UnitType, item.Pricing.SubTotalsPromotionDiscountValue);
-         ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(item.ItemCode);
+         PromotionsDataManager promotionsDataManagerInstance = PromotionsDataManager.getInstance(Cust_Key != null ? Cust_Key : customerCode);
+         ItemPromotionData itemPromotionData = promotionsDataManagerInstance.getOrderUIItem(item.ItemCode);
+         //String description = "";
+         //if (stepDescription.size() > 0)
+            // description = stepDescription.get(0);
          if (itemPromotionData == null) {
              itemPromotionData = new ItemPromotionData(item.ItemCode);
-             PromotionsDataManager.addItemPromotionData(item.ItemCode, itemPromotionData);
+             //itemPromotionData.setStepDetailDescription(description);
+             promotionsDataManagerInstance.addItemPromotionData(item.ItemCode, itemPromotionData);
          }
+
 
          int unitInCar = 1;
-         try {
-             unitInCar = Integer.parseInt(item.UnitInCart);
-         } catch (Exception e) {
+         if (item.UnitInCart != null) {
+             try {
+                 unitInCar = Integer.parseInt(item.UnitInCart);
+             } catch (Exception e) {
 
+             }
          }
-         int unitQuantity = 0;
-         try {
-             unitQuantity = Integer.parseInt(item.UnitQuantity);
-         } catch (Exception e) {
+         else
+         {
+             String unitFromItem = ActiveSelectionData.getInstance().getItemValue(item.ItemCode, "UnitInCart");
+             if (unitFromItem != null)
+                 unitInCar = Integer.parseInt(unitFromItem);
+         }
 
+         int unitQuantity = 0;
+         if (item.UnitQuantity != null) {
+             try {
+                 unitQuantity = Integer.parseInt(item.UnitQuantity);
+             } catch (Exception e) {
+
+             }
          }
          int cartQuantity = 0;
-         try {
-             cartQuantity = Integer.parseInt(item.CartQuantity);
-         } catch (Exception e) {
+         if (item.CartQuantity != null) {
+             try {
+                 cartQuantity = Integer.parseInt(item.CartQuantity);
+             } catch (Exception e) {
 
+             }
          }
+         if (unitQuantity > 0 && cartQuantity == 0 && unitInCar > 0) {
+             cartQuantity = unitQuantity / unitInCar;
+             unitQuantity = unitQuantity % unitInCar;
+         }
+
          itemPromotionData.setUnitInKar(unitInCar);
          itemPromotionData.setUnitWeight(1);
          itemPromotionData.setPcQuantity(unitQuantity);
@@ -263,11 +255,11 @@ public class PricingController {
          return itemPromotionData;
      }
 
-     private HashMap<String, ItemPromotionData> getItemsPromotionData(List<Item> objectItems) {
+     private HashMap<String, ItemPromotionData> getItemsPromotionData(String customerCode, String Cust_Key, List<Item> objectItems) {
         HashMap<String, ItemPromotionData> itemsDataMap = new HashMap<>();
         try {
             for (Item item : objectItems) {
-                ItemPromotionData itemPromotionData = getItemPromotionData(item);
+                ItemPromotionData itemPromotionData = getItemPromotionData(customerCode, Cust_Key, item);
                 itemsDataMap.put(item.ItemCode, itemPromotionData);
             }
         }
@@ -275,6 +267,29 @@ public class PricingController {
             e.printStackTrace();
         }
         return itemsDataMap;
+    }
+
+    private void buildQuantity(com.promotions.models.Item item)
+    {
+        int quantity = 0;
+        if (item.Quantity == null || item.Quantity == "") {
+            int unitQuantity = 0;
+            int cartQuantity = 0;
+            if (item.UnitQuantity != null && item.UnitQuantity != "")
+                unitQuantity = Integer.parseInt(item.UnitQuantity);
+            if (item.CartQuantity != null && item.CartQuantity != "")
+                cartQuantity = Integer.parseInt(item.CartQuantity);
+            if (cartQuantity == 0)
+                quantity = unitQuantity;
+            else {
+                int unitFromItem = 1;
+                String unitFromInputData = ActiveSelectionData.getInstance().getItemValue(item.ItemCode, "UnitInCart");
+                if (unitFromInputData != null)
+                   unitFromItem = Integer.parseInt(unitFromInputData);
+                quantity = unitQuantity + cartQuantity * unitFromItem;
+            }
+        }
+        item.Quantity = Integer.toString(quantity);
     }
 
     private List<Item> getPricingOnly(String customerCode, String Cust_Key, List<com.promotions.models.Item> objectItems) {
@@ -288,30 +303,43 @@ public class PricingController {
             LogUtil.LOG.info("getPricing - after updateCustomerSelection " + LocalDate.now());
             LogUtil.LOG.info("getPricing - objectItems count=" + objectItems.size() + " "+ LocalDate.now());
             for (Item item : objectItems) {
-                LogUtil.LOG.info("itemCode" + item.ItemCode);
-                ActiveSelectionData.getInstance().UpdateItemTablesSelection(item.ItemCode);
-                ItemPricingData itemPricingData = new ItemPricingData(Cust_Key, item.ItemCode, parseFloat(item.UnitQuantity));
-                LogUtil.LOG.info("getPricing - loop before initPricing ItemCode=" + item.ItemCode + " "
-                        + LocalDate.now());
-                LogUtil.LOG.info("before initPricing");
-                itemPricingData.initPricing(true);
-                double PriceBruto = itemPricingData.getItemBasePrice();
-                double PriceNeto = itemPricingData.getItemNetoPrice();
-                double DiscountPercent = itemPricingData.getItemDiscountValue();
-                String UnitType = itemPricingData.getPriceUnitType();
-                double subTotalsPromotionDiscountValue = itemPricingData.getSubTotalsPromotionDiscountValue();
+                String pricingProcedure = PricingProceduresData.getInstance().getPricingProcedureName(Cust_Key);
+                buildQuantity(item);
+                com.promotions.models.ItemPricing cachedItemPricing = PricingProcessData.getInstance().GetItemWithPrice(pricingProcedure, item);
+                if (cachedItemPricing != null)
+                {
+                    item.Pricing = cachedItemPricing;
+                }
+                else {
+                    LogUtil.LOG.info("itemCode" + item.ItemCode);
+                    ActiveSelectionData.getInstance().UpdateItemTablesSelection(item.ItemCode);
+                    ItemPricingData itemPricingData = new ItemPricingData(pricingProcedure, item.ItemCode, parseFloat(item.Quantity));
+                    LogUtil.LOG.info("getPricing - loop before initPricing ItemCode=" + item.ItemCode + " "
+                            + LocalDate.now());
+                    LogUtil.LOG.info("before initPricing");
+                    itemPricingData.initPricing(true);
+                    double PriceBruto = itemPricingData.getItemBasePrice();
+                    double PriceNeto = itemPricingData.getItemNetoPrice();
+                    double DiscountPercent = itemPricingData.getItemDiscountValue();
+                    double TotalLine = itemPricingData.getTotalItemPriceNeto();
+                    String UnitType = itemPricingData.getPriceUnitType();
+                    double subTotalsPromotionDiscountValue = itemPricingData.getSubTotalsPromotionDiscountValue();
 
-                LogUtil.LOG.info("PriceBruto: " + PriceBruto + ", DiscountPercent:" + DiscountPercent + ", PriceNeto:" + PriceNeto + ", UnitType:" + DiscountPercent);
-                if (item.Pricing == null)
-                    item.Pricing = new ItemPricing();
-                item.Pricing.PriceBruto = PriceBruto;
-                item.Pricing.PriceNeto = PriceNeto;
-                item.Pricing.DiscountPercent = DiscountPercent;
-                item.Pricing.UnitType = UnitType;
-                item.Pricing.SubTotalsPromotionDiscountValue = subTotalsPromotionDiscountValue;
-                item.Pricing.PricingProcedure = itemPricingData.PricingProcedure;
-                item.Pricing.PricingData = itemPricingData;
+                    LogUtil.LOG.info("PriceBruto: " + PriceBruto + ", DiscountPercent:" + DiscountPercent + ", PriceNeto:" + PriceNeto + ", UnitType:" + DiscountPercent);
+                    if (item.Pricing == null)
+                        item.Pricing = new ItemPricing();
+                    item.Pricing.PriceBruto = PriceBruto;
+                    item.Pricing.PriceNeto = PriceNeto;
+                    item.Pricing.DiscountPercent = DiscountPercent;
+                    item.Pricing.UnitType = UnitType;
+                    item.Pricing.SubTotalsPromotionDiscountValue = subTotalsPromotionDiscountValue;
+                    item.Pricing.PricingProcedure = itemPricingData.PricingProcedure;
+                    item.Pricing.PricingData = itemPricingData;
 
+                    if (System.getenv("PRICING_CACHE").equalsIgnoreCase("true")) {
+                        PricingProcessData.getInstance().AddItemWithPrice(item);
+                    }
+                }
                 itemsWithPrice.add(item);
             }
 
@@ -358,12 +386,13 @@ public class PricingController {
                     item.Pricing.DiscountPercent = item.Pricing.PricingData.getItemDiscountValue();
                     item.Pricing.UnitType = item.Pricing.PricingData.getPriceUnitType();
                     item.Pricing.SubTotalsPromotionDiscountValue = item.Pricing.PricingData.getSubTotalsPromotionDiscountValue();
+                    item.Pricing.TotalLine = item.Pricing.PricingData.getTotalItemPriceNeto();
 
                     if (item.Promotion == null)
                         item.Promotion = new ItemPromotion();
                     item.Promotion.EspNumber =  itemPromotionData.getEspNumber();
+                    item.Promotion.PromotionDescription = itemPromotionData.getStepDetailDescription(); //itemPromotionData.getEspDescription();
                     item.Promotion.PartFromDeal =  itemPromotionData.isPartFromDeal();
-                    item.Promotion.StepDetailDescription = itemPromotionData.getStepDetailDescription();
                     item.Promotion.PromotionValue = itemPricingPromotionsData.getPromotionValue();
 
                 }

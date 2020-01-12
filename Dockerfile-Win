@@ -1,0 +1,18 @@
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:8-windowsservercore
+
+# Set the working directory to /app
+WORKDIR /usr/src/myapp
+
+# Copy the fat jar into the container at /app
+COPY /target/B2BPricing.jar /usr/src/myapp
+
+RUN mkdir /usr/src/myapp/db
+RUN mkdir /usr/src/myapp/logs
+
+
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
+
+# Run jar file when the container launches
+CMD ["java", "-jar", "B2BPricing.jar"]

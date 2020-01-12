@@ -1,0 +1,625 @@
+INFO2020-01-07 12:13:26 SELECT * FROM MTN_Mapping ORDER BY TableName
+INFO2020-01-07 12:13:26 SELECT * FROM MTN_Prc_ConditionTypes
+INFO2020-01-07 12:13:26 SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM Prc_Condtions_Access_T685 ORDER BY ConditionType ASC
+INFO2020-01-07 12:13:26 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-01-07 12:13:26 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-01-07 12:13:26 SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM Prc_AccSequence_T682I ORDER BY AccessSequence,Access ASC
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='K030' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=9 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z200' AND Access=5 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z200' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=70 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=75 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=80 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=28 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=29 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=31 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=32 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=33 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=34 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=35 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=36 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=37 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=38 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=39 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=42 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=43 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=44 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=45 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=47 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=48 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:26 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=49 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=53 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=54 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=55 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=56 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=57 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=58 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=59 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=63 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=65 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=67 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=68 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=69 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=70 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=72 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=73 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=74 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=75 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=76 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=77 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=78 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=79 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=80 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=85 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=86 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=88 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=90 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=92 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=94 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=96 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=12 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=41 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=42 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=43 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=44 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=47 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=51 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=53 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=54 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=56 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=57 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=61 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=63 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=67 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=1 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=3 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=4 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=5 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=4 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=22 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=24 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=26 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=28 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=32 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=34 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=36 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=38 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=51 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=53 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=54 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=56 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=57 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=58 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=59 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=61 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=65 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=67 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=83 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=84 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=85 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=86 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=87 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=88 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=89 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=90 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=91 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=92 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=93 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=95 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=96 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=97 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=98 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=4 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=5 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=7 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z260' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z280' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z280' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z280' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=7 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=9 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=47 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=48 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=49 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z295' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z295' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z295' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=1 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=7 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=9 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=11 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=13 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=15 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=19 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=22 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=24 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=26 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=28 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=32 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=41 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=42 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=44 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=48 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=59 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=68 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=70 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=72 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZC02' AND Access=16 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZC02' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:13:27 SELECT * FROM PricingProcedures_T683S ORDER BY 'Procedure',StepNumber ASC
+ERROR2020-01-07 12:13:27 SELECT distinct m.SelectedCharacteristics, ItemField FROM PromotionItemMapping m JOIN PromotionItems_zsdt_espmtr i ON m.SelectedCharacteristics=i.SelectedCharacteristics ORDER BY m.SelectedCharacteristics ASC
+ERROR2020-01-07 12:13:27 SELECT * FROM PromotionHeader_zsdt_esp WHERE StartDate <= 20200107 AND EndDate >= 20200107 ORDER BY ESPPriority ASC ,ESPNumber DESC
+INFO2020-01-07 12:13:27 PROVIDER=strauss
+INFO2020-01-07 12:14:08 SELECT * FROM MTN_Mapping ORDER BY TableName
+INFO2020-01-07 12:14:08 SELECT * FROM MTN_Prc_ConditionTypes
+INFO2020-01-07 12:14:08 SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM Prc_Condtions_Access_T685 ORDER BY ConditionType ASC
+INFO2020-01-07 12:14:08 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-01-07 12:14:08 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-01-07 12:14:08 SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM Prc_AccSequence_T682I ORDER BY AccessSequence,Access ASC
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='K030' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=9 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z200' AND Access=5 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z200' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z201' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=70 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=75 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z202' AND Access=80 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=28 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=29 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=31 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=32 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=33 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=34 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=35 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=36 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=37 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=38 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=39 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=42 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=43 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=44 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=45 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=47 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=48 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=49 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=53 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=54 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=55 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=56 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=57 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=58 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=59 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=63 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=65 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=67 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=68 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=69 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=70 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=72 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=73 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=74 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=75 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=76 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=77 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=78 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=79 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=80 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=85 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=86 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=88 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=90 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=92 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=94 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z210' AND Access=96 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=12 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=41 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=42 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=43 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=44 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=47 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=51 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=53 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=54 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=56 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=57 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=61 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=63 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z220' AND Access=67 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=1 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=3 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=4 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=5 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z225' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=4 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=22 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=24 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=26 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=28 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=32 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=34 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=36 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=38 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=51 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=53 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=54 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=56 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=57 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=58 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=59 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=61 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=65 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=67 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=83 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=84 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=85 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=86 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=87 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=88 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=89 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=90 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=91 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=92 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=93 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=95 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=96 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=97 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z251' AND Access=98 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=4 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=5 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=7 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z255' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z260' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z280' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z280' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z280' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=7 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=9 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=47 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=48 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=49 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z290' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z295' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z295' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z295' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=1 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=2 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=6 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=7 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=8 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=9 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=10 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=11 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=13 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=15 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=19 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=20 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=22 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=24 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=26 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=28 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=32 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=40 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=41 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=42 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=44 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=46 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=48 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=50 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=52 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=59 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=60 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=62 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=64 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=66 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=68 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=70 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='Z810' AND Access=72 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZC02' AND Access=16 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZC02' AND Access=30 AND DocField IS NOT NULL
+INFO2020-01-07 12:14:08 SELECT * FROM PricingProcedures_T683S ORDER BY 'Procedure',StepNumber ASC
+ERROR2020-01-07 12:14:08 SELECT distinct m.SelectedCharacteristics, ItemField FROM PromotionItemMapping m JOIN PromotionItems_zsdt_espmtr i ON m.SelectedCharacteristics=i.SelectedCharacteristics ORDER BY m.SelectedCharacteristics ASC
+ERROR2020-01-07 12:14:09 SELECT * FROM PromotionHeader_zsdt_esp WHERE StartDate <= 20200107 AND EndDate >= 20200107 ORDER BY ESPPriority ASC ,ESPNumber DESC
+INFO2020-01-07 12:14:09 PROVIDER=strauss
+INFO2020-01-07 12:16:28 customerCode:10000824,items: [{"ItemCode":"317876","UnitInCart":null,"CartQuantity":null,"UnitQuantity":"1","Quantity":null,"Values":null,"Pricing":null,"Promotion":null}]
+WARN2020-01-07 12:16:28 GetPricing - before getPricingWithPromotions2020-01-07
+ERROR2020-01-07 12:16:28 hasPromotions=true
+INFO2020-01-07 12:16:58 getPricingWithPromotions - before getPricing2020-01-07
+INFO2020-01-07 12:16:59 getPricing - before 2020-01-07
+INFO2020-01-07 12:16:59 getPricing - after updateSupplyDateSelection 2020-01-07
+INFO2020-01-07 12:17:00 SELECT *  FROM [dbo].[B2B_Pricing_Customers] WHERE Cust_Key='1100100010000824'
+INFO2020-01-07 12:17:02 SELECT *  FROM [dbo].[B2B_CustCategory] WHERE Cust_Key='1100100010000824'
+INFO2020-01-07 12:17:02 getPricing - after updateCustomerSelection 2020-01-07
+INFO2020-01-07 12:17:02 getPricing - objectItems count=1 2020-01-07
+INFO2020-01-07 12:17:02 itemCode317876
+INFO2020-01-07 12:17:03 SELECT *  FROM [dbo].[B2B_Pricing_Items] WHERE ItemID=317876
+INFO2020-01-07 12:17:03 getPricing - loop before initPricing ItemCode=317876 2020-01-07
+INFO2020-01-07 12:17:03 before initPricing
+INFO2020-01-07 12:17:06 pricing procedure name=Z20032
+INFO2020-01-07 12:17:06 stepNumber=105 ConditionType=Z203 access Sequence=Z200
+INFO2020-01-07 12:17:06 access=5
+INFO2020-01-07 12:17:06 SELECT * FROM A610 WHERE KSCHL='Z203' AND MATNR='317876' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=10
+INFO2020-01-07 12:17:06 SELECT * FROM A610 WHERE KSCHL='Z203' AND MATNR='317876' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 stepNumber=108 ConditionType=Z200 access Sequence=Z200
+INFO2020-01-07 12:17:06 access=5
+INFO2020-01-07 12:17:06 SELECT * FROM A610 WHERE KSCHL='Z200' AND MATNR='317876' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 stepNumber=110 ConditionType=Z201 access Sequence=Z201
+INFO2020-01-07 12:17:06 access=10
+INFO2020-01-07 12:17:06 SELECT * FROM A305 WHERE KSCHL='Z201' AND KUNNR='10000824' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=20
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A305 WHERE KSCHL='Z201' AND KUNNR='0' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=30
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A305 WHERE KSCHL='Z201' AND KUNNR='0' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=40
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A305 WHERE KSCHL='Z201' AND KUNNR='0' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=50
+INFO2020-01-07 12:17:06 SELECT * FROM A305 WHERE KSCHL='Z201' AND KUNNR='10000824' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=60
+INFO2020-01-07 12:17:06 SELECT * FROM A626 WHERE KSCHL='Z201' AND MATNR='317876' AND PLTYP='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 stepNumber=111 ConditionType=ZD00 access Sequence=ZD00
+INFO2020-01-07 12:17:06 stepNumber=190 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:06 stepNumber=191 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:06 stepNumber=200 ConditionType=Z210 access Sequence=Z210
+INFO2020-01-07 12:17:06 access=28
+INFO2020-01-07 12:17:06 SELECT * FROM A305 WHERE KSCHL='Z210' AND KUNNR='10000824' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 stepNumber=201 ConditionType=Z813 access Sequence=Z810
+INFO2020-01-07 12:17:06 access=1
+INFO2020-01-07 12:17:06 SELECT * FROM A667 WHERE KSCHL='Z810' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND ZZ_BUS_TYP1='290' AND ZZ_BUS_TYP2='130' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=2
+INFO2020-01-07 12:17:06 access=6
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A305 WHERE KSCHL='Z810' AND KUNNR='0' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=7
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102020203' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=8
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102020' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=9
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=10
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=11
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A618 WHERE KSCHL='Z810' AND KUNNR='0' AND SPART='40' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=13
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A619 WHERE KSCHL='Z810' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=15
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A307 WHERE KSCHL='Z810' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=19
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A305 WHERE KSCHL='Z810' AND KUNNR='0' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=20
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102020203' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=22
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102020' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=24
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=26
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=28
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A618 WHERE KSCHL='Z810' AND KUNNR='0' AND SPART='40' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=30
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A619 WHERE KSCHL='Z810' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=32
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A307 WHERE KSCHL='Z810' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=40
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A305 WHERE KSCHL='Z810' AND KUNNR='0' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=41
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102020203' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=42
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102020' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=44
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100102' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=46
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='0' AND PRODH='100' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=48
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A618 WHERE KSCHL='Z810' AND KUNNR='0' AND SPART='40' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=50
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A619 WHERE KSCHL='Z810' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=52
+INFO2020-01-07 12:17:06 bad pattern:SELECT * FROM A307 WHERE KSCHL='Z810' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=59
+INFO2020-01-07 12:17:06 SELECT * FROM A305 WHERE KSCHL='Z810' AND KUNNR='10000824' AND MATNR='317876' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=60
+INFO2020-01-07 12:17:06 SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='10000824' AND PRODH='100102020203' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:06 access=62
+INFO2020-01-07 12:17:07 SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='10000824' AND PRODH='100102020' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:07 access=64
+INFO2020-01-07 12:17:07 SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='10000824' AND PRODH='100102' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:07 access=66
+INFO2020-01-07 12:17:07 SELECT * FROM A622 WHERE KSCHL='Z810' AND KUNNR='10000824' AND PRODH='100' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:07 access=68
+INFO2020-01-07 12:17:07 SELECT * FROM A618 WHERE KSCHL='Z810' AND KUNNR='10000824' AND SPART='40' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:07 access=70
+INFO2020-01-07 12:17:07 SELECT * FROM A619 WHERE KSCHL='Z810' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:07 access=72
+INFO2020-01-07 12:17:07 SELECT * FROM A307 WHERE KSCHL='Z810' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:07 stepNumber=290 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:07 stepNumber=291 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:07 stepNumber=415 ConditionType=ZPVS access Sequence=ZPVS
+INFO2020-01-07 12:17:50 stepNumber=491 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:50 stepNumber=510 ConditionType=Z290 access Sequence=Z290
+INFO2020-01-07 12:17:50 access=6
+INFO2020-01-07 12:17:50 SELECT * FROM A619 WHERE KSCHL='Z290' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=7
+INFO2020-01-07 12:17:50 bad pattern:SELECT * FROM A619 WHERE KSCHL='Z290' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=8
+INFO2020-01-07 12:17:50 bad pattern:SELECT * FROM A619 WHERE KSCHL='Z290' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=9
+INFO2020-01-07 12:17:50 bad pattern:SELECT * FROM A619 WHERE KSCHL='Z290' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=10
+INFO2020-01-07 12:17:50 SELECT * FROM A619 WHERE KSCHL='Z290' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=46
+INFO2020-01-07 12:17:50 SELECT * FROM A307 WHERE KSCHL='Z290' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=47
+INFO2020-01-07 12:17:50 bad pattern:SELECT * FROM A307 WHERE KSCHL='Z290' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=48
+INFO2020-01-07 12:17:50 bad pattern:SELECT * FROM A307 WHERE KSCHL='Z290' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=49
+INFO2020-01-07 12:17:50 bad pattern:SELECT * FROM A307 WHERE KSCHL='Z290' AND KUNNR='0' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=50
+INFO2020-01-07 12:17:50 SELECT * FROM A307 WHERE KSCHL='Z290' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 stepNumber=590 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:50 stepNumber=591 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:50 stepNumber=600 ConditionType=Z295 access Sequence=Z295
+INFO2020-01-07 12:17:50 access=10
+INFO2020-01-07 12:17:50 SELECT * FROM A666 WHERE KSCHL='Z295' AND ZZ_DEPOSIT_TYPE='0' AND ZZ_TAXKD='1' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=20
+INFO2020-01-07 12:17:50 SELECT * FROM A610 WHERE KSCHL='Z295' AND MATNR='317876' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=30
+INFO2020-01-07 12:17:50 SELECT * FROM A610 WHERE KSCHL='Z295' AND MATNR='317876' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 stepNumber=690 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:50 stepNumber=694 ConditionType=null access Sequence=
+INFO2020-01-07 12:17:50 stepNumber=695 ConditionType=MWST access Sequence=MWST
+INFO2020-01-07 12:17:50 access=8
+INFO2020-01-07 12:17:50 access=9
+INFO2020-01-07 12:17:50 access=10
+INFO2020-01-07 12:17:50 SELECT * FROM A002 WHERE KSCHL='MWST' AND ALAND='IL' AND TAXK1='1' AND TAXM1='1' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 stepNumber=696 ConditionType=ZC02 access Sequence=ZC02
+INFO2020-01-07 12:17:50 access=16
+INFO2020-01-07 12:17:50 SELECT * FROM A622 WHERE KSCHL='ZC02' AND KUNNR='10000824' AND PRODH='100' AND VKORG='1100' AND VTWEG='10' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 access=30
+INFO2020-01-07 12:17:50 SELECT * FROM A619 WHERE KSCHL='ZC02' AND KUNNR='10000824' AND VKORG='1100' AND VTWEG='10' AND ZZ_OPRTN_CTG='200' AND '20200107' BETWEEN DATAB AND DATBI ORDER BY DATAB DESC
+INFO2020-01-07 12:17:50 PricingProcedure Z20032
+INFO2020-01-07 12:17:50 ConditionValue Z200 Result 0.71
+INFO2020-01-07 12:17:50 ConditionValue Z210 Result -10.0
+INFO2020-01-07 12:17:50 ConditionValue MWST Result 17.0
+INFO2020-01-07 12:17:51 PriceBruto: 0.71, DiscountPercent:10.0, PriceNeto:0.639, UnitType:10.0
+INFO2020-01-07 12:57:24 getPricingWithPromotions - after getPricing2020-01-07
+ERROR2020-01-07 12:58:00 SELECT ESPNumber FROM v_CustPromotions WHERE Cust_Key IN ('1100100010000824','0')

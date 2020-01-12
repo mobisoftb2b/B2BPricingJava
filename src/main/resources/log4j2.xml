@@ -43,8 +43,9 @@
     <Loggers>
         <Root level="INFO" additivity="false">
             <AppenderRef ref="Console"/>
-            <!--<AppenderRef ref="ERROR" level="error" />
-            <AppenderRef ref="INFO" level="info" />-->
+            <!--<AppenderRef ref="RollingFile"/>-->
+            <AppenderRef ref="ERROR" level="error" />
+            <!--<AppenderRef ref="INFO" level="info" />-->
         </Root>
     </Loggers>
 </Configuration>

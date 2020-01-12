@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+
 import com.mobisale.utils.SqlLiteUtil;
 
 public class ActiveSelectionData {
@@ -338,6 +340,7 @@ public class ActiveSelectionData {
                         fieldValue = fieldValue != null ? fieldValue.trim() : fieldValue;
                         itemsDataMap.put(fieldMapData.MTNFied, fieldValue);
                     }
+                    itemsDataMap.put("UnitInCart", rs.getString("UnitInCart"));
                 /*
                 itemsDataMap.put("ItemVatType",rs.getString("ItemVatType"));
                 if (System.getenv("PROVIDER").equalsIgnoreCase("tambour")) {
@@ -405,5 +408,18 @@ public class ActiveSelectionData {
     public String getValue(String key) {
         String selectedValue = activeSelectionMap.get(key);
         return selectedValue == null ? "0" : selectedValue;
+    }
+
+    public  String getItemValue(String ItemID, String key)
+    {
+        String returnValue = null;
+        HashMap<String, String> itemDataMap = itemsAllDataMap.get(ItemID);
+        if (itemDataMap != null)
+            returnValue = itemsAllDataMap.get(ItemID).get(key);
+        return  returnValue;
+    }
+
+    public Set<String> getAllItemCodes(){
+        return  itemsAllDataMap.keySet();
     }
 }

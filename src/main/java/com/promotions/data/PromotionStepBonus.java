@@ -16,16 +16,16 @@ public class PromotionStepBonus extends APromotionStep {
     public HashMap<String, PromotionBonusItem> PromotionBonusItems = new HashMap<>();
     private boolean needToOpenBonusPopup;
 
-    public PromotionStepBonus(String espNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double bonusPrice, double bonusDiscount, double priceBasedQty,
+    public PromotionStepBonus(String Cust_Key, String espNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double bonusPrice, double bonusDiscount, double priceBasedQty,
                               String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, String stepDescription) {
-        super(espNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, bonusPrice, bonusDiscount, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, bonusQuantity, bonusQuantityUOM, bonusMultipleQty, bonusMultQtyUOM, stepDescription);
+        super(Cust_Key, espNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, bonusPrice, bonusDiscount, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, bonusQuantity, bonusQuantityUOM, bonusMultipleQty, bonusMultQtyUOM, stepDescription);
     }
 
     public void setItems(int selectedCharacteristics, String materialCharValue, Set<String> possibleItems) {
         ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(selectedCharacteristics, materialCharValue, possibleItems);
         for (String itemCode : itemCodes) {
             try {
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(itemCode);
+                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance(m_CustKey).getOrderUIItem(itemCode);
                 if (itemPromotionData == null) continue;
                 PromotionBonusItem promotionItem = new PromotionBonusItem(itemCode, BonusPrice, BonusDiscount, Math.round(itemPromotionData.getUnitInKar()), BonusQuantityUOM);
 //                OrderDataManager.getInstance().getOrderUIItem(itemCode).setItemParticipateInDeal(true);
@@ -73,14 +73,15 @@ public class PromotionStepBonus extends APromotionStep {
     }
 
     public void resetPromotionDiscount() {
+        PromotionsDataManager promotionsDataManagerInstance = PromotionsDataManager.getInstance(m_CustKey);
         if (PromotionBonusItems.size() == 0) return;
         needToOpenBonusPopup = false;
         for (Map.Entry<String, PromotionBonusItem> stringPromotionBonusItemEntry : PromotionBonusItems.entrySet()) {
             PromotionBonusItem promotionBonusItem = stringPromotionBonusItemEntry.getValue();
             promotionBonusItem.resetQuantity();
-            ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(promotionBonusItem.ItemCode, 0);
+            ItemPromotionData itemPromotionData = promotionsDataManagerInstance.getOrderUIItem(promotionBonusItem.ItemCode);
             if (itemPromotionData != null) {
-                PromotionsDataManager.resetBonusData(ESPNumber);
+                promotionsDataManagerInstance.resetBonusData(ESPNumber);
             }
         }
     }
@@ -91,7 +92,8 @@ public class PromotionStepBonus extends APromotionStep {
         if (promotionHeader != null) {
             description = promotionHeader.ESPDescription;
         }
-        ItemPromotionData itemPromotionData = PromotionsDataManager.getOrderUIItem(promotionBonusItem.ItemCode, 0);
+        PromotionsDataManager promotionsDataManagerInstance = PromotionsDataManager.getInstance(m_CustKey);
+        ItemPromotionData itemPromotionData = promotionsDataManagerInstance.getOrderUIItem(promotionBonusItem.ItemCode);
         if (itemPromotionData != null) {
             double price = promotionBonusItem.getPromotionNetoPrice();
             double discount = promotionBonusItem.getPromotionNetoDiscount();
@@ -114,12 +116,12 @@ public class PromotionStepBonus extends APromotionStep {
                 updateTime = PromotionsDataManager.getPromotionUpdateTime(ESPNumber, promotionBonusItem.ItemCode);
             }
             if (total == 0) {
-                PromotionsDataManager.resetBonusData(ESPNumber);
+                promotionsDataManagerInstance.resetBonusData(ESPNumber);
             } else {
                 if (!BonusQuantityUOM.isEmpty() && BonusQuantityUOM.equalsIgnoreCase(ItemPromotionData.KARTON_UNIT)) {
-                    PromotionsDataManager.updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, 0, total, BonusQuantityUOM, discount, updateTime);
+                    promotionsDataManagerInstance.updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, 0, total, BonusQuantityUOM, discount, updateTime);
                 } else {
-                    PromotionsDataManager.updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, total, 0, BonusQuantityUOM, discount, updateTime);
+                    promotionsDataManagerInstance.updateBonusData(itemPromotionData.getItemCode(), ESPNumber, description, total, 0, BonusQuantityUOM, discount, updateTime);
                 }
             }
         }
@@ -150,11 +152,55 @@ public class PromotionStepBonus extends APromotionStep {
         return getTotalCalculatedBonusQuantity() != getCurrentTotalBonusQuantity();
     }
 
-    public String getStepDescription(int definitionMethod, String stepsBasedUOM) {
-        String remoteDescription = super.getStepDescription(definitionMethod, stepsBasedUOM);
-        if (remoteDescription != null) return remoteDescription;
+    //public String getStepDescription(int definitionMethod, String stepsBasedUOM) {
+    //String remoteDescription = super.getStepDescription(definitionMethod, stepsBasedUOM);
+    //    if (remoteDescription != null) return remoteDescription;
 
-        return "";
+    //    return "";
+    //}
+    @Override
+    public String getStepDescription(int definitionMethod, String stepsBasedUOM) {
+        String remoteDescription = super.getStepDescription1(definitionMethod, stepsBasedUOM);
+        if (remoteDescription != null && !remoteDescription.isEmpty()) return remoteDescription;
+        String description = "";
+        String buyBoxOrUnit = "";
+        String getBoxOrUnit = "";
+        String bonusQuantityBoxOrUnit = "";
+        String bonusMultiBoxOrUnit = "";
+        if (stepsBasedUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT)) {
+            buyBoxOrUnit = "יח\\'";
+        } else {
+            buyBoxOrUnit = "קר\\'";
+        }
+        if (PriceBQtyUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT)) {
+            getBoxOrUnit = "יח\\'";
+        } else {
+            getBoxOrUnit = "קר\\'";
+        }
+        if (BonusQuantityUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT)) {
+            bonusQuantityBoxOrUnit = "יח\\'";
+        } else {
+            bonusQuantityBoxOrUnit = "קר\\'";
+        }
+        if (BonusMultQtyUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT)) {
+            bonusMultiBoxOrUnit = "יח\\'";
+        } else {
+            bonusMultiBoxOrUnit = "קר\\'";
+        }
+
+        if (PromotionType == 4) {
+            description = String.format("%s %d %s%s %s %d %s %s %d %s %s %s %s %s %s%s %s",
+                    "קנה לפחות", Step, buyBoxOrUnit, ",", "על כל",
+                    BonusMultipleQty, bonusMultiBoxOrUnit, "קבל", BonusQuantity, bonusQuantityBoxOrUnit, "של",
+                    ""/*BonusProductName*/, "בונוס", "וגם", dfPercent.format(PromotionDiscount), "%", "הנחה");
+        } else if (PromotionType == 5) {
+            description = String.format("%s %d %s%s %s %d %s %s %d %s %s %s %s %s %s %s%s %s %s",
+                    "קנה לפחות", Step, buyBoxOrUnit, ",", "על כל",
+                    BonusMultipleQty, bonusMultiBoxOrUnit, "קבל", BonusQuantity, bonusQuantityBoxOrUnit, "של",
+                    ""/*BonusProductName*/, "בונוס", "וגם", "מחיר נטו של", "₪ ", dfPrice.format(PromotionPrice), "ל", getBoxOrUnit);
+        }
+
+        return description;
     }
 
     @Override

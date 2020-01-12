@@ -33,10 +33,10 @@ public class ItemPricingData {
     public static final String PC_UNIT = "PC";
     public static final String KARTON_UNIT = "KAR";
     public static final String KG_UNIT = "KG";
-    public final String Cust_Key;
+    public final String PricingProcedureName;
     public final String ItemID;
     public  String PricingProcedure = "";
-    private final ArrayList<ItemPricingLine> itemPricingLines = new ArrayList<ItemPricingLine>();
+    private ArrayList<ItemPricingLine> itemPricingLines = new ArrayList<ItemPricingLine>();
     private float Quantity = 0;
     private double TotalValue = 0;
     private double TotalValueUrounded = 0;
@@ -60,10 +60,47 @@ public class ItemPricingData {
     private boolean isResetPromotion = false;
     private boolean isRestoreManualPercentValueToOriginal = false;
 
+    private void copyItemPricingLines(ArrayList<ItemPricingLine> lines)
+    {
+        lineCounter = 0;
+        for(ItemPricingLine line : lines) {
+            ItemPricingLine itemPricingLine = new ItemPricingLine(lineCounter++, line.StepNumber, line.ConditionValue, line.FromStep, line.ToStep,
+                    line.ManualOnly, line.Requirement, line.Subtotal, line.Statistical, line.IsToResetPromotion,
+                    line.AltCondBaseValue, line.ConditionData);
+            itemPricingLines.add(itemPricingLine);
+        }
 
+    }
+    public ItemPricingData(ItemPricingData item)
+    {
+        PricingProcedureName = item.PricingProcedureName;
+        ItemID = item.ItemID;
+        PricingProcedure = item.PricingProcedure;
+        Quantity = item.Quantity;
+        TotalValue = item.TotalValue;
+        TotalValueUrounded = item.TotalValueUrounded;
+        TotalQuantityAndValue = item.TotalQuantityAndValue;
+        TotalStartValue = item.TotalStartValue;
+        TotalDiscountValue = item.TotalDiscountValue;
+        FreezeValue = item.FreezeValue;
+        MaamDiscountValue = item.MaamDiscountValue;
+        DepositValue = item.DepositValue;
+        DepositValueUnRounded = item.DepositValueUnRounded;
+        PromotionValue = item.PromotionValue;
+        OriginalPromotionValue = item.OriginalPromotionValue;
+        SubTotalsPromotionDiscountValue = item.SubTotalsPromotionDiscountValue;
+        isSubTotalsPromotion = item.isSubTotalsPromotion;
+        CreditValue = item.CreditValue;
+        UnitType = item.UnitType;
+        PriceUnit = item.PriceUnit;
+        isUpdateAgentDiscountManually = item.isUpdateAgentDiscountManually;
+        isResetPromotion = item.isResetPromotion;
+        isRestoreManualPercentValueToOriginal = item.isRestoreManualPercentValueToOriginal;
+        copyItemPricingLines(item.itemPricingLines);
+    }
 
-    public ItemPricingData(String cust_Key, String itemID, float quantity) {
-        Cust_Key = cust_Key;
+    public ItemPricingData(String pricingProcedureName, String itemID, float quantity) {
+        PricingProcedureName = pricingProcedureName;
         ItemID = itemID;
         Quantity = quantity;
     }
@@ -74,7 +111,7 @@ public class ItemPricingData {
         }
         clearPricing();
 
-        PricingProcedureListData pricingProcedureListData = PricingProceduresData.getInstance().getPricingProcedureData(Cust_Key);
+        PricingProcedureListData pricingProcedureListData = PricingProceduresData.getInstance().getPricingProcedureDataByProcedureName(PricingProcedureName);
         PricingProcedure = pricingProcedureListData.Procedure;
         if (pricingProcedureListData == null) {
             return;

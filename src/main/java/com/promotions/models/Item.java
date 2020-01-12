@@ -1,8 +1,9 @@
 package com.promotions.models;
 
 public class Item {
-    public String B2B_ItemID;
+    //public String B2B_ItemID;
     public String ItemCode;
+    /*
     public String FamilyCode;
     public String Barcode;
     public String ItemName;
@@ -11,10 +12,12 @@ public class Item {
     public String ItemProperty;
     public String Price;
     public String OldPrice;
+     */
     public String UnitInCart;
     public String CartQuantity;
     public String UnitQuantity;
-    public String VirtQuantity;
+    public String Quantity;
+    /*public String VirtQuantity;
     public String SortOrder;
     public String UnitsInPallet;
     public String ItemSale;
@@ -39,6 +42,8 @@ public class Item {
     public String UOM;
     public String UomName;
     public String LineStatusText;
+
+     */
     public ItemValues Values;
 
     public ItemPricing Pricing;

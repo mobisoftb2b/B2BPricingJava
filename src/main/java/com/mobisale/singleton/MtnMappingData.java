@@ -35,14 +35,15 @@ public class MtnMappingData {
     private MtnMappingData() {
     }
 
+    public void clearResources(){
+        mtnMappingData.clear();
+        sapToMtnData.clear();
+    }
     public void executeQuery() {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
         try {
-            mtnMappingData.clear();
-            sapToMtnData.clear();
-
             //if (sqlLiteUtil.IsSQlLite())
             //    conn = sqlLiteUtil.Connect();
             //else

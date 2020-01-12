@@ -19,3 +19,4 @@ public class Tables {
     public static String TABLE_CUSTOMERS_PRICING = "B2B_Pricing_Customers";
     public static String TABLE_CUSTCATEGORY = "B2B_CustCategory";
 }
+

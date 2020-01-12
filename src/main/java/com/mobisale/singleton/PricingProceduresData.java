@@ -86,6 +86,9 @@ public class PricingProceduresData {
         }
     }
 
+    public void clearResources(){
+        pricingProceduresMap.clear();
+    }
     public void executeQuery() {
         pricingProceduresMap.clear();
         ResultSet rs = null;
@@ -150,7 +153,7 @@ public class PricingProceduresData {
 
     }
 
-    private String getPricingProcedureName(String Cust_Key) {
+    private String getPricingProcedureNameFromSql(String Cust_Key) {
 
         String Procedure = "";
 
@@ -164,7 +167,7 @@ public class PricingProceduresData {
              conn = DbUtil.connect(conn);
             //String query = "SELECT " + PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE + " FROM [PricingDocProcedure_T683V]";
 
-
+            LogUtil.LOG.info("call B2B_Pricing_GetPricingProcedure for cust_key=" + Cust_Key);
             st = conn.prepareCall("{call B2B_Pricing_GetPricingProcedure(?)}");
             st.setString(1, Cust_Key);
             st.execute();
@@ -189,17 +192,26 @@ public class PricingProceduresData {
         return Procedure;
 
     }
-
-    public PricingProcedureListData getPricingProcedureData(String Cust_Key) {
+    public String getPricingProcedureName(String Cust_Key) {
         String procName = "";
         if (pricingProceduresCust.get(Cust_Key) == null) {
-            procName = getPricingProcedureName(Cust_Key);
+            procName = getPricingProcedureNameFromSql(Cust_Key);
             pricingProceduresCust.put(Cust_Key, procName);
         }
         else
             procName = pricingProceduresCust.get(Cust_Key);
         //LogUtil.LOG.info("pricing procedure name=" + procName);
         LogUtil.LOG.info("pricing procedure name=" + procName);
+        return procName;
+    }
+
+    public PricingProcedureListData getPricingProcedureData(String Cust_Key) {
+        String procName = getPricingProcedureName(Cust_Key);
+        LogUtil.LOG.info("getPricingProcedureData pricing procedure name=" + procName);
         return pricingProceduresMap.get(procName);
+    }
+
+    public PricingProcedureListData getPricingProcedureDataByProcedureName(String pricingProcedureName) {
+        return pricingProceduresMap.get(pricingProcedureName);
     }
 }

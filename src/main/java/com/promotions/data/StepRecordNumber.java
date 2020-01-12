@@ -20,12 +20,14 @@ public class StepRecordNumber {
     private HashMap<String, ArrayList<PromotionItem>> allPromotionItems = new HashMap<>();
     private APromotionStep activePromotionStep;
     private boolean isActivePromotionWasReset;
+    private String m_CustKey;
 
-    public StepRecordNumber(String espNumber, int recordNumber, int definitionMethod, String stepsBasedUOM) {
+    public StepRecordNumber(String cust_Key, String espNumber, int recordNumber, int definitionMethod, String stepsBasedUOM) {
         ESPNumber = espNumber;
         RecordNumber = recordNumber;
         DefinitionMethod = definitionMethod;
         StepsBasedUOM = stepsBasedUOM;
+        m_CustKey = cust_Key;
     }
 
     public boolean updateQuantity(String itemCode, float newQuantity, int definitionMethod, String StepsBasedUOM) {
@@ -168,7 +170,7 @@ public class StepRecordNumber {
             }
         }
         for (PromotionPopulationItem promotionPopulationItem : promotionPopulationItems) {
-            itemPromotionData.addAll(promotionPopulationItem.updateItemsPriceAndDiscount(itemsDataMap, isActivePromotionStep, IsBonus));
+            itemPromotionData.addAll(promotionPopulationItem.updateItemsPriceAndDiscount(m_CustKey, itemsDataMap, isActivePromotionStep, IsBonus));
         }
         return itemPromotionData;
     }

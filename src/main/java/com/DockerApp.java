@@ -16,6 +16,7 @@ import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,7 +67,7 @@ public class DockerApp {
 		newenv.put("DB_PASSWORD", "master2w");
 		newenv.put("PRICING_DB_SQLITE", "strauss_pricing.db");
 		newenv.put("PROMOTIONS_DB_SQLITE", "strauss_promotions.db");
-		//newenv.put("PRICING_DB_SQLITE", "noa_pricing.db");
+		//newenv.put("PRICING_DB_SQLITE", "pricing.db");
 		newenv.put("DB_DB", "Strauss_B2B"); //Noa_B2B
 		//newenv.put("DB_DB", "Noa_B2B"); //Noa_B2B
 		newenv.put("PROVIDER", "strauss");//noa
@@ -75,6 +76,7 @@ public class DockerApp {
 		newenv.put("HAS_PROMOTIONS", "true");//false
 		newenv.put("SQLITE", "true");
 		newenv.put("SQLITE_TABLET", "true");
+		newenv.put("PRICING_CACHE", "true");
 		setEnv(newenv);
 	}
 
@@ -107,37 +109,52 @@ public class DockerApp {
 		//LogUtil.LOG.error("Text file contennt"+ s);
 		SqlLiteUtil.Init();
 
+		MtnMappingData.getInstance().clearResources();
 		MtnMappingData.getInstance().executeQuery();
+
 		ConditionTypesData.getInstance().executeQuery();
+
+		ConditionsAccessData.getInstance().clearResources();
 		ConditionsAccessData.getInstance().executeQuery();
+
 		PricingExistsTablesData.getInstance().executeQuery();
+
+		PricingSequenceData.getInstance().clearResources();
 		PricingSequenceData.getInstance().executeQuery();
 		//if (System.getenv("PROVIDER").equalsIgnoreCase("strauss")
 		//		&& System.getenv("SQLITE").equalsIgnoreCase("true") && System.getenv("SQLITE_TABLET").equalsIgnoreCase("true")) {
 		//	PricingProceduresData.getInstance().updateSubtotalPricingProcedure();
 		//}
+
+		if (System.getenv("PRICING_CACHE").equalsIgnoreCase("true"))
+		{
+			PricingProcessData.getInstance().clearResources();
+		}
+
+		PricingProceduresData.getInstance().clearResources();
 		PricingProceduresData.getInstance().executeQuery();
 
 		if (System.getenv("HAS_PROMOTIONS").equalsIgnoreCase("true")) {
+			PromotionPopulationMapData.getInstance().clearResources();
 			PromotionPopulationMapData.getInstance().executeQuery();
-			PromotionsDataManager.startQuery();
+			PromotionsDataManager.initStaticResources();
 		}
 		if (System.getenv("PROVIDER").equalsIgnoreCase("noa") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
-			System.out.println("PROVIDER=noa");
+			LogUtil.LOG.info("PROVIDER=noa");
 			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
 				new SqlLiteUtil().ReadNoaPricingDB();
 			else
 				new SqlLiteUtil().ReadNoaTables();
 		}
 		if (System.getenv("PROVIDER").equalsIgnoreCase("strauss") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
-			System.out.println("PROVIDER=strauss");
+			LogUtil.LOG.info("PROVIDER=strauss");
 			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
 				new SqlLiteUtil().ReadStraussPricingDB();
 			else
 			    new SqlLiteUtil().ReadStraussTables();
 
 		}
-		LogUtil.LOG.error("init finished");
+		System.out.println("init finished");
 		//new SqlLiteUtil().TestCanConnect();
 		//
 	}

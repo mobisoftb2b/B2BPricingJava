@@ -31,11 +31,14 @@ public class ConditionsAccessData {
     private ConditionsAccessData() {
     }
 
+    public void clearResources(){
+        conditionsAccessMap.clear();
+    }
     public void executeQuery() {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
-        conditionsAccessMap.clear();
+
         try {
             if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
                 conn = sqlLiteUtil.Connect();
@@ -83,7 +86,7 @@ public class ConditionsAccessData {
             if (conditionsAccessMap.containsKey(conditionType))
                 accessSequence = conditionsAccessMap.get(conditionType).AccessSequence;
         } catch (Exception e) {
-            System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 122");
+            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 122");
         }
         return accessSequence == null ? "" : accessSequence;
     }
@@ -93,7 +96,7 @@ public class ConditionsAccessData {
         try {
             refCond = conditionsAccessMap.get(conditionType).RefCond;
         } catch (Exception e) {
-            System.out.println("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + "123");
+            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + "123");
         }
         return refCond == null ? conditionType : refCond;
     }
