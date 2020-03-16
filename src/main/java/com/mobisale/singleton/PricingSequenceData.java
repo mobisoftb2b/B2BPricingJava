@@ -366,8 +366,13 @@ public class PricingSequenceData {
                 String sapConstant = rs.getString(AccessSequenceData.SEQUENCE_SAP_CONSTANT);
                 String valueType = rs.getString(AccessSequenceData.SEQUENCE_VALUE_TYPE);
                 float value = rs.getFloat(AccessSequenceData.SEQUENCE_VALUE);
-                float discountFrom = rs.getFloat(AccessSequenceData.SEQUENCE_DISCOUNT_FROM);
-                float discountTo = rs.getFloat(AccessSequenceData.SEQUENCE_DISCOUNT_TO);
+                float discountFrom = 0;
+                float discountTo = 0;
+                try {
+                    discountFrom = rs.getFloat(AccessSequenceData.SEQUENCE_DISCOUNT_FROM);
+                    discountTo = rs.getFloat(AccessSequenceData.SEQUENCE_DISCOUNT_TO);
+                }
+                catch (Exception ex) {}
                 String creditTerms = "";
                 if (accessSequenceData.ConditionType == ItemPricingData.CONDITION_TYPE_CREDIT_TERMS) {
                     try {

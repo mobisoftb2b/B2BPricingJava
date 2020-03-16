@@ -20,6 +20,7 @@ public class ItemPromotionData {
     //
     private boolean partFromDeal;
     private String stepDetailDescription = "";
+    private int nextStepQuantity;
     private String espNumber = "";
     private String espDescription = "";
 
@@ -176,5 +177,10 @@ public class ItemPromotionData {
 
     public void setStepDetailDescription(String stepDetailDescription) {
         this.stepDetailDescription = stepDetailDescription;
+    }
+
+    public int getNextStepQuantity() { return nextStepQuantity;}
+    public void setNextStepQuantity(int nextStepQuantity) {
+        this.nextStepQuantity = nextStepQuantity;
     }
 }

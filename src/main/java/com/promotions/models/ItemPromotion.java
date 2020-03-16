@@ -5,4 +5,5 @@ public class ItemPromotion {
     public String EspNumber;
     public double PromotionValue;
     public String PromotionDescription;
+    public int NextStepQuantity;
 }

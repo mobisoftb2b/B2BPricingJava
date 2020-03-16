@@ -35,7 +35,7 @@ public class PromotionsDataManager {
     private String m_custKey;
 
     private static ArrayList<String> allItemsCode = new ArrayList<>();
-    private ArrayList<String> dealKeys;
+    private HashSet<String> dealKeys = new HashSet<>();
     private static TreeMap<String, PromotionHeader> dealsHeaderByDealKeyMap = new TreeMap<>();
     private static ArrayList<PromotionHeader> promotionHeaders = new ArrayList<>();
     private ArrayList<PromotionHeader> currentPromotionHeaders = new ArrayList<>();
@@ -139,17 +139,14 @@ public class PromotionsDataManager {
 
 
     public void queryForDealKeys(String customerKey) {
-        if (dealKeys != null) {
-            return;
-        }
-        else
-            dealKeys = new ArrayList<>();
+
+        dealKeys.clear();
         m_custKey = customerKey;
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
 
-        String rawQuery = "SELECT " + PromotionsContract.PromotionCustomers.PROMOTION_CUSTOMERS_ESP_NUMBER +
+        String rawQuery = "SELECT distinct " + PromotionsContract.PromotionCustomers.PROMOTION_CUSTOMERS_ESP_NUMBER +
                 " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_CUSTOMERS + " WHERE " + PromotionsContract.PromotionCustomers.PROMOTION_CUSTOMERS_CUST_KEY + " IN " + "(" + "'" + m_custKey + "'" + "," + "'0'" + ")";
         //SQLiteDatabase sqLiteDatabase = new PromotionsDatabase(MTNApplication.getContext()).getReadableDatabase();
         try {
@@ -334,8 +331,11 @@ public class PromotionsDataManager {
             }
             allWhereIn = allWhereIn.substring(0, allWhereIn.length()-3);
 
-            for (String dealKey : dealKeys) {
-            //for (PromotionHeader dealHeader : promotionHeaders) {
+            Iterator<String> i=dealKeys.iterator();
+            while(i.hasNext())
+            {
+                String dealKey = i.next();
+                //for (PromotionHeader dealHeader : promotionHeaders) {
                 PromotionHeader dealHeader = dealsHeaderByDealKeyMap.get(dealKey);
                 if (dealHeader == null)
                     return true;
@@ -346,7 +346,19 @@ public class PromotionsDataManager {
                 HashMap<Integer, StepRecordNumber> stepRecordNumberHashMap = new HashMap<Integer, StepRecordNumber>();
                 //String dealKey = dealHeader.ESPNumber;
                 //query for items
-                String rawQuery = "SELECT * FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS
+                String promotionsItemsColumns = PromotionsContract.PromotionItems.PROMOTION_ITEMS_ESP_NUMBER + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_RECORD_NUMBER + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_RECORD_SEQUENCE + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_INCLUDE_EXCLUDE_SIGN + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_SELECTED_CHARACTERISTICS + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_MIN_VAR_PROD + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_MIN_TOTAL_QTY + ", "  +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_MANDATORY + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_UOM_FOR_MIN_QTY + ", " +
+                                                PromotionsContract.PromotionItems.PROMOTION_ITEMS_MIN_TOTAL_VAL;
+                String rawQuery = "SELECT distinct " + promotionsItemsColumns
+                        + " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS
                         + " WHERE " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_ESP_NUMBER + "=" + "'" + dealKey + "'"
                         + " AND (" + allWhereIn + ") "
                         //+  " AND " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE + " IN (" + itemCodesSql + ")
@@ -407,8 +419,29 @@ public class PromotionsDataManager {
                     promotionPopulationItem.excludeIfNeeded(excludeItems);
                 }
 
-                //query for steps
-                rawQuery = "SELECT * FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_STEPS
+                String promotionStepsColumns = PromotionsContract.PromotionSteps.PROMOTION_STEPS_ESP_NUMBER + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_RECORD_NUMBER + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_STEP_ID + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_QTY_BASED_STEP + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_VAL_BASED_STEP + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_TYPE + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_DISCOUNT + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_PRICE_BASED_QTY + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_PRICE_BASED_QTY_UOM + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE + ", " +
+                        PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE_CURRENCY;
+
+                if (System.getenv("PROVIDER").equalsIgnoreCase("tambour")) {
+                    promotionStepsColumns += ", " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_DISCOUNT + ", " +
+                                             PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY + ", " +
+                                             PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY_UOM + ", " +
+                                             PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY + ", " +
+                                             PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY_UOM;
+                }
+                rawQuery = "SELECT distinct " + promotionStepsColumns
+
+                        + " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_STEPS
+
                         + " WHERE " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_ESP_NUMBER + "=" + "'" + dealKey + "'" + " ORDER BY " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_RECORD_NUMBER + " ASC";
                 LogUtil.LOG.error(rawQuery);
                 rs = st.executeQuery(rawQuery);
@@ -478,8 +511,6 @@ public class PromotionsDataManager {
                         }
                     }
 
-                    if (ESPNumber == "20140035" ||  ESPNumber == "20140028" || ESPNumber == "20140027" || ESPNumber == "20140142" || ESPNumber == "20140028" || ESPNumber == "20140021" || ESPNumber == "20136064")
-                        ESPNumber = ESPNumber;
 
                     if (PromotionType != 4 &&  PromotionType != 5) {
                         promotionStep = new PromotionStep(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, stepDescription);
@@ -982,6 +1013,7 @@ public class PromotionsDataManager {
                 ItemPromotionData itemPromotionData = getOrderUIItem(itemCode);
                 if (itemPromotionData != null) {
                     itemPromotionData.setStepDetailDescription(activePromotionHeader.getSelectedStepDetailDescription(itemCode));
+                    itemPromotionData.setNextStepQuantity(activePromotionHeader.getNextStepDiff(itemCode));
                 }
             }
             //observer.onDealsUpdate(itemCode, this, activePromotionHeader);

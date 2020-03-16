@@ -12,7 +12,20 @@ public class NumberUtil {
     private static DecimalFormat dfCommas = new DecimalFormat("#,###");
     private static DecimalFormat dfNoCommas = new DecimalFormat("###0.00");
 
+    public static double roundDouble(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
 
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+
+    public static String formatDouble2digits(double value){
+        roundDouble(value, 2);
+        String strDouble = String.format("%.2f", value);
+        return  strDouble;
+    }
     public static String formatNumber(Number number) {
         if (number == null) {
             return "";
@@ -64,10 +77,14 @@ public class NumberUtil {
 
     public static double roundDoublePrecisionByParameter(double unRounded, boolean needToRound) {
         unRounded = (Double.isNaN(unRounded) || Double.isInfinite(unRounded)) ? 0 : unRounded;
-        BigDecimal a = new BigDecimal(unRounded + "");
-        int round = 3;
-        a = a.setScale(round, RoundingMode.HALF_UP);
-        return a.doubleValue();
+        if (needToRound) {
+            BigDecimal a = new BigDecimal(unRounded + "");
+            int round = 3;
+            a = a.setScale(round, RoundingMode.HALF_UP);
+            return a.doubleValue();
+        }
+        else
+            return unRounded;
     }
 
     public static double roundDoublePrecision(double unRounded) {

@@ -1,7 +1,11 @@
 package com.mobisale.singleton;
 
+import com.mobisale.data.AccessSequenceData;
+import com.mobisale.data.ConditionReturnData;
+import com.mobisale.data.ItemPricingData;
 import com.mobisale.utils.DbUtil;
 import com.mobisale.utils.LogUtil;
+import com.mobisale.utils.SqlLiteUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,11 +13,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
+
 public class PricingExistsTablesData {
 
     private HashMap<String, Boolean> pricingExistsTablesMap = new HashMap<String, Boolean>();
     private static PricingExistsTablesData m_instance = null;
 
+    SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
     public static PricingExistsTablesData getInstance() {
         if (m_instance == null) {
@@ -28,6 +34,40 @@ public class PricingExistsTablesData {
 
     public void clearResources(){
         pricingExistsTablesMap.clear();
+    }
+
+    public void executeQuerySqlLite(){
+        if (sqlLiteUtil.IsSQlLite()) {
+            ResultSet rs = null;
+            Statement st = null;
+            Connection conn = null;
+            try {
+                if (sqlLiteUtil.IsSQlLite())
+                    conn = sqlLiteUtil.Connect();
+
+                String query = "SELECT  name  FROM  sqlite_master  WHERE  type ='table' AND name NOT LIKE 'sqlite_%'";
+
+                st = conn.createStatement();
+                LogUtil.LOG.info(query);
+                rs = st.executeQuery(query);
+
+                if (rs == null) {
+                    conn.close();
+                    return;
+                }
+                while (rs.next()) {
+                    String tableName = rs.getString(rs.findColumn("name"));
+                    pricingExistsTablesMap.put(tableName, true);
+                }
+            } catch (SQLException e) {
+
+                LogUtil.LOG.error("Error 1067 in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage());
+            } finally {
+                if (sqlLiteUtil.IsSQlLite())
+                    sqlLiteUtil.Disconnect(conn);
+            }
+
+        }
     }
     public void executeQuery()     {
         ResultSet rs = null;
@@ -53,7 +93,7 @@ public class PricingExistsTablesData {
                 pricingExistsTablesMap.put(tableName, true);
             }
         } catch (SQLException e) {
-            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 120");
+            LogUtil.LOG.error("Error 1068 in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:" + e.getMessage());
         } finally {
             DbUtil.CloseConnection(conn,rs,st);
         }

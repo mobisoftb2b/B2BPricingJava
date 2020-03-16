@@ -22,14 +22,14 @@ public class PromotionStep extends APromotionStep {
         String buyBoxOrUnit = "";
         String getBoxOrUnit = "";
         if (stepsBasedUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT)) {
-            buyBoxOrUnit = "יח\'";
+            buyBoxOrUnit = "יח";
         } else {
-            buyBoxOrUnit = "קר\'";
+            buyBoxOrUnit = "קר";
         }
         if (PriceBQtyUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT)) {
-            getBoxOrUnit = "יח\'";
+            getBoxOrUnit = "יח";
         } else {
-            getBoxOrUnit = "קר\'";
+            getBoxOrUnit = "קר";
         }
         if (definitionMethod == 1) {
             if (PromotionType == 2) {

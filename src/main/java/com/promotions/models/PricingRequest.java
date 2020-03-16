@@ -7,11 +7,15 @@ public class PricingRequest {
     private String customerCode;
     private List<Item> items;
     private String Cust_Key;
+    private Boolean showPriceLines;
 
     public PricingRequest() {
 
     }
 
+    public Boolean getShowPriceLines(){
+        return showPriceLines;
+    }
     public String getCustomerCode() {
         return customerCode;
     }

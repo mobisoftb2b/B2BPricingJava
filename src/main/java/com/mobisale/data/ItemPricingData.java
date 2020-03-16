@@ -1,6 +1,7 @@
 package com.mobisale.data;
 
 import com.mobisale.singleton.*;
+import com.mobisale.utils.Holder;
 import com.mobisale.utils.LogUtil;
 import com.mobisale.utils.NumberUtil;
 
@@ -30,6 +31,9 @@ public class ItemPricingData {
     public static final int CONDITION_AGENT_DISCOUNT = 130;
     public static final int CONDITION_DEPRECIATION_BROKEN = 140;
     public static final int CONDITION_CASH_PROACTIVE_DISCOUNT = 150;
+    public static final int CONDITION_FIXED_PRICE_STAT = 200;
+    public static final int CONDITION_FIXED_PRICE = 201;
+    public static final int CONDITION_BASKET_DISCOUNT = 210;
     public static final String PC_UNIT = "PC";
     public static final String KARTON_UNIT = "KAR";
     public static final String KG_UNIT = "KG";
@@ -222,12 +226,20 @@ public class ItemPricingData {
         return TotalStartValue;
     }
 
+    public double getItemTotalBasePrice(int quantity) {
+        return TotalStartValue * quantity;
+    }
+
     public double getItemNetoPrice() {
         return TotalValueUrounded;
     }
 
     public double getTotalItemPriceNeto() {
         return TotalQuantityAndValue;
+    }
+
+    public double RecalculateTotalLine(int quantity){
+        return TotalValueUrounded * quantity;
     }
 
     public double getItemDiscountValue() {
@@ -430,6 +442,18 @@ public class ItemPricingData {
         return pricingLines;
     }
 
+    public ArrayList<ItemPricingLine> getItemPricingLinesForShow(Holder<Boolean> hasFixedPrice) {
+        ArrayList<ItemPricingLine> pricingLines = new ArrayList<ItemPricingLine>();
+        for (ItemPricingLine itemPricingLine : itemPricingLines) {
+            if (itemPricingLine.ConditionReturnValue != 0) {
+                if (itemPricingLine.IsFixedPrice)
+                    hasFixedPrice.value = true;
+                pricingLines.add(itemPricingLine);
+            }
+        }
+        return pricingLines;
+    }
+
     private boolean isEmpty(String value) {
         return value == null || value.isEmpty();
     }
@@ -525,6 +549,7 @@ public class ItemPricingData {
         public final int FromStep;
         public final int ToStep;
         public final boolean ManualOnly;
+        public boolean IsFixedPrice;
         public final String Requirement;
         public final String Subtotal;
         public boolean Statistical;
@@ -536,6 +561,7 @@ public class ItemPricingData {
         public int ConditionReturnValueType;
         public final ConditionReturnData ConditionData;
         public double ConditionReturnCalculateValue;
+        public double ConditionReturnCalculateValueBasket;
         public double ConditionReturnCalculateValueUnrounded;
         public double TotalQuantityConditionReturnCalculateValue;
         public double ManualPercentValue = 0;
@@ -620,10 +646,127 @@ public class ItemPricingData {
                 case CONDITION_TYPE_DEPOSIT:
                     updateDepositDiscountPrice();
                     break;
+                case CONDITION_FIXED_PRICE_STAT:
+                    updateFixedPriceStat();
+                    break;
+                case CONDITION_FIXED_PRICE:
+                    updateFixedPrice();
+                    break;
+                case CONDITION_BASKET_DISCOUNT:
+                    updateBasketDiscount();
                 default:
                     updateStepPrice();
                     break;
             }
+        }
+
+        private void updateFixedPriceStat() {
+            if (ConditionData != null) {
+                IsFixedPrice = true;
+                ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, true);
+                ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, false);
+                TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnCalculateValueUnrounded * Quantity, true);
+                if (Statistical) {
+                    TotalValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
+                    TotalValueForLineUnrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded, false);
+                    TotalQuantityAndValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue, true);
+                } else {
+                    TotalValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalValue + ConditionReturnCalculateValue, false);
+                    TotalValueForLineUnrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded + ConditionReturnCalculateValueUnrounded, false);
+                    TotalQuantityAndValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue + TotalQuantityConditionReturnCalculateValue, true);
+                }
+            } else {
+                ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter((ConditionReturnValue / 100) * TotalValue, true);
+                ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter((ConditionReturnValue / 100) * TotalValue, false);
+                TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnCalculateValueUnrounded * Quantity, true);
+                TotalValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
+                TotalValueForLineUnrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded, false);
+                TotalQuantityAndValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue, true);
+            }
+            if (Statistical) {
+                StatisticalValue = NumberUtil.roundDoublePrecisionByParameter(TotalValueForLine, false);
+            } else if (ConditionData != null) {
+                TotalValue = NumberUtil.roundDoublePrecisionByParameter(TotalValue + ConditionReturnCalculateValue, false);
+                TotalValueUrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded + ConditionReturnCalculateValueUnrounded, false);
+                TotalQuantityAndValue = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue + TotalQuantityConditionReturnCalculateValue, true);
+            } else {
+                TotalValue = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
+                TotalValueUrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded, false);
+                TotalQuantityAndValue = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue, true);
+            }
+        }
+
+        private void updateFixedPrice() {
+            if (FromStep > 0) {
+                ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(0, true);
+                ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter(0, false);
+                TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnCalculateValueUnrounded * Quantity, true);
+                for (ItemPricingLine itemPricingLine : itemPricingLines) {
+                    if (itemPricingLine.StepNumber == FromStep) {
+                        IsFixedPrice = true;
+                        ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(itemPricingLine.ConditionReturnCalculateValue, true);
+                        ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter(itemPricingLine.ConditionReturnCalculateValueUnrounded, false);
+                        TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(itemPricingLine.TotalQuantityConditionReturnCalculateValue, true);
+                        break;
+                    }
+                }
+            }
+            ItemPricingLine fixedPriceStatLine = null;
+            for (ItemPricingLine itemPricingLine : itemPricingLines) {
+                ConditionTypesData.ConditionTypeData conditionTypeData = ConditionTypesData.getInstance().getConditionType(itemPricingLine.ConditionValue);
+                if (conditionTypeData != null) {
+                    if (conditionTypeData.ConditionType == CONDITION_FIXED_PRICE_STAT) {
+                        if (itemPricingLine.ConditionData != null) {
+                            fixedPriceStatLine = itemPricingLine;
+                        }
+                        break;
+                    }
+                }
+            }
+            if (fixedPriceStatLine != null) {
+                int altCondBaseValueAsInt = 0;
+                if (AltCondBaseValue != null) {
+                    try {
+                        altCondBaseValueAsInt = Integer.valueOf(AltCondBaseValue);
+                    } catch (Exception e) {
+                        LogUtil.LOG.error("This Will Be Printed On Error12");
+
+                    }
+                }
+                if (altCondBaseValueAsInt == 998) {
+                    for (ItemPricingLine itemPricingLine : itemPricingLines) {
+                        ConditionTypesData.ConditionTypeData conditionTypeData = ConditionTypesData.getInstance().getConditionType(itemPricingLine.ConditionValue);
+                        if (conditionTypeData != null) {
+                            if (conditionTypeData.ConditionType == CONDITION_OPENING_BRANCH_DISCOUNT) {
+                                IsFixedPrice = true;
+                                ConditionReturnValue = -(itemPricingLine.ConditionReturnCalculateValueUnrounded / ConditionReturnCalculateValueUnrounded) * 100;
+                                ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(itemPricingLine.ConditionReturnCalculateValue, true);
+                                ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter(itemPricingLine.ConditionReturnCalculateValueUnrounded, false);
+                                TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(itemPricingLine.TotalQuantityConditionReturnCalculateValue, true);
+
+                                TotalValueForLine = NumberUtil.roundDoublePrecisionByParameter(fixedPriceStatLine.ConditionReturnCalculateValue + ConditionReturnCalculateValue, false);
+                                TotalValueForLineUnrounded = NumberUtil.roundDoublePrecisionByParameter(fixedPriceStatLine.ConditionReturnCalculateValueUnrounded + ConditionReturnCalculateValueUnrounded, false);
+                                TotalQuantityAndValueForLine = NumberUtil.roundDoublePrecisionByParameter(fixedPriceStatLine.TotalQuantityConditionReturnCalculateValue + TotalQuantityConditionReturnCalculateValue, true);
+
+                                TotalValue = NumberUtil.roundDoublePrecisionByParameter(fixedPriceStatLine.ConditionReturnCalculateValue + ConditionReturnCalculateValue, false);
+                                TotalValueUrounded = NumberUtil.roundDoublePrecisionByParameter(fixedPriceStatLine.ConditionReturnCalculateValueUnrounded + ConditionReturnCalculateValueUnrounded, false);
+                                TotalQuantityAndValue = NumberUtil.roundDoublePrecisionByParameter(fixedPriceStatLine.TotalQuantityConditionReturnCalculateValue + TotalQuantityConditionReturnCalculateValue, true);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+            } else {
+                TotalValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
+                TotalValueForLineUnrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded, false);
+                TotalQuantityAndValueForLine = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue, true);
+
+                TotalValue = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
+                TotalValueUrounded = NumberUtil.roundDoublePrecisionByParameter(TotalValueUrounded, false);
+                TotalQuantityAndValue = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValue, true);
+            }
+
         }
 
         private void updateFreezePrice() {
@@ -710,6 +853,11 @@ public class ItemPricingData {
             }
         }
 
+        private void updateBasketDiscount(){
+            updateStepPrice();
+            ConditionReturnCalculateValueBasket = Math.abs(ConditionReturnValue);
+        }
+
         private void updateStepPrice() {
             if (ConditionData != null) {
                 if (ManualOnly) {
@@ -752,6 +900,8 @@ public class ItemPricingData {
                                 value = getSubTotal992();
                             } else if (altCondBaseValueAsInt == 997) {
                                 value = getSubTotal997();
+                            } else if (altCondBaseValueAsInt == 991) {
+                                value = getSubTotal999();
                             }
                             ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter((ConditionReturnValue / 100) * value, true);
                             ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter((ConditionReturnValue / 100) * value, false);

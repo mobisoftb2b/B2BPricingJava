@@ -156,39 +156,40 @@ public class PricingProceduresData {
     private String getPricingProcedureNameFromSql(String Cust_Key) {
 
         String Procedure = "";
+        if (System.getenv("PROVIDER").equalsIgnoreCase("strauss"))
+            Procedure = "Z20002";
+        else {
+            ResultSet rs = null;
+            CallableStatement st = null;
+            Connection conn = null;
+            try {
+                //if (sqlLiteUtil.IsSQlLite())
+                //   conn = sqlLiteUtil.Connect();
+                //else
+                conn = DbUtil.connect(conn);
+                //String query = "SELECT " + PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE + " FROM [PricingDocProcedure_T683V]";
 
-        ResultSet rs = null;
-        CallableStatement st = null;
-        Connection conn = null;
-        try {
-            //if (sqlLiteUtil.IsSQlLite())
-             //   conn = sqlLiteUtil.Connect();
-            //else
-             conn = DbUtil.connect(conn);
-            //String query = "SELECT " + PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE + " FROM [PricingDocProcedure_T683V]";
+                LogUtil.LOG.info("call B2B_Pricing_GetPricingProcedure for cust_key=" + Cust_Key);
+                st = conn.prepareCall("{call B2B_Pricing_GetPricingProcedure(?)}");
+                st.setString(1, Cust_Key);
+                st.execute();
+                rs = st.getResultSet();
 
-            LogUtil.LOG.info("call B2B_Pricing_GetPricingProcedure for cust_key=" + Cust_Key);
-            st = conn.prepareCall("{call B2B_Pricing_GetPricingProcedure(?)}");
-            st.setString(1, Cust_Key);
-            st.execute();
-            rs = st.getResultSet();
+                if (rs == null)
+                    return Procedure;
 
-            if (rs == null)
-                return Procedure;
+                rs.next();
+                Procedure = rs.getString(PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE);
 
-            rs.next();
-            Procedure = rs.getString(PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE);
-
+            } catch (SQLException e) {
+                LogUtil.LOG.error("Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + " 126");
+            } finally {
+                //if (sqlLiteUtil.IsSQlLite())
+                //   sqlLiteUtil.Disconnect(conn);
+                //else
+                DbUtil.CloseConnection(conn, rs, st);
+            }
         }
-        catch (SQLException e) {
-            LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 126");
-        } finally {
-            //if (sqlLiteUtil.IsSQlLite())
-             //   sqlLiteUtil.Disconnect(conn);
-            //else
-                DbUtil.CloseConnection(conn,rs,st);
-        }
-
         return Procedure;
 
     }

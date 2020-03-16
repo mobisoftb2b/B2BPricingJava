@@ -1,5 +1,6 @@
 package com;
 
+import com.controller.PricingController;
 import com.mobisale.singleton.*;
 import com.mobisale.utils.LogUtil;
 import com.mobisale.utils.SqlLiteUtil;
@@ -61,10 +62,10 @@ public class DockerApp {
 
 	protected static void SetDevEnv() throws Exception{
 		HashMap<String, String> newenv = new HashMap<String, String>();
-		newenv.put("DB_SERVER", "10.0.0.44\\MTNMSSQLSERVER");
+		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
 		newenv.put("DB_PORT", "1433");
 		newenv.put("DB_USER", "sa");
-		newenv.put("DB_PASSWORD", "master2w");
+		newenv.put("DB_PASSWORD", "Mobi1234");
 		newenv.put("PRICING_DB_SQLITE", "strauss_pricing.db");
 		newenv.put("PROMOTIONS_DB_SQLITE", "strauss_promotions.db");
 		//newenv.put("PRICING_DB_SQLITE", "pricing.db");
@@ -76,7 +77,7 @@ public class DockerApp {
 		newenv.put("HAS_PROMOTIONS", "true");//false
 		newenv.put("SQLITE", "true");
 		newenv.put("SQLITE_TABLET", "true");
-		newenv.put("PRICING_CACHE", "true");
+		newenv.put("PRICING_CACHE", "false");
 		setEnv(newenv);
 	}
 
@@ -99,6 +100,7 @@ public class DockerApp {
 
 	public static void main(String[] args) throws Exception {
 		//SetDevEnv();
+		LogUtil.LOG.info("Start app ***************");
 		SpringApplication app = new SpringApplication(DockerApp.class);
 		if (System.getenv("VERSION") == "DEV") {
 			//app.setDefaultProperties(Collections.singletonMap("server.port", "8800"));
@@ -118,6 +120,7 @@ public class DockerApp {
 		ConditionsAccessData.getInstance().executeQuery();
 
 		PricingExistsTablesData.getInstance().executeQuery();
+		PricingExistsTablesData.getInstance().executeQuerySqlLite();
 
 		PricingSequenceData.getInstance().clearResources();
 		PricingSequenceData.getInstance().executeQuery();
@@ -132,7 +135,8 @@ public class DockerApp {
 		}
 
 		PricingProceduresData.getInstance().clearResources();
-		PricingProceduresData.getInstance().executeQuery();
+		if (System.getenv("SQLITE").equalsIgnoreCase("true"))
+			PricingProceduresData.getInstance().executeQuery();
 
 		if (System.getenv("HAS_PROMOTIONS").equalsIgnoreCase("true")) {
 			PromotionPopulationMapData.getInstance().clearResources();
@@ -154,7 +158,15 @@ public class DockerApp {
 			    new SqlLiteUtil().ReadStraussTables();
 
 		}
-		System.out.println("init finished");
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("strauss") && System.getenv("SQLITE").equalsIgnoreCase("true") && System.getenv("PRICING_CACHE").equalsIgnoreCase("true")) {
+			PricingController controller = new PricingController();
+			LogUtil.LOG.info("Building cache ***********************");
+			controller.BuildPricingCacheAsync();
+		}
+
+		System.out.println("new version 060220");
+		LogUtil.LOG.info("Start end ***********************");
 		//new SqlLiteUtil().TestCanConnect();
 		//
 	}

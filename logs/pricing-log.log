@@ -1160,3 +1160,73 @@ Action:
 
 Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
 
+2020-01-22T13:04:15,777 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2020-01-27T12:36:06,737 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2020-01-28T17:23:31,624 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2020-01-30T12:45:46,706 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2020-01-30T16:58:14,555 ERROR [Sample][main|LoggingFailureAnalysisReporter] 42 report 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
