@@ -589,7 +589,8 @@ public class PricingController {
                     if (item.Promotion == null)
                         item.Promotion = new ItemPromotion();
                     item.Promotion.EspNumber =  itemPromotionData.getEspNumber();
-                    item.Promotion.PromotionDescription = itemPromotionData.getStepDetailDescription(); //itemPromotionData.getEspDescription();
+                    //item.Promotion.PromotionDescription = itemPromotionData.getStepDetailDescription(); //itemPromotionData.getEspDescription();
+                    item.Promotion.PromotionDescription = itemPromotionData.getStepDescription(); //itemPromotionData.getEspDescription();
                     item.Promotion.NextStepQuantity = itemPromotionData.getNextStepQuantity();
                     item.Promotion.PartFromDeal =  itemPromotionData.isPartFromDeal();
                     item.Promotion.PromotionValue = itemPricingPromotionsData.getPromotionValue();

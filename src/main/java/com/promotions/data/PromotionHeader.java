@@ -80,7 +80,7 @@ public class PromotionHeader {
         return itemsData;
     }
 
-    public ArrayList<String> getStepDescription(String itemCode) {
+    public ArrayList<String> getStepDescriptions(String itemCode) {
         return promotionStepManager.getStepDescription(itemCode);
     }
 

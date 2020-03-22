@@ -1012,6 +1012,7 @@ public class PromotionsDataManager {
                 activePromotionHeader.updateItemsPriceAndDiscount(getItemsDataMap());
                 ItemPromotionData itemPromotionData = getOrderUIItem(itemCode);
                 if (itemPromotionData != null) {
+                    itemPromotionData.setStepDescriptions(activePromotionHeader.getStepDescriptions(itemCode));
                     itemPromotionData.setStepDetailDescription(activePromotionHeader.getSelectedStepDetailDescription(itemCode));
                     itemPromotionData.setNextStepQuantity(activePromotionHeader.getNextStepDiff(itemCode));
                 }
@@ -1033,7 +1034,7 @@ public class PromotionsDataManager {
             }
         }
         if (activePromotionHeader != null) {
-            stepsDescription = activePromotionHeader.getStepDescription(itemCode);
+            stepsDescription = activePromotionHeader.getStepDescriptions(itemCode);
         }
         return stepsDescription;
     }
