@@ -2,6 +2,9 @@ package com.promotions.data;
 
 import com.promotions.models.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ItemPromotionData {
     public static final String KARTON_UNIT = "KAR";
     public static final String PC_UNIT = "PC";
@@ -20,6 +23,7 @@ public class ItemPromotionData {
     //
     private boolean partFromDeal;
     private String stepDetailDescription = "";
+    private ArrayList<String> stepDescriptions;
     private int nextStepQuantity;
     private String espNumber = "";
     private String espDescription = "";
@@ -28,6 +32,7 @@ public class ItemPromotionData {
     public ItemPromotionData(String itemCode) {
         this.itemCode = itemCode;
         itemPricingData = new ItemPricingPromotionsData();
+        stepDescriptions = new ArrayList<>();
     }
 
     public String getEspNumber() {
@@ -179,6 +184,24 @@ public class ItemPromotionData {
         this.stepDetailDescription = stepDetailDescription;
     }
 
+    public void setStepDescriptions(ArrayList<String> stepDescriptions)
+    {
+        this.stepDescriptions.clear();
+        this.stepDescriptions.addAll(stepDescriptions);
+    }
+
+    public String getStepDescription(){
+        String result = "";
+        int index = 0;
+        for(String stepDesc : stepDescriptions){
+            if (index == 0)
+                result += stepDesc;
+            else
+                result += "$" + stepDesc;
+            index++;
+        }
+        return  result;
+    }
     public int getNextStepQuantity() { return nextStepQuantity;}
     public void setNextStepQuantity(int nextStepQuantity) {
         this.nextStepQuantity = nextStepQuantity;
