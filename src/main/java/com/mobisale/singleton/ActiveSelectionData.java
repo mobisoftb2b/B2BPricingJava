@@ -322,7 +322,7 @@ public class ActiveSelectionData {
             Connection conn = null;
 
             String query = null;
-            query = "SELECT * " + " FROM " + Tables.GetFullTableName(tableName) + " WHERE ItemID=" + itemCode;
+            query = "SELECT * " + " FROM " + Tables.GetFullTableName(tableName) + " WHERE ItemCode='" + itemCode + "'";
 
             try {
                 conn = DbUtil.connect(conn);
@@ -334,7 +334,7 @@ public class ActiveSelectionData {
                 // execute the query, and get a java resultset
                 rs = st.executeQuery(query);
                 if (rs.next()) {
-                    itemsDataMap.put("ItemID", rs.getString("ItemID"));
+                    itemsDataMap.put("ItemID", rs.getString("ItemCode"));
                     for (MtnMappingData.FieldMapData fieldMapData : fieldMappingData) {
                         String fieldValue = rs.getString(fieldMapData.MTNFied);
                         fieldValue = fieldValue != null ? fieldValue.trim() : fieldValue;

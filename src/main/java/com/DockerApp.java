@@ -66,12 +66,16 @@ public class DockerApp {
 		newenv.put("DB_PORT", "1433");
 		newenv.put("DB_USER", "sa");
 		newenv.put("DB_PASSWORD", "Mobi1234");
-		newenv.put("PRICING_DB_SQLITE", "strauss_pricing.db");
-		newenv.put("PROMOTIONS_DB_SQLITE", "strauss_promotions.db");
+		//newenv.put("PRICING_DB_SQLITE", "strauss_pricing.db");
+		newenv.put("PRICING_DB_SQLITE", "hcohen_pricing.db");
+		//newenv.put("PROMOTIONS_DB_SQLITE", "strauss_promotions.db");
+		newenv.put("PROMOTIONS_DB_SQLITE", "hcohen_promotions.db");
 		//newenv.put("PRICING_DB_SQLITE", "pricing.db");
-		newenv.put("DB_DB", "Strauss_B2B"); //Noa_B2B
+		//newenv.put("DB_DB", "Strauss_B2B"); //Noa_B2B
+		newenv.put("DB_DB", "HCohen_B2B"); //Noa_B2B
 		//newenv.put("DB_DB", "Noa_B2B"); //Noa_B2B
-		newenv.put("PROVIDER", "strauss");//noa
+		//newenv.put("PROVIDER", "strauss");//noa
+		newenv.put("PROVIDER", "hcohen");//noa
 		//newenv.put("PROVIDER", "noa");
 		newenv.put("VERSION", "DEV");
 		newenv.put("HAS_PROMOTIONS", "true");//false
@@ -159,13 +163,20 @@ public class DockerApp {
 
 		}
 
-		if (System.getenv("PROVIDER").equalsIgnoreCase("strauss") && System.getenv("SQLITE").equalsIgnoreCase("true") && System.getenv("PRICING_CACHE").equalsIgnoreCase("true")) {
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("hcohen") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
+			LogUtil.LOG.info("PROVIDER=hcohen");
+			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
+				new SqlLiteUtil().ReadHCohenPricingDB();
+		}
+
+		if (System.getenv("SQLITE").equalsIgnoreCase("true") && System.getenv("PRICING_CACHE").equalsIgnoreCase("true")) {
 			PricingController controller = new PricingController();
 			LogUtil.LOG.info("Building cache ***********************");
 			controller.BuildPricingCacheAsync();
 		}
 
-		System.out.println("new version 060220");
+		System.out.println("new version 060420");
 		LogUtil.LOG.info("Start end ***********************");
 		//new SqlLiteUtil().TestCanConnect();
 		//

@@ -158,6 +158,9 @@ public class PricingProceduresData {
         String Procedure = "";
         if (System.getenv("PROVIDER").equalsIgnoreCase("strauss"))
             Procedure = "Z20002";
+        else
+        if (System.getenv("PROVIDER").equalsIgnoreCase("hcohen"))
+            Procedure = "Mobi";
         else {
             ResultSet rs = null;
             CallableStatement st = null;

@@ -439,6 +439,10 @@ public class SqlLiteUtil {
         selectPromotions();
     }
 
+    public void ReadHCohenPricingDB(){
+        selectAllTableValues("select * from A100", 5);
+    }
+
     public void ReadNoaPricingDB(){
         selectAllTableValues("select * from A100", 5);
     }

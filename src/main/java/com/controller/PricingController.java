@@ -66,6 +66,7 @@ public class PricingController {
 
     @RequestMapping(value = "/test2", method = RequestMethod.GET)
     public String test() {
+        System.out.println("called test2");
         return "2";
     }
 
@@ -557,7 +558,7 @@ public class PricingController {
                         item.Pricing.itemPricingLines = pricingLines;
                     item.Pricing.HasFixedPrice = hasFixedPrice.value;
 
-                    if (System.getenv("PROVIDER").equalsIgnoreCase("strauss")) {
+                    if (System.getenv("PROVIDER").equalsIgnoreCase("strauss") || System.getenv("PROVIDER").equalsIgnoreCase("hcohen")) {
                         item.Pricing.PriceBrutoUnit = item.Pricing.PricingData.getItemBasePrice();
                         //item.Pricing.PriceBrutoUnit = NumberUtil.roundDouble(item.Pricing.PricingData.getItemBasePrice(), 2);
                         item.Pricing.PriceBruto = item.Pricing.PricingData.getItemTotalBasePrice(itemQuantity);
