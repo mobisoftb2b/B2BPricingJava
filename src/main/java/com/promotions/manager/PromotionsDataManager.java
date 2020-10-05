@@ -11,7 +11,6 @@ import com.promotions.interfaecs.IOrderObserver;
 import com.mobisale.utils.DbUtil;
 import com.mobisale.utils.LogUtil;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -177,6 +176,45 @@ public class PromotionsDataManager {
         }
     }
 
+    public static ArrayList<String> GetPromotionItemsForESPNumber(String ESPNumber){
+
+        String rawQuery = "SELECT distinct " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE
+                + " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS + " where " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_ESP_NUMBER + "=" + ESPNumber;
+        ArrayList<String> ItemCodes = new ArrayList<>();
+        ResultSet rs = null;
+        Statement st = null;
+        Connection conn = null;
+        try {
+            if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
+                conn = sqlLiteUtil.ConnectPromotions();
+            else
+                conn = DbUtil.connect(conn);
+
+            st = conn.createStatement();
+            LogUtil.LOG.error(rawQuery);
+            rs = st.executeQuery(rawQuery);
+            if (rs == null) {
+                return ItemCodes;
+            }
+            int columnIndex = 0;
+            while (rs.next()) {
+                //
+                columnIndex = rs.findColumn(PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE);
+                String matCharValue = rs.getString(columnIndex);
+                ItemCodes.add(matCharValue);
+            }
+            return ItemCodes;
+        } catch (Exception e) {
+            LogUtil.LOG.error("error for query in promotion header array :"+e.getMessage());
+            return ItemCodes;
+        } finally {
+            if (sqlLiteUtil.IsSQlLite())
+                sqlLiteUtil.Disconnect(conn);
+            else
+                DbUtil.CloseConnection(conn,rs,st);
+        }
+    }
+
     private static void queryForDealHeader() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String supplyDate = sdf.format(Calendar.getInstance().getTimeInMillis());
@@ -283,7 +321,10 @@ public class PromotionsDataManager {
         currentPromotionHeaders.clear();
         itemsDataMap = itemsDataMapArg;
         ResultSet rs = null;
+        ResultSet rs2 = null;
+        ResultSet rs3 = null;
         Statement st = null;
+        Statement st2 = null;
         Connection conn = null;
         try {
             if (sqlLiteUtil.IsSQlLite() && sqlLiteUtil.IsSQLiteTablet())
@@ -292,6 +333,7 @@ public class PromotionsDataManager {
                 conn = DbUtil.connect(conn);
 
             st = conn.createStatement();
+            st2 = conn.createStatement();
             HashMap<String, String> itemCodesSql = new HashMap<>();
             if (itemsDataMap.size() == 0)
                 return true;
@@ -338,7 +380,7 @@ public class PromotionsDataManager {
                 //for (PromotionHeader dealHeader : promotionHeaders) {
                 PromotionHeader dealHeader = dealsHeaderByDealKeyMap.get(dealKey);
                 if (dealHeader == null)
-                    return true;
+                    continue;
                 dealHeader.promotionStepManager.ClearSteps();
                 int columnIndex;
                 ArrayList<String> excludeItems = new ArrayList<String>();
@@ -431,7 +473,7 @@ public class PromotionsDataManager {
                         PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE + ", " +
                         PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE_CURRENCY;
 
-                if (System.getenv("PROVIDER").equalsIgnoreCase("tambour")) {
+                if (System.getenv("HAS_BONUSES").equalsIgnoreCase("true")) {
                     promotionStepsColumns += ", " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_DISCOUNT + ", " +
                                              PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY + ", " +
                                              PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY_UOM + ", " +
@@ -444,76 +486,77 @@ public class PromotionsDataManager {
 
                         + " WHERE " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_ESP_NUMBER + "=" + "'" + dealKey + "'" + " ORDER BY " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_RECORD_NUMBER + " ASC";
                 LogUtil.LOG.error(rawQuery);
-                rs = st.executeQuery(rawQuery);
-                if (rs == null) {
+                rs2 = st.executeQuery(rawQuery);
+                if (rs2 == null) {
                     return true;
                 }
                 int rowcountSteps = 0;
-                while (rs.next()) {
+                while (rs2.next()) {
                     rowcountSteps++;
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_ESP_NUMBER);
-                    String ESPNumber = rs.getString(columnIndex);
+
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_ESP_NUMBER);
+                    String ESPNumber = rs2.getString(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_RECORD_NUMBER);
-                    int RecordNumber = rs.getInt(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_RECORD_NUMBER);
+                    int RecordNumber = rs2.getInt(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_STEP_ID);
-                    int Step = rs.getInt(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_STEP_ID);
+                    int Step = rs2.getInt(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_QTY_BASED_STEP);
-                    int QtyBasedStep = rs.getInt(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_QTY_BASED_STEP);
+                    int QtyBasedStep = rs2.getInt(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_VAL_BASED_STEP);
-                    int ValBasedStep = rs.getInt(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_VAL_BASED_STEP);
+                    int ValBasedStep = rs2.getInt(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_TYPE);
-                    int PromotionType = rs.getInt(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_TYPE);
+                    int PromotionType = rs2.getInt(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_DISCOUNT);
-                    double PromotionDiscount = rs.getDouble(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_DISCOUNT);
+                    double PromotionDiscount = rs2.getDouble(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PRICE_BASED_QTY);
-                    double PriceBasedQty = rs.getDouble(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PRICE_BASED_QTY);
+                    double PriceBasedQty = rs2.getDouble(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PRICE_BASED_QTY_UOM);
-                    String PriceBQtyUOM = rs.getString(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PRICE_BASED_QTY_UOM);
+                    String PriceBQtyUOM = rs2.getString(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE);
-                    double PromotionPrice = rs.getDouble(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE);
+                    double PromotionPrice = rs2.getDouble(columnIndex);
                     //
-                    columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE_CURRENCY);
-                    String PromotionPriceCurrency = rs.getString(columnIndex);
+                    columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_PROMOTION_PRICE_CURRENCY);
+                    String PromotionPriceCurrency = rs2.getString(columnIndex);
                     //
                     APromotionStep promotionStep = null;
                     String stepDescription = "";//rs.getString(PromotionsContract.PromotionSteps.PROMOTION_STEPS_STEP_DESCRIPTION);
-                    if (System.getenv("PROVIDER").equalsIgnoreCase("tambour")) {
-                        columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_DISCOUNT);
-                        double BonusDiscount = rs.getDouble(columnIndex);
+                    if (System.getenv("HAS_BONUSES").equalsIgnoreCase("true")) {
+                        columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_DISCOUNT);
+                        double BonusDiscount = rs2.getDouble(columnIndex);
                         //
 
-                        columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY);
-                        int BonusQuantity = rs.getInt(columnIndex);
+                        columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY);
+                        int BonusQuantity = rs2.getInt(columnIndex);
                         //
-                        columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY_UOM);
-                        String BonusQuantityUOM = rs.getString(columnIndex);
+                        columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY_UOM);
+                        String BonusQuantityUOM = rs2.getString(columnIndex);
                         //
-                        columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY);
-                        int BonusMultipleQty = rs.getInt(columnIndex);
+                        columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY);
+                        int BonusMultipleQty = rs2.getInt(columnIndex);
                         //
-                        columnIndex = rs.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY_UOM);
-                        String BonusMultQtyUOM = rs.getString(columnIndex);
+                        columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY_UOM);
+                        String BonusMultQtyUOM = rs2.getString(columnIndex);
                         //
                         double BonusPrice = 0;//rs.getFloat(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_PRICE);
                         if (PromotionType == 4 || PromotionType == 5) {
-                            promotionStep = new PromotionStepBonus(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, BonusPrice, BonusDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, BonusQuantity, BonusQuantityUOM, BonusMultipleQty, BonusMultQtyUOM, stepDescription);
+                            promotionStep = new PromotionStepBonus(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, BonusPrice, BonusDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, BonusQuantity, BonusQuantityUOM, BonusMultipleQty, BonusMultQtyUOM, null);
                         } else {
-                            promotionStep = new PromotionStep(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, stepDescription);
+                            promotionStep = new PromotionStep(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, null);
                         }
                     }
 
 
                     if (PromotionType != 4 &&  PromotionType != 5) {
-                        promotionStep = new PromotionStep(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, stepDescription);
+                        promotionStep = new PromotionStep(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, null);
                     }
 
                     //
@@ -534,36 +577,48 @@ public class PromotionsDataManager {
                     stepRecordNumberHashMap.put(RecordNumber, stepRecordNumber);
 
                     HashMap<Integer, PromotionPopulationItem> bonusPromotionItemHashMap = new HashMap<Integer, PromotionPopulationItem>();
+
                     if (promotionStep.isPromotionStepBonus()) {
 
                         //query for bonus items
                         rawQuery = "SELECT * FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS_BONUSES
                                 + " WHERE " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_ESP_NUMBER + "=" + "'" + dealKey + "'" + " AND " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_RECORD_NUMBER + "=" + "'" + RecordNumber + "'" + " AND " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_STEP + "=" + "'" + Step + "'" + " ORDER BY " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_RECORD_NUMBER + " ASC";
-                        //LogUtil.LOG.error(rawQuery);
-                        rs = st.executeQuery(rawQuery);
-                        if (rs == null) {
+                        LogUtil.LOG.error(rawQuery);
+                        rs3 = st2.executeQuery(rawQuery);
+                        if (rs3 == null) {
                             return true;
                         }
-                        while (rs.next()) {
-                            columnIndex = rs.findColumn(PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_INCLUDE_EXCLUDE_SIGN);
-                            String IncludeExcludeSign = rs.getString(columnIndex);
+                        while (rs3.next()) {
+                            columnIndex = rs3.findColumn(PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_INCLUDE_EXCLUDE_SIGN);
+                            String IncludeExcludeSign = rs3.getString(columnIndex);
                             //
-                            columnIndex = rs.findColumn(PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_SELECTED_CHARACTERISTICS);
-                            int SelectedCharacteristics = rs.getInt(columnIndex);
+                            columnIndex = rs3.findColumn(PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_SELECTED_CHARACTERISTICS);
+                            int SelectedCharacteristics = rs3.getInt(columnIndex);
                             //
-                            columnIndex = rs.findColumn(PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_MATERIAL_CHAR_VALUE);
-                            String MaterialCharValue = rs.getString(columnIndex);
+                            columnIndex = rs3.findColumn(PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_MATERIAL_CHAR_VALUE);
+                            String MaterialCharValue = rs3.getString(columnIndex);
                             //
                             if (IncludeExcludeSign != null && IncludeExcludeSign.equalsIgnoreCase("E")) {
                                 ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(SelectedCharacteristics, MaterialCharValue, itemsDataMapArg.keySet());
                                 excludeItems.addAll(itemCodes);
                             } else {
-                                ((PromotionStepBonus)promotionStep).setItems(SelectedCharacteristics, MaterialCharValue, itemsDataMapArg.keySet());
+                                //Marina - possibleItems are from buy items but materialCharItem is bonus item
+                                //add it anyway event if it's not in request buy list
+                                //comment following lines and pass itemsDataMapArg.keySet() if we want bonus item to be in request
+                                Set<String> itemsKeySetWithBonus = new HashSet<String>();
+                                for(String itemKey : itemsDataMapArg.keySet()){
+                                    itemsKeySetWithBonus.add(itemKey);
+                                }
+                                if (!itemsKeySetWithBonus.contains(MaterialCharValue))
+                                    itemsKeySetWithBonus.add(MaterialCharValue);
+                                ((PromotionStepBonus)promotionStep).setItems(SelectedCharacteristics, MaterialCharValue, itemsKeySetWithBonus);
                             }
                         }
                         ((PromotionStepBonus)promotionStep).excludeIfNeeded(excludeItems);
 
                     }
+
+
                 }
 
                 if (rowcountSteps == 0)
@@ -593,8 +648,10 @@ public class PromotionsDataManager {
         } finally {
             if (sqlLiteUtil.IsSQlLite())
                 sqlLiteUtil.Disconnect(conn);
-            else
-                DbUtil.CloseConnection(conn,rs,st);
+            else {
+                DbUtil.CloseConnection(conn, rs, st);
+                DbUtil.CloseConnection(conn,rs3,st2);
+            }
         }
         return  true;
     }
@@ -852,13 +909,13 @@ public class PromotionsDataManager {
             conn = DbUtil.connect(conn);
             st = conn.createStatement();
             String query;
-            if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
-                query = "SELECT " + columnName + " FROM " +  Tables.TABLE_ITEMS;
-            }
-            else
-            {
-                query = "SELECT " + columnName + " FROM " +  Tables.TABLE_ITEMS_PRICING;
-            }
+            //if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
+            //    query = "SELECT " + columnName + " FROM " +  Tables.TABLE_ITEMS;
+            //}
+            //else
+            //{
+            query = "SELECT " + columnName + " FROM " +  Tables.TABLE_ITEMS_PRICING;
+            //}
             rs = st.executeQuery(query);
             if (rs == null) {
                 return null;
@@ -888,8 +945,12 @@ public class PromotionsDataManager {
         Connection conn = null;
         String query;
         String itemIDquery = "";
+        String link = " AND ";
+        if (System.getenv("PROVIDER").equalsIgnoreCase("tambour"))
+            link = " OR ";
+
         if (possibleItemIDs != null && possibleItemIDs.size() > 0) {
-                itemIDquery = " AND " + ITEM_ID + " IN (";
+                itemIDquery = link + ITEM_ID + " IN (";
                 for (String itemID : possibleItemIDs
                 ) {
                     itemIDquery += "'" + itemID + "', ";
@@ -897,14 +958,14 @@ public class PromotionsDataManager {
                 }
                 itemIDquery = itemIDquery.substring(0, itemIDquery.length()-2) + ")";
         }
-        if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
-                query = "SELECT " + columnName + " FROM " + Tables.TABLE_ITEMS + " WHERE " + itemFieldCode + "=" + "'" + whereCode + "'" + itemIDquery;
-        }
-        else
-        {
-                query = "SELECT " + columnName + " FROM " + Tables.TABLE_ITEMS_PRICING + " WHERE " + itemFieldCode + "=" + "'" + whereCode + "'" + itemIDquery;
+        //if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
+        //        query = "SELECT " + columnName + " FROM " + Tables.TABLE_ITEMS + " WHERE " + itemFieldCode + "=" + "'" + whereCode + "'" + itemIDquery;
+       // }
+        //else
+        //{
+        query = "SELECT " + columnName + " FROM " + Tables.TABLE_ITEMS_PRICING + " WHERE " + itemFieldCode + "=" + "'" + whereCode + "'" + itemIDquery;
 
-        }
+        //}
         columnValues = itemsSqlQueryMap.get(query);
         if (columnValues == null) {
               try {
@@ -1022,8 +1083,8 @@ public class PromotionsDataManager {
 
     }
 
-    public ArrayList<String> getDealStepsDescription(String itemCode) {
-        ArrayList<String> stepsDescription = new ArrayList<String>();
+    public ArrayList<StepDescription> getDealStepsDescription(String itemCode) {
+        ArrayList<StepDescription> stepsDescription = new ArrayList<>();
         PromotionHeader activePromotionHeader = null;
         ArrayList<PromotionHeader> headers = getPromotionsHeader();
         for (PromotionHeader promotionHeader : headers) {
@@ -1236,8 +1297,22 @@ public class PromotionsDataManager {
     public void updateBonusData(String itemCode, String ESPNumber, String ESPDescription, int itemBonusPCQuantity, int itemBonusKARQuantity, String bonusQuantityUOM, double itemBonusPercent, long updateTime) {
         ItemBonusData itemBonusData = new ItemBonusData(itemCode, ESPNumber, ESPDescription, itemBonusPCQuantity, itemBonusKARQuantity, bonusQuantityUOM, itemBonusPercent, updateTime);
         ArrayList<ItemBonusData> bonusData = itemBonusDataMap.get(ESPNumber);
-        if (bonusData == null) bonusData = new ArrayList<>();
-        bonusData.add(itemBonusData);
+        if (bonusData == null) {
+            bonusData = new ArrayList<>();
+        }
+        Boolean foundPlus = false;
+        //if we have same bonus item twice for same ESP Number, add quantity but not to add it to bonus map twice
+        for(ItemBonusData iBonusData: bonusData)
+        {
+            if (iBonusData.ESPNumber == itemBonusData.ESPNumber && iBonusData.ItemCode == itemBonusData.ItemCode)
+            {
+                iBonusData.ItemBonusKARQuantity += itemBonusData.ItemBonusKARQuantity;
+                iBonusData.ItemBonusPCQuantity += itemBonusData.ItemBonusPCQuantity;
+                foundPlus = true;
+            }
+        }
+        if (!foundPlus)
+            bonusData.add(itemBonusData);
         itemBonusDataMap.put(ESPNumber, bonusData);
     }
 

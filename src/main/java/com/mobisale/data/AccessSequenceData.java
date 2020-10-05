@@ -17,7 +17,7 @@ public class AccessSequenceData {
     public static final String SEQUENCE_DISCOUNT_TO = "MXWRT";
     public static final String SEQUENCE_CREDIT_TERMS = "ZTERM";
     public static final String SEQUENCE_UNIT_TYPE = "KMEIN";
-    public static final String SEQUENCE_PRICE_UNIT = "PriceUnit";
+    public static final String SEQUENCE_PRICE_UNIT = "SaleUnit";
     public static final String SEQUENCE_DIVIDE_VALUE = "KPEIN";
     private final String SEQUENCE_DATE_FROM = "DATAB";
     private final String SEQUENCE_DATE_TO = "DATBI";

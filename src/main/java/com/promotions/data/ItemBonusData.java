@@ -1,6 +1,8 @@
 package com.promotions.data;
 
 
+import java.util.ArrayList;
+
 /**
  *  this object is for an item in each line in the Basket
  * @author yoav
@@ -12,8 +14,8 @@ public class ItemBonusData {
     public final String ItemCode;
     public final String ESPNumber;
     public final String ESPDescription;
-    public final int ItemBonusPCQuantity;
-    public final int ItemBonusKARQuantity;
+    public int ItemBonusPCQuantity;
+    public int ItemBonusKARQuantity;
     public final String BonusQuantityUOM;
     public final double ItemBonusPercent;
     public long UpdateTime;

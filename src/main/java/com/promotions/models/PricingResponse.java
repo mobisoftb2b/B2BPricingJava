@@ -10,7 +10,7 @@ public class PricingResponse {
 
     private String customerCode;
     private List<Item> items;
-    private HashMap<String, ArrayList<ItemBonusData>> bonusDataMap;
+    private List<ItemBonusData> bonusDataMap;
 
     public PricingResponse() {
 
@@ -36,11 +36,19 @@ public class PricingResponse {
         this.items = items;
     }
 
-    public HashMap<String, ArrayList<ItemBonusData>> getBonusDataMap() {
+    public List<ItemBonusData> getBonusDataMap() {
         return bonusDataMap;
     }
 
     public void setBonusDataMap(HashMap<String, ArrayList<ItemBonusData>> bonusDataMap) {
-        this.bonusDataMap = bonusDataMap;
+        if (this.bonusDataMap == null)
+            this.bonusDataMap = new ArrayList<>();
+        else
+            this.bonusDataMap.clear();
+        for(String espNumber: bonusDataMap.keySet()) {
+            ArrayList<ItemBonusData> bonusesForEspNumber = bonusDataMap.get(espNumber);
+            for(ItemBonusData bonusData: bonusesForEspNumber)
+                this.bonusDataMap.add(bonusData);
+        }
     }
 }

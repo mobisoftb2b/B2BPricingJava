@@ -8,6 +8,7 @@ public class Tables {
     public static String TABLE_PRICING_SEQUENCE = "Prc_AccSequence_T682I";
     public static String TABLE_PRICING_CONDITION = "Prc_ConditionFields_T682Z";
     public static String TABLE_PRICING_PROCEDURES = "PricingProcedures_T683S";
+    public static String TABLE_PRICING_PROCEDURES_B2B = "v_PricingProcedures_T683S_B2B";
     public static String TABLE_PRICING_CONDITION_TYPES = "MTN_Prc_ConditionTypes";
     public static String TABLE_PRICING_CONDITIONS_ACCESS = "Prc_Condtions_Access_T685";
     //public static String TABLE_PRICING_DOC_PROCEDURE = "[dbo].[PricingDocProcedure_T683V]";

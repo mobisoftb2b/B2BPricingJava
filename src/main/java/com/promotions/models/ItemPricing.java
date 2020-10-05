@@ -17,7 +17,7 @@ public class ItemPricing {
     public ItemPricingData PricingData;
     public String PricingProcedure;
     public String ItemCode;
-    public int Quantity;
+    public double Quantity;
     public ArrayList<ItemPricingData.ItemPricingLine> itemPricingLines;
     public Boolean HasFixedPrice;
     public String PricingCacheDate;

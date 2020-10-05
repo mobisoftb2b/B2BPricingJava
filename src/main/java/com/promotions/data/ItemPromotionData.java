@@ -14,7 +14,7 @@ public class ItemPromotionData {
     private int pcQuantity = 0;
     private int karQuantity = 0;
     private float kgQuantity = 0;
-    private String itemCode;
+    public String itemCode;
     private ItemPricingPromotionsData itemPricingData;
     private Item item;
     //
@@ -22,8 +22,8 @@ public class ItemPromotionData {
     private int uiIndex = 0;
     //
     private boolean partFromDeal;
-    private String stepDetailDescription = "";
-    private ArrayList<String> stepDescriptions;
+    private StepDescription stepDetailDescription = new StepDescription();
+    private ArrayList<StepDescription> stepDescriptions;
     private int nextStepQuantity;
     private String espNumber = "";
     private String espDescription = "";
@@ -176,32 +176,38 @@ public class ItemPromotionData {
         return itemBonusDataMap;
     }
 */
-    public String getStepDetailDescription() {
+    public StepDescription getStepDetailDescription() {
         return stepDetailDescription;
     }
 
-    public void setStepDetailDescription(String stepDetailDescription) {
+    public void setStepDetailDescription(StepDescription stepDetailDescription) {
         this.stepDetailDescription = stepDetailDescription;
     }
 
-    public void setStepDescriptions(ArrayList<String> stepDescriptions)
+    public void setStepDescriptions(ArrayList<StepDescription> stepDescriptions)
     {
         this.stepDescriptions.clear();
         this.stepDescriptions.addAll(stepDescriptions);
     }
 
-    public String getStepDescription(){
+    public String getStepDescriptionStr(){
         String result = "";
         int index = 0;
-        for(String stepDesc : stepDescriptions){
+        for(StepDescription stepDesc : stepDescriptions){
             if (index == 0)
-                result += stepDesc;
+                result += stepDesc.Description;
             else
-                result += "$" + stepDesc;
+                result += ";;" + stepDesc.Description;
             index++;
         }
         return  result;
     }
+
+    public ArrayList<StepDescription> getStepDescriptions(){
+        return  stepDescriptions;
+    }
+
+
     public int getNextStepQuantity() { return nextStepQuantity;}
     public void setNextStepQuantity(int nextStepQuantity) {
         this.nextStepQuantity = nextStepQuantity;

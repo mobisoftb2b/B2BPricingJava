@@ -9,6 +9,8 @@ public class PricingRequest {
     private String Cust_Key;
     private Boolean showPriceLines;
 
+    private String promotions_Cust_Key = "";
+
     public PricingRequest() {
 
     }
@@ -38,6 +40,14 @@ public class PricingRequest {
 
     public void setCust_Key(String Cust_Key) {
         this.Cust_Key = Cust_Key;
+    }
+
+    public String getpromotions_Cust_Key() {
+        return promotions_Cust_Key;
+    }
+
+    public void setpromotions_Cust_Key(String promotions_Cust_Key) {
+        this.promotions_Cust_Key = promotions_Cust_Key;
     }
 
 }

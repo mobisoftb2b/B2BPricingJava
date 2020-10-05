@@ -443,6 +443,26 @@ public class SqlLiteUtil {
         selectAllTableValues("select * from A100", 5);
     }
 
+    public void ReadTaameiAsiaPricingDB(){
+        selectAllTableValues("select * from A100", 5);
+    }
+
+    public void ReadLabenPricingDB(){
+        selectAllTableValues("select * from A100", 5);
+    }
+
+    public void ReadTambourPricingDB(){
+        selectAllTableValues("select * from A078", 5);
+    }
+
+    public void ReadMontePricingDB(){
+        selectAllTableValues("select * from A100", 5);
+    }
+
+    public void ReadCometPricingDB(){
+        selectAllTableValues("select * from A100", 5);
+    }
+
     public void ReadNoaPricingDB(){
         selectAllTableValues("select * from A100", 5);
     }

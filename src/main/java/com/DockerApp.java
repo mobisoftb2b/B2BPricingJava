@@ -62,26 +62,126 @@ public class DockerApp {
 
 	protected static void SetDevEnv() throws Exception{
 		HashMap<String, String> newenv = new HashMap<String, String>();
+
+		//comet
+		/*newenv.put("DB_SERVER", "10.0.0.5\\mobi2017");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "wiz");
+		newenv.put("PRICING_DB_SQLITE", "comet_pricing.db");
+		newenv.put("DB_DB", "Comet_B2B");
+		newenv.put("PROVIDER", "comet");
+		newenv.put("HAS_PROMOTIONS", "false");
+		newenv.put("HAS_BONUSES", "false");
+        */
+
+		//monte
+		/*newenv.put("DB_SERVER", "10.0.0.5\\mobi2017");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "wiz");
+		newenv.put("PRICING_DB_SQLITE", "monte_pricing.db");
+		newenv.put("DB_DB", "Montecchio_B2B");
+		newenv.put("PROVIDER", "montecchio");
+		newenv.put("HAS_PROMOTIONS", "false");
+		newenv.put("HAS_BONUSES", "false");
+        */
+        /*
+		//strauss
 		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
 		newenv.put("DB_PORT", "1433");
 		newenv.put("DB_USER", "sa");
 		newenv.put("DB_PASSWORD", "Mobi1234");
-		//newenv.put("PRICING_DB_SQLITE", "strauss_pricing.db");
+		newenv.put("PRICING_DB_SQLITE", "strauss_pricing.db");
+		newenv.put("PROMOTIONS_DB_SQLITE", "strauss_promotions.db");
+		newenv.put("DB_DB", "Strauss_B2B");
+		newenv.put("PROVIDER", "strauss");
+		newenv.put("HAS_PROMOTIONS", "true");
+		newenv.put("HAS_BONUSES", "false");
+		newenv.put("UNIT_CARTON", "true");
+		newenv.put("UNIT_CARTON", "false");
+        */
+
+
+        /*
+        //noa
+		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "Mobi1234");
+		newenv.put("PRICING_DB_SQLITE", "noa_pricing.db");
+		newenv.put("DB_DB", "Noa_B2B");
+		newenv.put("PROVIDER", "noa");
+		newenv.put("HAS_PROMOTIONS", "false");
+		newenv.put("HAS_BONUSES", "false");
+		newenv.put("UNIT_CARTON", "true");
+        */
+
+
+        /*
+		//hcohen
+		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "Mobi1234");
 		newenv.put("PRICING_DB_SQLITE", "hcohen_pricing.db");
-		//newenv.put("PROMOTIONS_DB_SQLITE", "strauss_promotions.db");
 		newenv.put("PROMOTIONS_DB_SQLITE", "hcohen_promotions.db");
-		//newenv.put("PRICING_DB_SQLITE", "pricing.db");
-		//newenv.put("DB_DB", "Strauss_B2B"); //Noa_B2B
-		newenv.put("DB_DB", "HCohen_B2B"); //Noa_B2B
-		//newenv.put("DB_DB", "Noa_B2B"); //Noa_B2B
-		//newenv.put("PROVIDER", "strauss");//noa
-		newenv.put("PROVIDER", "hcohen");//noa
-		//newenv.put("PROVIDER", "noa");
-		newenv.put("VERSION", "DEV");
+		newenv.put("DB_DB", "HCohen_B2B");
+		newenv.put("PROVIDER", "hcohen");
+		newenv.put("HAS_PROMOTIONS", "true");
+		newenv.put("HAS_BONUSES", "true");
+		newenv.put("UNIT_CARTON", "true");
+         */
+
+        /*
+        //tambour
+		newenv.put("DB_SERVER", "10.0.0.5\\mobi2019");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "wiz");
+		newenv.put("PRICING_DB_SQLITE", "tambour_pricing.db");
+		newenv.put("PROMOTIONS_DB_SQLITE", "tambour_promotions.db");
+		newenv.put("DB_DB", "Tambour_B2B");
+		newenv.put("PROVIDER", "tambour");//noa
 		newenv.put("HAS_PROMOTIONS", "true");//false
+		newenv.put("HAS_BONUSES", "true");//false
+         */
+
+		//taamei asia
+        /*
+		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "Mobi1234");
+		newenv.put("PRICING_DB_SQLITE", "taameiAsia_pricing.db");
+		newenv.put("DB_DB", "TaameiAsia_B2B");
+		newenv.put("PROVIDER", "taameiAsia");
+		newenv.put("HAS_PROMOTIONS", "false");
+		newenv.put("HAS_BONUSES", "false");
+		newenv.put("UNIT_CARTON", "true");
+         */
+
+
+
+		//laben
+
+		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
+		newenv.put("DB_PORT", "1433");
+		newenv.put("DB_USER", "sa");
+		newenv.put("DB_PASSWORD", "Mobi1234");
+		newenv.put("PRICING_DB_SQLITE", "laben_pricing.db");
+		newenv.put("DB_DB", "Laben_B2B");
+		newenv.put("PROVIDER", "laben");
+		newenv.put("HAS_PROMOTIONS", "false");
+		newenv.put("HAS_BONUSES", "false");
+		newenv.put("UNIT_CARTON", "true");
+
+
+
+		newenv.put("VERSION", "DEV");
 		newenv.put("SQLITE", "true");
 		newenv.put("SQLITE_TABLET", "true");
-		newenv.put("PRICING_CACHE", "false");
+		newenv.put("PRICING_CACHE", "true");
 		setEnv(newenv);
 	}
 
@@ -147,6 +247,8 @@ public class DockerApp {
 			PromotionPopulationMapData.getInstance().executeQuery();
 			PromotionsDataManager.initStaticResources();
 		}
+		System.out.println(System.getenv("PROVIDER"));
+		System.out.println(System.getenv("DB_DB"));
 		if (System.getenv("PROVIDER").equalsIgnoreCase("noa") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
 			LogUtil.LOG.info("PROVIDER=noa");
 			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
@@ -168,6 +270,36 @@ public class DockerApp {
 			LogUtil.LOG.info("PROVIDER=hcohen");
 			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
 				new SqlLiteUtil().ReadHCohenPricingDB();
+		}
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("taameiAsia") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
+			LogUtil.LOG.info("PROVIDER=taameiAsia");
+			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
+				new SqlLiteUtil().ReadTaameiAsiaPricingDB();
+		}
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("laben") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
+			LogUtil.LOG.info("PROVIDER=laben");
+			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
+				new SqlLiteUtil().ReadLabenPricingDB();
+		}
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("tambour") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
+			LogUtil.LOG.info("PROVIDER=tambour");
+			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
+				new SqlLiteUtil().ReadTambourPricingDB();
+		}
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("comet") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
+			LogUtil.LOG.info("PROVIDER=comet");
+			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
+				new SqlLiteUtil().ReadCometPricingDB();
+		}
+
+		if (System.getenv("PROVIDER").equalsIgnoreCase("montecchio") && System.getenv("SQLITE").equalsIgnoreCase("true")) {
+			LogUtil.LOG.info("PROVIDER=montecchio");
+			if (System.getenv("SQLITE_TABLET").equalsIgnoreCase("true"))
+				new SqlLiteUtil().ReadMontePricingDB();
 		}
 
 		if (System.getenv("SQLITE").equalsIgnoreCase("true") && System.getenv("PRICING_CACHE").equalsIgnoreCase("true")) {

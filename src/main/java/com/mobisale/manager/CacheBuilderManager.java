@@ -48,6 +48,24 @@ public class CacheBuilderManager {
         return customers;
     }
 
+    public void forceRepricingOrderSummary(){
+        CallableStatement st = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        try {
+            conn = DbUtil.connect(conn);
+            st = conn.prepareCall("{call sp_ForceRepricingOnDBChange}");
+            st.executeUpdate();
+        }
+        catch (Exception e) {
+            LogUtil.LOG.error("Error :"+e.getMessage());
+            // TODO: 2019-07-31 add log
+        }
+        finally {
+            DbUtil.CloseConnection(conn,rs,st);
+        }
+    }
+
     public ArrayList<ItemMigvan> getItemsForCache(CustomerCache cust){
         ResultSet rs = null;
         CallableStatement st = null;

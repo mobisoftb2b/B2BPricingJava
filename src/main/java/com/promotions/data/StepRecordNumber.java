@@ -175,8 +175,8 @@ public class StepRecordNumber {
         return itemPromotionData;
     }
 
-    public ArrayList<String> getStepDescription() {
-        ArrayList<String> stepsDescription = new ArrayList<String>();
+    public ArrayList<StepDescription> getStepDescription() {
+        ArrayList<StepDescription> stepsDescription = new ArrayList<StepDescription>();
         for (APromotionStep promotionStep : promotionStepTreeMap.values()) {
             stepsDescription.add(promotionStep.getStepDescription(DefinitionMethod, StepsBasedUOM));
         }
@@ -195,8 +195,8 @@ public class StepRecordNumber {
         return allPromotionItems.keySet();
     }
 
-    public String getSelectedStepDetailDescription() {
-        String description = "";
+    public StepDescription getSelectedStepDetailDescription() {
+        StepDescription description = null;
         if (activePromotionStep != null) {
             description = activePromotionStep.getStepDescription(DefinitionMethod, StepsBasedUOM);
         }

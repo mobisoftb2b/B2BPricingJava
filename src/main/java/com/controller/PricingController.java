@@ -86,6 +86,7 @@ public class PricingController {
         }
         return "";
     }
+
     @RequestMapping(value = "/ResetAll", method = RequestMethod.GET)
     @ResponseBody
     public String ResetAll() {
@@ -136,6 +137,77 @@ public class PricingController {
         }
         return "reset finished";
     }
+
+    @RequestMapping(value = "/ResetPricing", method = RequestMethod.GET)
+    @ResponseBody
+    public String ResetPricing() {
+
+        LogUtil.LOG.info("********************Reset pricing started*************");
+        resetDataLock.lock();
+        try {
+
+            ConditionTypesData.getInstance().clearResources();
+            ConditionTypesData.getInstance().executeQuery();
+
+            ConditionsAccessData.getInstance().clearResources();
+            ConditionsAccessData.getInstance().executeQuery();
+
+            PricingExistsTablesData.getInstance().clearResources();
+            PricingExistsTablesData.getInstance().executeQuery();
+            PricingExistsTablesData.getInstance().executeQuerySqlLite();
+
+            PricingSequenceData.getInstance().clearResources();
+            PricingSequenceData.getInstance().executeQuery();
+
+            PricingProceduresData.getInstance().clearResources();
+            PricingProceduresData.getInstance().executeQuery();
+
+            if (System.getenv("PRICING_CACHE").equalsIgnoreCase("true"))
+            {
+                PricingProcessData.getInstance().clearResources();
+            }
+
+            System.out.println("reset pricing finished");
+            LogUtil.LOG.info("********************Reset pricing finished*************");
+        }
+        catch (Exception e) {
+            LogUtil.LOG.info("********************Reset pricing error*************");
+            LogUtil.LOG.error(e);
+            e.printStackTrace();
+        }
+        finally {
+            resetDataLock.unlock();
+        }
+        return "reset finished";
+    }
+
+    @RequestMapping(value = "/ResetPromotions", method = RequestMethod.GET)
+    @ResponseBody
+    public String ResetPromotions() {
+
+        LogUtil.LOG.info("********************Reset promotions started*************");
+        resetDataLock.lock();
+        try {
+
+            if (System.getenv("HAS_PROMOTIONS").equalsIgnoreCase("true")) {
+                PromotionPopulationMapData.getInstance().clearResources();
+                PromotionPopulationMapData.getInstance().executeQuery();
+                PromotionsDataManager.initStaticResources();
+            }
+
+            LogUtil.LOG.info("********************Reset promotions finished*************");
+        }
+        catch (Exception e) {
+            LogUtil.LOG.info("********************Reset promotions error*************");
+            LogUtil.LOG.error(e);
+            e.printStackTrace();
+        }
+        finally {
+            resetDataLock.unlock();
+        }
+        return "reset promotions finished";
+    }
+
     @RequestMapping(value = "/BuildPricingCacheAsync", method = RequestMethod.GET)
     @ResponseBody
     public String BuildPricingCacheAsync(){
@@ -144,6 +216,31 @@ public class PricingController {
         }).start();
         return "pricing started";
     }
+
+    @RequestMapping(value = "/GetPromotionItems", method = RequestMethod.POST)
+    @ResponseBody
+    public String GetPromotionItems(@RequestBody String req){
+        try{
+            LogUtil.LOG.info("********************BuildPricingCacheForUserAsync started*************");
+            ESPNumberItemsRequest jsonReq = new ObjectMapper().readValue(req, ESPNumberItemsRequest.class);
+            System.out.println(jsonReq);
+
+            ArrayList<String> items = PromotionsDataManager.GetPromotionItemsForESPNumber(jsonReq.ESPNumber);
+            System.out.println(items);
+            ObjectMapper mapper = new ObjectMapper();
+            String jsonResult = mapper.writeValueAsString(items);
+            return jsonResult;
+
+            //return  "OK";
+        }
+        catch (Exception e) {
+            LogUtil.LOG.error(e);
+            e.printStackTrace();
+            return e.getMessage();
+        }
+
+    }
+
 
     @RequestMapping(value = "/BuildPricingCacheForUserAsync", method = RequestMethod.POST)
     @ResponseBody
@@ -239,6 +336,7 @@ public class PricingController {
         LogUtil.LOG.info("********************BuildCacheForOneCustomer " + cust.Cust_Key + " finished*************");
         //return cust;
     }
+
     @RequestMapping(value = "/BuildPricingCache", method = RequestMethod.GET)
     @ResponseBody
     public List<CustomerCache> BuildPricingCache(){
@@ -247,12 +345,37 @@ public class PricingController {
             //String customerCode = "10091257";
             //String Cust_Key = "1100100010091257";
             CacheBuilderManager cacheBuilderManager = new CacheBuilderManager();
+            cacheBuilderManager.forceRepricingOrderSummary();
             ArrayList<CustomerCache> customersCache = cacheBuilderManager.getCustomersForCache();
             for(int j = 0; j < customersCache.size(); j++) {
                 CustomerCache cust = customersCache.get(j);
                 BuildCacheForOneCustomer(cust);
             }
-            LogUtil.LOG.info("********************BuildPricingCache started*************");
+            LogUtil.LOG.info("********************BuildPricingCache ended************");
+            return  customersCache;
+        }
+        catch (Exception e) {
+            LogUtil.LOG.error(e);
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @RequestMapping(value = "/ReBuildPricingCache", method = RequestMethod.GET)
+    @ResponseBody
+    public List<CustomerCache> ReBuildPricingCache(){
+        try {
+            LogUtil.LOG.info("********************ReBuildPricingCache started*************");
+            //String customerCode = "10091257";
+            //String Cust_Key = "1100100010091257";
+            CacheBuilderManager cacheBuilderManager = new CacheBuilderManager();
+            cacheBuilderManager.forceRepricingOrderSummary();
+            ArrayList<CustomerCache> customersCache = cacheBuilderManager.getCustomersForCache();
+            for(int j = 0; j < customersCache.size(); j++) {
+                CustomerCache cust = customersCache.get(j);
+                BuildCacheForOneCustomer(cust);
+            }
+            LogUtil.LOG.info("********************ReBuildPricingCache ended*************");
             return  customersCache;
         }
         catch (Exception e) {
@@ -270,6 +393,8 @@ public class PricingController {
 
             LogUtil.LOG.error("Pricing request" + req);
             PricingRequest jsonReq = new ObjectMapper().readValue(req, PricingRequest.class);
+            if (jsonReq.getpromotions_Cust_Key() == "")
+                jsonReq.setpromotions_Cust_Key(jsonReq.getCust_Key());
             LogUtil.LOG.info("customerCode:" + jsonReq.getCustomerCode()+",items: "+ new ObjectMapper().writeValueAsString(jsonReq.getItems()));
             LogUtil.LOG.warn("GetPricing - before getPricingWithPromotions" + LocalDate.now());
             Boolean hasPromotions = false;
@@ -277,9 +402,9 @@ public class PricingController {
                 hasPromotions = System.getenv("HAS_PROMOTIONS").equals("true");
             LogUtil.LOG.error("hasPromotions=" + hasPromotions.toString());
             if (hasPromotions)
-                return getPricingWithPromotions(jsonReq.getCustomerCode(),jsonReq.getCust_Key(),jsonReq.getItems(), jsonReq.getShowPriceLines());
+                return getPricingWithPromotions(jsonReq.getCustomerCode(),jsonReq.getCust_Key(),jsonReq.getItems(), jsonReq.getShowPriceLines(), jsonReq.getpromotions_Cust_Key());
             else
-                return getPricingNoPromotions(jsonReq.getCustomerCode(),jsonReq.getCust_Key(),jsonReq.getItems());
+                return getPricingNoPromotions(jsonReq.getCustomerCode(),jsonReq.getCust_Key(),jsonReq.getItems(), jsonReq.getShowPriceLines());
         }
         catch (Exception e) {
             LogUtil.LOG.error(e);
@@ -288,7 +413,7 @@ public class PricingController {
         return "";
     }
 
-    private String getPricingNoPromotions(String customerCode, String Cust_Key, List<com.promotions.models.Item> objectItems) {
+    private String getPricingNoPromotions(String customerCode, String Cust_Key, List<com.promotions.models.Item> objectItems, Boolean showPriceLines) {
         String jsonResult = "";
         ObjectMapper mapper = new ObjectMapper();
 
@@ -297,8 +422,10 @@ public class PricingController {
             List<Item> itemsDataMap = getPricingOnly(customerCode, Cust_Key, objectItems);
             LogUtil.LOG.info("getPricingNoPromotions - after getPricing" + LocalDate.now());
 
+            List<Item> itemsWithPrice = getPricingAfterNoPromotions(customerCode, Cust_Key, itemsDataMap,  showPriceLines);
+
             PricingResponse resp = new PricingResponse();
-            resp.setItems(itemsDataMap);
+            resp.setItems(itemsWithPrice);
             resp.setCustomerCode(customerCode);
             jsonResult = mapper.writeValueAsString(resp);
         } catch (Exception e) {
@@ -308,7 +435,7 @@ public class PricingController {
         return jsonResult;
     }
 
-    private String getPricingWithPromotions(String customerCode, String Cust_Key, List<com.promotions.models.Item> objectItems, Boolean showPriceLines) {
+    private String getPricingWithPromotions(String customerCode, String Cust_Key, List<com.promotions.models.Item> objectItems, Boolean showPriceLines, String promotions_Cust_Key) {
         String jsonResult = "";
         ObjectMapper mapper = new ObjectMapper();
 
@@ -317,7 +444,7 @@ public class PricingController {
             List<Item> objectItemsWithPrice = getPricingOnly(customerCode, Cust_Key, objectItems);
             HashMap<String, ItemPromotionData> itemsDataMap = getItemsPromotionData(customerCode, Cust_Key, objectItemsWithPrice);
             LogUtil.LOG.info("getPricingWithPromotions - after getPricing" + LocalDate.now());
-            itemsDataMap = getPromotions(Cust_Key, itemsDataMap);
+            itemsDataMap = getPromotions(promotions_Cust_Key, itemsDataMap);
             LogUtil.LOG.info("getPricingWithPromotions - after getPromotions" + LocalDate.now());
             List<Item> itemsWithPrice = getPricingAfterPromotions(customerCode, Cust_Key, objectItemsWithPrice, itemsDataMap, showPriceLines);
             LogUtil.LOG.info("getPricingWithPromotions - after getPricingAfterPromotions" + LocalDate.now());
@@ -416,30 +543,31 @@ public class PricingController {
 
     private void buildQuantity(com.promotions.models.Item item)
     {
-        int quantity = 0;
+        double quantity = 0;
+        String unitFromInputData = ActiveSelectionData.getInstance().getItemValue(item.ItemCode, "UnitInCart");
+        if (unitFromInputData != null)
+            item.UnitInCart = unitFromInputData;
         if (item.Quantity == null || item.Quantity == "") {
-            int unitQuantity = 0;
-            int cartQuantity = 0;
+            double unitQuantity = 0;
+            double cartQuantity = 0;
             if (item.UnitQuantity != null && item.UnitQuantity != "")
-                unitQuantity = Integer.parseInt(item.UnitQuantity);
+                unitQuantity = Double.parseDouble(item.UnitQuantity);
             else
                 item.UnitQuantity = "0";
             if (item.CartQuantity != null && item.CartQuantity != "")
-                cartQuantity = Integer.parseInt(item.CartQuantity);
+                cartQuantity = Double.parseDouble(item.CartQuantity);
             else
                 item.CartQuantity = "0";
             if (cartQuantity == 0)
                 quantity = unitQuantity;
             else {
                 int unitFromItem = 1;
-                String unitFromInputData = ActiveSelectionData.getInstance().getItemValue(item.ItemCode, "UnitInCart");
-                if (unitFromInputData != null)
-                   unitFromItem = Integer.parseInt(unitFromInputData);
-                item.UnitInCart = unitFromInputData;
+                if (item.UnitInCart != null)
+                   unitFromItem = Integer.parseInt(item.UnitInCart);
                 quantity = unitQuantity + cartQuantity * unitFromItem;
             }
         }
-        item.Quantity = Integer.toString(quantity);
+        item.Quantity = Double.toString(quantity);
     }
 
     private List<Item> getPricingForPricingProcedure(String custID, List<Item> objectItems, String pricingProcedure) {
@@ -467,7 +595,7 @@ public class PricingController {
                     String UnitType = itemPricingData.getPriceUnitType();
                     double subTotalsPromotionDiscountValue = itemPricingData.getSubTotalsPromotionDiscountValue();
 
-                    LogUtil.LOG.info("PriceBruto: " + PriceBruto + ", DiscountPercent:" + DiscountPercent + ", PriceNeto:" + PriceNeto + ", UnitType:" + DiscountPercent);
+                    LogUtil.LOG.info("PriceBruto: " + PriceBruto + ", DiscountPercent:" + DiscountPercent + ", PriceNeto:" + PriceNeto + ", UnitType:" + UnitType);
                     if (item.Pricing == null)
                         item.Pricing = new ItemPricing();
                     item.Pricing.PriceBruto = PriceBruto;
@@ -511,9 +639,9 @@ public class PricingController {
     }
 
 
-    private HashMap<String, ItemPromotionData> getPromotions(String Cust_Key, HashMap<String, ItemPromotionData> itemsDataMap) throws Exception {
+    private HashMap<String, ItemPromotionData> getPromotions(String promotions_Cust_Key, HashMap<String, ItemPromotionData> itemsDataMap) throws Exception {
         PromotionsAPI promotionsAPI = new PromotionsAPI();
-        promotionsAPI.runPromotionsForCustomer(Cust_Key, itemsDataMap);
+        promotionsAPI.runPromotionsForCustomer(promotions_Cust_Key, itemsDataMap);
         return itemsDataMap;
     }
 
@@ -543,7 +671,7 @@ public class PricingController {
                     if (item.Pricing == null)
                         item.Pricing = new ItemPricing();
                     LogUtil.LOG.info("pricing rounding");
-                    Integer itemQuantity = Integer.parseInt(item.Quantity);
+                    Double itemQuantity = Double.parseDouble(item.Quantity);
                     item.Pricing.Quantity = itemQuantity;
 
                     Holder<Boolean> hasFixedPrice = new Holder<>(false);
@@ -558,7 +686,15 @@ public class PricingController {
                         item.Pricing.itemPricingLines = pricingLines;
                     item.Pricing.HasFixedPrice = hasFixedPrice.value;
 
-                    if (System.getenv("PROVIDER").equalsIgnoreCase("strauss") || System.getenv("PROVIDER").equalsIgnoreCase("hcohen")) {
+                    if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
+                        item.Pricing.PriceBruto = item.Pricing.PricingData.getItemBasePrice();
+                        //item.Pricing.PriceBruto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemBasePrice(), 2);
+                        item.Pricing.PriceBrutoUnit = item.Pricing.PriceBruto;
+                        item.Pricing.PriceNeto = item.Pricing.PricingData.getItemNetoPrice();
+                        //item.Pricing.PriceNeto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemNetoPrice(), 2);
+                        item.Pricing.PriceNetoUnit = item.Pricing.PriceNeto;
+                    }
+                    else{
                         item.Pricing.PriceBrutoUnit = item.Pricing.PricingData.getItemBasePrice();
                         //item.Pricing.PriceBrutoUnit = NumberUtil.roundDouble(item.Pricing.PricingData.getItemBasePrice(), 2);
                         item.Pricing.PriceBruto = item.Pricing.PricingData.getItemTotalBasePrice(itemQuantity);
@@ -567,16 +703,19 @@ public class PricingController {
                         //item.Pricing.PriceNetoUnit = NumberUtil.roundDouble(item.Pricing.PricingData.getItemNetoPrice(), 2);
                         item.Pricing.PriceNeto = item.Pricing.PricingData.RecalculateTotalLine(itemQuantity);
                         //item.Pricing.PriceNeto = NumberUtil.roundDouble(item.Pricing.PricingData.RecalculateTotalLine(itemQuantity), 2);
+
+                        if (item.Pricing.UnitType == "KAR" && item.UnitInCart != null) {
+                            Integer unitFromItem = Integer.parseInt(item.UnitInCart);
+                            if (unitFromItem > 0) {
+                                item.Pricing.PriceBrutoUnit = item.Pricing.PriceBrutoUnit / unitFromItem;
+                                item.Pricing.PriceNetoUnit = item.Pricing.PriceNetoUnit / unitFromItem;
+                                item.Pricing.PriceBruto = item.Pricing.PriceBruto / unitFromItem;
+                                item.Pricing.PriceNeto =  item.Pricing.PriceNeto / unitFromItem;
+                            }
+                        }
+
                     }
-                    else
-                    {
-                        item.Pricing.PriceBruto = item.Pricing.PricingData.getItemBasePrice();
-                        //item.Pricing.PriceBruto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemBasePrice(), 2);
-                        item.Pricing.PriceBrutoUnit = item.Pricing.PriceBruto;
-                        item.Pricing.PriceNeto = item.Pricing.PricingData.getItemNetoPrice();
-                        //item.Pricing.PriceNeto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemNetoPrice(), 2);
-                        item.Pricing.PriceNetoUnit = item.Pricing.PriceNeto;
-                    }
+
 
                     item.Pricing.DiscountPercent = item.Pricing.PricingData.getItemDiscountValue();
                     //item.Pricing.DiscountPercent = NumberUtil.roundDouble(item.Pricing.PricingData.getItemDiscountValue(), 2);
@@ -591,7 +730,8 @@ public class PricingController {
                         item.Promotion = new ItemPromotion();
                     item.Promotion.EspNumber =  itemPromotionData.getEspNumber();
                     //item.Promotion.PromotionDescription = itemPromotionData.getStepDetailDescription(); //itemPromotionData.getEspDescription();
-                    item.Promotion.PromotionDescription = itemPromotionData.getStepDescription(); //itemPromotionData.getEspDescription();
+                    item.Promotion.PromotionDescription = itemPromotionData.getStepDescriptionStr(); //itemPromotionData.getEspDescription();
+                    item.Promotion.PromotionDetails =  itemPromotionData.getStepDescriptions();
                     item.Promotion.NextStepQuantity = itemPromotionData.getNextStepQuantity();
                     item.Promotion.PartFromDeal =  itemPromotionData.isPartFromDeal();
                     item.Promotion.PromotionValue = itemPricingPromotionsData.getPromotionValue();
@@ -603,6 +743,84 @@ public class PricingController {
             }
 
             LogUtil.LOG.error("getPricingAfterPromotions - exit" + LocalDate.now());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return itemsWithPrice;
+    }
+
+
+    private ArrayList<Item> getPricingAfterNoPromotions(String customerCode, String Cust_Key, List<Item> objectItemsWithPrice, Boolean showPriceLines) {
+        ArrayList<Item> itemsWithPrice = new ArrayList<>();
+        try {
+            for (Item item : objectItemsWithPrice) {
+                ActiveSelectionData.getInstance().UpdateItemTablesSelection(item.ItemCode);
+
+                //System.out.println("PriceBruto: " + item.PriceBruto + ", DiscountPercent:" + item.DiscountPercent + ", PriceNeto:" + item.PriceNeto + ", UnitType:" + item.DiscountPercent);
+                if (item.Pricing == null)
+                    item.Pricing = new ItemPricing();
+                LogUtil.LOG.info("pricing rounding");
+                Double itemQuantity = Double.parseDouble(item.Quantity);
+                item.Pricing.Quantity = itemQuantity;
+
+                Holder<Boolean> hasFixedPrice = new Holder<>(false);
+                ArrayList<ItemPricingData.ItemPricingLine> pricingLines = item.Pricing.PricingData.getItemPricingLinesForShow(hasFixedPrice);
+
+                for (ItemPricingData.ItemPricingLine line : pricingLines) {
+                    if (line.ConditionReturnCalculateValueBasket > 0)
+                        item.Pricing.BasketDiscountPercent = line.ConditionReturnCalculateValueBasket;
+                }
+
+                if (showPriceLines)
+                    item.Pricing.itemPricingLines = pricingLines;
+                item.Pricing.HasFixedPrice = hasFixedPrice.value;
+
+                if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
+                    item.Pricing.PriceBruto = item.Pricing.PricingData.getItemBasePrice();
+                    //item.Pricing.PriceBruto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemBasePrice(), 2);
+                    item.Pricing.PriceBrutoUnit = item.Pricing.PriceBruto;
+                    item.Pricing.PriceNeto = item.Pricing.PricingData.getItemNetoPrice();
+                    //item.Pricing.PriceNeto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemNetoPrice(), 2);
+                    item.Pricing.PriceNetoUnit = item.Pricing.PriceNeto;
+                } else {
+                    item.Pricing.PriceBrutoUnit = item.Pricing.PricingData.getItemBasePrice();
+                    //item.Pricing.PriceBrutoUnit = NumberUtil.roundDouble(item.Pricing.PricingData.getItemBasePrice(), 2);
+                    item.Pricing.PriceBruto = item.Pricing.PricingData.getItemTotalBasePrice(itemQuantity);
+                    //item.Pricing.PriceBruto = NumberUtil.roundDouble(item.Pricing.PricingData.getItemTotalBasePrice(itemQuantity), 2);
+                    item.Pricing.PriceNetoUnit = item.Pricing.PricingData.getItemNetoPrice();
+                    //item.Pricing.PriceNetoUnit = NumberUtil.roundDouble(item.Pricing.PricingData.getItemNetoPrice(), 2);
+                    item.Pricing.PriceNeto = item.Pricing.PricingData.RecalculateTotalLine(itemQuantity);
+                    //item.Pricing.PriceNeto = NumberUtil.roundDouble(item.Pricing.PricingData.RecalculateTotalLine(itemQuantity), 2);
+
+                    if (item.Pricing.UnitType == "KAR" && item.UnitInCart != null) {
+                        Integer unitFromItem = Integer.parseInt(item.UnitInCart);
+                        if (unitFromItem > 0) {
+                            item.Pricing.PriceBrutoUnit = item.Pricing.PriceBrutoUnit / unitFromItem;
+                            item.Pricing.PriceNetoUnit = item.Pricing.PriceNetoUnit / unitFromItem;
+                            item.Pricing.PriceBruto = item.Pricing.PriceBruto / unitFromItem;
+                            item.Pricing.PriceNeto = item.Pricing.PriceNeto / unitFromItem;
+                        }
+                    }
+
+                }
+
+
+                item.Pricing.DiscountPercent = item.Pricing.DiscountPercent;//PricingData.getItemDiscountValue();
+                //item.Pricing.DiscountPercent = NumberUtil.roundDouble(item.Pricing.PricingData.getItemDiscountValue(), 2);
+                item.Pricing.UnitType = item.Pricing.PricingData.getPriceUnitType();
+                item.Pricing.SubTotalsPromotionDiscountValue = item.Pricing.SubTotalsPromotionDiscountValue;//PricingData.getSubTotalsPromotionDiscountValue();
+                //item.Pricing.SubTotalsPromotionDiscountValue = NumberUtil.roundDouble(item.Pricing.PricingData.getSubTotalsPromotionDiscountValue(), 2);
+                //we need to recalculate total because of cache. after cache it's for 1 item or 1 carton
+                item.Pricing.TotalLine = item.Pricing.PricingData.RecalculateTotalLine(itemQuantity);
+                //item.Pricing.TotalLine = NumberUtil.roundDouble(item.Pricing.PricingData.RecalculateTotalLine(itemQuantity), 2);
+
+                LogUtil.LOG.info("getPricingAfterNoPromotions - after  itemPromotionData" + LocalDate.now());
+                 itemsWithPrice.add(item);
+        }
+            LogUtil.LOG.error("getPricingAfterNoPromotions - exit" + LocalDate.now());
 
         } catch (Exception e) {
             e.printStackTrace();

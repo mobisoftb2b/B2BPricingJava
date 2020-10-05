@@ -81,25 +81,29 @@ public class ItemPricingData {
         ItemID = item.ItemID;
         PricingProcedure = item.PricingProcedure;
         Quantity = item.Quantity;
-        TotalValue = item.TotalValue;
-        TotalValueUrounded = item.TotalValueUrounded;
-        TotalQuantityAndValue = item.TotalQuantityAndValue;
-        TotalStartValue = item.TotalStartValue;
-        TotalDiscountValue = item.TotalDiscountValue;
-        FreezeValue = item.FreezeValue;
-        MaamDiscountValue = item.MaamDiscountValue;
-        DepositValue = item.DepositValue;
-        DepositValueUnRounded = item.DepositValueUnRounded;
-        PromotionValue = item.PromotionValue;
-        OriginalPromotionValue = item.OriginalPromotionValue;
-        SubTotalsPromotionDiscountValue = item.SubTotalsPromotionDiscountValue;
-        isSubTotalsPromotion = item.isSubTotalsPromotion;
-        CreditValue = item.CreditValue;
+        //taameiAsia do not have "make it zero" pricing line and TotalPrice is doubling on recompute pricing
+        if (!System.getenv("PROVIDER").equalsIgnoreCase("taameiAsia") && !System.getenv("PROVIDER").equalsIgnoreCase("noa") && !System.getenv("PROVIDER").equalsIgnoreCase("laben")) {
+            TotalValue = item.TotalValue;
+            TotalValueUrounded = item.TotalValueUrounded;
+            TotalQuantityAndValue = item.TotalQuantityAndValue;
+            TotalStartValue = item.TotalStartValue;
+            TotalDiscountValue = item.TotalDiscountValue;
+            FreezeValue = item.FreezeValue;
+            MaamDiscountValue = item.MaamDiscountValue;
+            DepositValue = item.DepositValue;
+            DepositValueUnRounded = item.DepositValueUnRounded;
+            PromotionValue = item.PromotionValue;
+            OriginalPromotionValue = item.OriginalPromotionValue;
+            SubTotalsPromotionDiscountValue = item.SubTotalsPromotionDiscountValue;
+            isSubTotalsPromotion = item.isSubTotalsPromotion;
+            CreditValue = item.CreditValue;
+        }
         UnitType = item.UnitType;
         PriceUnit = item.PriceUnit;
         isUpdateAgentDiscountManually = item.isUpdateAgentDiscountManually;
         isResetPromotion = item.isResetPromotion;
         isRestoreManualPercentValueToOriginal = item.isRestoreManualPercentValueToOriginal;
+
         copyItemPricingLines(item.itemPricingLines);
     }
 
@@ -110,16 +114,19 @@ public class ItemPricingData {
     }
 
     public synchronized void initPricing(boolean forceUpdate) {
+
         if (!forceUpdate && itemPricingLines.size() > 0) {
             return;
         }
         clearPricing();
-
+        //LogUtil.LOG.info("initPricing 1");
         PricingProcedureListData pricingProcedureListData = PricingProceduresData.getInstance().getPricingProcedureDataByProcedureName(PricingProcedureName);
+        //LogUtil.LOG.info("initPricing 2");
         PricingProcedure = pricingProcedureListData.Procedure;
         if (pricingProcedureListData == null) {
             return;
         }
+       // LogUtil.LOG.info("initPricing 3");
         String conditionTypeToSkip = null;
         for (PricingProcedureData pricingProcedureData : pricingProcedureListData.pricingProcedureDatas) {
             String accessSequence = ConditionsAccessData.getInstance().getAccessSequence(pricingProcedureData.ConditionType);
@@ -158,10 +165,12 @@ public class ItemPricingData {
         LogUtil.LOG.info("PricingProcedure " + PricingProcedure);
         for(ItemPricingLine line : itemPricingLines)
         {
-            if (line.ConditionReturnValue != 0)
-                LogUtil.LOG.info("ConditionValue " +  line.ConditionValue +  " Result " + line.ConditionReturnValue);
-
-          }
+            if (line.ConditionReturnValue != 0) {
+                LogUtil.LOG.info("ConditionValue " + line.ConditionValue + " Result " + line.ConditionReturnValue);
+                if (line.UnitType != null)
+                    UnitType = line.UnitType;
+            }
+         }
         //calculate discount
         if (!isUpdateAgentDiscountPrice()) {
             TotalValue = NumberUtil.roundDoublePrecisionByParameter(TotalValue + getConditionReturnCalculateValueForPromotionLine(false), false);
@@ -183,7 +192,7 @@ public class ItemPricingData {
         DepositValue = 0;
         DepositValueUnRounded = 0;
         CreditValue = "";
-        UnitType = "";
+        //UnitType = "";
         PriceUnit = "";
         isSubTotalsPromotion = false;
         Quantity = quantity;
@@ -226,7 +235,7 @@ public class ItemPricingData {
         return TotalStartValue;
     }
 
-    public double getItemTotalBasePrice(int quantity) {
+    public double getItemTotalBasePrice(double quantity) {
         return TotalStartValue * quantity;
     }
 
@@ -238,7 +247,7 @@ public class ItemPricingData {
         return TotalQuantityAndValue;
     }
 
-    public double RecalculateTotalLine(int quantity){
+    public double RecalculateTotalLine(double quantity){
         return TotalValueUrounded * quantity;
     }
 
@@ -576,6 +585,7 @@ public class ItemPricingData {
         public boolean ExcludeDiscount = false;
         public boolean IsPromotionClassification = false;
         public boolean NeedToRound = false;
+        public String UnitType;
 
         ItemPricingLine(int pricingLineNum, int stepNumber, String conditionValue, int fromStep, int toStep, boolean manualOnly, String requirement, String subtotal, boolean statistical, boolean isToResetPromotion, String altCondBaseValue, ConditionReturnData conditionReturnData) {
             PricingLineNum = pricingLineNum;
@@ -595,6 +605,8 @@ public class ItemPricingData {
             ManualPercentValue = ConditionReturnValue;
             ConditionReturnValueType = ConditionData == null ? 0 : ConditionData.ReturnValueType;
             updatePricing(Quantity);
+            //if (ConditionData != null && ConditionData.UnitType > 0)
+            //    UnitType = ConditionData.UnitType;
         }
 
         private void updatePricing(float quantity) {
@@ -626,11 +638,12 @@ public class ItemPricingData {
                     break;
                 case CONDITION_CUSTOMER_DISCOUNT:
                     //Todo request from sql table.
-                    double percentValue = 10;
+                    //Marina - let's do upon ConditionReturnValue
+                    //double percentValue = 10;
                     if (ManualOnly) {
-                        ManualPercentValue = -percentValue;
+                        ManualPercentValue = -Math.abs(ManualPercentValue);
                     } else {
-                        ConditionReturnValue = -percentValue;
+                        ConditionReturnValue = -Math.abs(ConditionReturnValue);
                     }
                     updateStepPrice();
                     break;
@@ -654,6 +667,7 @@ public class ItemPricingData {
                     break;
                 case CONDITION_BASKET_DISCOUNT:
                     updateBasketDiscount();
+                    break;
                 default:
                     updateStepPrice();
                     break;
@@ -725,7 +739,7 @@ public class ItemPricingData {
             }
             if (fixedPriceStatLine != null) {
                 int altCondBaseValueAsInt = 0;
-                if (AltCondBaseValue != null) {
+                if (AltCondBaseValue != null && !AltCondBaseValue.isEmpty()) {
                     try {
                         altCondBaseValueAsInt = Integer.valueOf(AltCondBaseValue);
                     } catch (Exception e) {
@@ -888,7 +902,7 @@ public class ItemPricingData {
                         } else {
                             int altCondBaseValueAsInt = 0;
                             double value = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
-                            if (AltCondBaseValue != null) {
+                            if (AltCondBaseValue != null && !AltCondBaseValue.isEmpty()) {
                                 try {
                                     altCondBaseValueAsInt = Integer.valueOf(AltCondBaseValue);
                                 } catch (Exception e) {
@@ -1067,7 +1081,7 @@ public class ItemPricingData {
         private void updatePromotionPrice() {
             int altCondBaseValueAsInt = 0;
             double value = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
-            if (AltCondBaseValue != null) {
+            if (AltCondBaseValue != null && !AltCondBaseValue.isEmpty()) {
                 try {
                     altCondBaseValueAsInt = Integer.valueOf(AltCondBaseValue);
                 } catch (Exception e) {

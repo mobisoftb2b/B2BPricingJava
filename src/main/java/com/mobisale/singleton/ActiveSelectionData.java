@@ -136,13 +136,13 @@ public class ActiveSelectionData {
     }
     */
     public void UpdateCustomerTablesSelection(String custID, String Cust_Key) {
-        if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
-            updateCustomerSelection(custID, Tables.TABLE_CUSTOMERS);
-        }
-        else
-        {
+        //if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
+        //    updateCustomerSelection(custID, Tables.TABLE_CUSTOMERS);
+        //}
+        //else
+        //{
             updateCustomerSelection(Cust_Key, Tables.TABLE_CUSTOMERS_PRICING);
-        }
+        //}
         if (System.getenv("PROVIDER").equalsIgnoreCase("strauss")) {
             updateCustCategorySelection(Cust_Key);
         }
@@ -299,13 +299,13 @@ public class ActiveSelectionData {
     */
     public void UpdateItemTablesSelection(String itemCode)
     {
-        if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
-            updateItemSelection(itemCode, Tables.TABLE_ITEMS);
-        }
-        else
-        {
-            updateItemSelection(itemCode, Tables.TABLE_ITEMS_PRICING);
-        }
+        //if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
+         //   updateItemSelection(itemCode, Tables.TABLE_ITEMS);
+        //}
+        //else
+        //{
+        updateItemSelection(itemCode, Tables.TABLE_ITEMS_PRICING);
+        //}
     }
     public void updateItemSelection(String itemCode, String tableName) {
         ArrayList<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(tableName);
@@ -340,7 +340,9 @@ public class ActiveSelectionData {
                         fieldValue = fieldValue != null ? fieldValue.trim() : fieldValue;
                         itemsDataMap.put(fieldMapData.MTNFied, fieldValue);
                     }
-                    itemsDataMap.put("UnitInCart", rs.getString("UnitInCart"));
+                    if ((System.getenv("PROVIDER").equalsIgnoreCase("strauss") || System.getenv("PROVIDER").equalsIgnoreCase("hcohen") || System.getenv("PROVIDER").equalsIgnoreCase("noa")) || (System.getenv("UNIT_CARTON") != null && System.getenv("UNIT_CARTON").equalsIgnoreCase("true"))) {
+                        itemsDataMap.put("UnitInCart", rs.getString("UnitInCart"));
+                    }
                 /*
                 itemsDataMap.put("ItemVatType",rs.getString("ItemVatType"));
                 if (System.getenv("PROVIDER").equalsIgnoreCase("tambour")) {

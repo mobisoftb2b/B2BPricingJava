@@ -99,8 +99,14 @@ public class PricingProceduresData {
                 conn = sqlLiteUtil.Connect();
             else
                 conn = DbUtil.connect(conn);
+
+            String PRICING_PROCEDURES_TABLE =  Tables.TABLE_PRICING_PROCEDURES;
+            if (System.getenv("PROVIDER").equalsIgnoreCase("strauss")) {
+                PRICING_PROCEDURES_TABLE = Tables.TABLE_PRICING_PROCEDURES_B2B;
+            }
+
             //" WHERE " + PricingProcedures.PRICING_PROCEDURES_CONDITION_TYPE + " IS NOT NULL
-            String query = "SELECT * FROM " + Tables.TABLE_PRICING_PROCEDURES + " ORDER BY '" +
+            String query = "SELECT * FROM " + PRICING_PROCEDURES_TABLE + " ORDER BY '" +
                     PricingProcedures.PRICING_PROCEDURES_PROCEDURE +"'"+
                     "," + PricingProcedures.PRICING_PROCEDURES_STEP_NUMBER + " ASC";
 
@@ -161,6 +167,9 @@ public class PricingProceduresData {
         else
         if (System.getenv("PROVIDER").equalsIgnoreCase("hcohen"))
             Procedure = "Mobi";
+        else
+        if (System.getenv("PROVIDER").equalsIgnoreCase("tambour"))
+            Procedure = "MOBI";
         else {
             ResultSet rs = null;
             CallableStatement st = null;

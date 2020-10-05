@@ -71,8 +71,8 @@ public class PromotionStepManager {
         return itemsData;
     }
 
-    public ArrayList<String> getStepDescription(String itemCode) {
-        ArrayList<String> stepDescription = new ArrayList<String>();
+    public ArrayList<StepDescription> getStepDescription(String itemCode) {
+        ArrayList<StepDescription> stepDescription = new ArrayList<StepDescription>();
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             boolean isItemExist = stepRecordNumber.isItemExist(itemCode);
             if (isItemExist) {
@@ -83,8 +83,8 @@ public class PromotionStepManager {
         return stepDescription;
     }
 
-    public String getSelectedStepDetailDescription(String itemCode) {
-        String description = "";
+    public StepDescription getSelectedStepDetailDescription(String itemCode) {
+        StepDescription description = null;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             boolean isItemExist = stepRecordNumber.isItemExist(itemCode);
             if (isItemExist) {

@@ -24,13 +24,13 @@ public abstract class APromotionStep {
     protected final String BonusQuantityUOM;
     protected final int BonusMultipleQty;
     protected final String BonusMultQtyUOM;
-    protected final String StepDescription;
+    protected final StepDescription StepDescriptionObj;
     protected final String m_CustKey;
     protected DecimalFormat dfPercent = new DecimalFormat("#,##0.00");
     protected DecimalFormat dfPrice = new DecimalFormat("#,##0.00");
 
     protected APromotionStep(String Cust_Key,  String espNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double bonusPrice, double bonusDiscount, double priceBasedQty,
-                             String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, String stepDescription) {
+                             String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, StepDescription stepDescription) {
         ESPNumber = espNumber;
         RecordNumber = recordNumber;
         Step = step;
@@ -48,16 +48,14 @@ public abstract class APromotionStep {
         BonusQuantityUOM = (bonusQuantityUOM == null || bonusQuantityUOM.isEmpty()) ? ItemPromotionData.PC_UNIT : bonusQuantityUOM;
         BonusMultipleQty = bonusMultipleQty;
         BonusMultQtyUOM = (bonusMultQtyUOM == null || bonusMultQtyUOM.isEmpty()) ? ItemPromotionData.PC_UNIT : bonusMultQtyUOM;
-        StepDescription = stepDescription;
+        StepDescriptionObj = stepDescription;
         m_CustKey = Cust_Key;
     }
 
-    public abstract String getStepDescription(int definitionMethod, String stepsBasedUOM);
-    public String getStepDescription1(int definitionMethod, String stepsBasedUOM){
-        if (StepDescription != null && !StepDescription.isEmpty()) {
-            return StepDescription;
-        }
-        return "";
+
+    public abstract StepDescription getStepDescription(int definitionMethod, String stepsBasedUOM);
+    public StepDescription getStepDescription1(int definitionMethod, String stepsBasedUOM){
+           return StepDescriptionObj;
     }
 
     public abstract boolean isPromotionStepBonus();

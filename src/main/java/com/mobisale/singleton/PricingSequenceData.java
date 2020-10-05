@@ -345,15 +345,17 @@ public class PricingSequenceData {
             for (String selectionArg : selectionArgs) {
                 query = query.replaceFirst("\\?", "'" + selectionArg + "'");
             }
+            if (query.matches("(.*)" + "KUNNR='0' AND " + "(.*)"))
+                query = query.replaceFirst("KUNNR='0' AND", "");
 
-            for (String pattern : badPatterns){
+            /*for (String pattern : badPatterns){
                 if (query.matches("(.*)" + pattern + "(.*)"))
                 {
                     LogUtil.LOG.info("bad pattern:" + query);
                     return null;
                 }
             }
-
+            */
             st = conn.createStatement();
             LogUtil.LOG.info(query);
             rs = st.executeQuery(query);

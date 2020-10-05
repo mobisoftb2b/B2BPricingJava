@@ -7,7 +7,7 @@ package com.promotions.data;
 public class PromotionStep extends APromotionStep {
 
     public PromotionStep(String Cust_Key, String ESPNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double priceBasedQty,
-                         String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, String stepDescription) {
+                         String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, StepDescription stepDescription) {
         super(Cust_Key, ESPNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, 0, 0, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, 0, "", 0, "", stepDescription);
     }
 
@@ -15,9 +15,35 @@ public class PromotionStep extends APromotionStep {
     //    return super.getStepDescription(definitionMethod, stepsBasedUOM);
     //}
     @Override
-    public String getStepDescription(int definitionMethod, String stepsBasedUOM) {
-        String remoteDescription = super.getStepDescription1(definitionMethod, stepsBasedUOM);
-        if (remoteDescription != null && !remoteDescription.isEmpty() ) return remoteDescription;
+    public  StepDescription getStepDescription(int definitionMethod, String stepsBasedUOM)
+    {
+        StepDescription stepDesc = new StepDescription();
+        StepDescription remoteDescription = super.getStepDescription1(definitionMethod, stepsBasedUOM);
+        if (remoteDescription != null) {
+            return remoteDescription;
+        }
+        stepDesc.Description =  getStepDescriptionDesc(definitionMethod, stepsBasedUOM);
+        if (stepsBasedUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT))
+            stepDesc.BuyBoxOrUnit = ItemPromotionData.PC_UNIT;
+        else
+            stepDesc.BuyBoxOrUnit = ItemPromotionData.KARTON_UNIT;
+        if (PriceBQtyUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT))
+            stepDesc.GetBoxOrUnit = ItemPromotionData.PC_UNIT;
+        else
+            stepDesc.GetBoxOrUnit = ItemPromotionData.KARTON_UNIT;
+        if (BonusQuantityUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT))
+            stepDesc.BonusBoxOrUnit = ItemPromotionData.PC_UNIT;
+        else
+            stepDesc.BonusBoxOrUnit = ItemPromotionData.KARTON_UNIT;
+        if (BonusMultQtyUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT))
+            stepDesc.BonusMultiBoxOrUnit = ItemPromotionData.PC_UNIT;
+        else
+            stepDesc.BonusMultiBoxOrUnit = ItemPromotionData.KARTON_UNIT;
+        stepDesc.EspNumber = this.ESPNumber;
+        return stepDesc;
+    }
+
+    public String getStepDescriptionDesc(int definitionMethod, String stepsBasedUOM) {
         String description = "";
         String buyBoxOrUnit = "";
         String getBoxOrUnit = "";
