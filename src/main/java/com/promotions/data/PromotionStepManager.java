@@ -1,5 +1,7 @@
 package com.promotions.data;
 
+import com.promotions.manager.PromotionsDataManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,14 +23,14 @@ public class PromotionStepManager {
     }
 
 
-    public boolean isPromotionHeaderActiveAndOpen(String itemCode, float newQuantity, int definitionMethod, String StepsBasedUOM) {
+    public synchronized boolean isPromotionHeaderActiveAndOpen(String itemCode, float newQuantity, int definitionMethod, String StepsBasedUOM, PromotionsDataManager promotionsDataManager) {
         StepRecordNumber ActiveStepRecordNumber = null;
         IsOpen = true;
         PCTotalQty = 0;
         KARTotalQty = 0;
         totalVal = 0;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            boolean isItemExist = stepRecordNumber.updateQuantity(itemCode, newQuantity, definitionMethod, StepsBasedUOM);
+            boolean isItemExist = stepRecordNumber.updateQuantity(itemCode, newQuantity, definitionMethod, StepsBasedUOM, promotionsDataManager);
             PCTotalQty += stepRecordNumber.PCTotalQty;
             KARTotalQty += stepRecordNumber.KARTotalQty;
             totalVal += stepRecordNumber.totalVal;
@@ -40,7 +42,7 @@ public class PromotionStepManager {
         return IsOpen && ActiveStepRecordNumber != null;
     }
 
-    public boolean isItemExist(String itemCode) {
+    public synchronized boolean isItemExist(String itemCode) {
         boolean isItemExist = false;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             isItemExist = stepRecordNumber.isItemExist(itemCode);
@@ -51,27 +53,27 @@ public class PromotionStepManager {
         return isItemExist;
     }
 
-    public void updatePromotionDiscount(String itemCode, float newQuantity, int definitionMethod, String stepsBasedUOM, boolean excludeDiscount, boolean isBlocked) {
-        if (isPromotionHeaderActiveAndOpen(itemCode, newQuantity, definitionMethod, stepsBasedUOM) && !isBlocked) {
+    public synchronized void updatePromotionDiscount(String itemCode, float newQuantity, int definitionMethod, String stepsBasedUOM, boolean excludeDiscount, boolean isBlocked, PromotionsDataManager promotionsDataManager) {
+        if (isPromotionHeaderActiveAndOpen(itemCode, newQuantity, definitionMethod, stepsBasedUOM, promotionsDataManager) && !isBlocked) {
             for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-                stepRecordNumber.updatePromotionDiscount(PCTotalQty, KARTotalQty, totalVal, definitionMethod, stepsBasedUOM, excludeDiscount);
+                stepRecordNumber.updatePromotionDiscount(PCTotalQty, KARTotalQty, totalVal, definitionMethod, stepsBasedUOM, excludeDiscount, promotionsDataManager);
             }
         } else {
             for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-                stepRecordNumber.resetPromotionDiscount();
+                stepRecordNumber.resetPromotionDiscount(promotionsDataManager);
             }
         }
     }
 
-    public ArrayList<ItemPromotionData> updateItemsPriceAndDiscount(HashMap<String, ItemPromotionData> itemsDataMap) {
+    public synchronized ArrayList<ItemPromotionData> updateItemsPriceAndDiscount(HashMap<String, ItemPromotionData> itemsDataMap, PromotionsDataManager promotionsDataManager) {
         ArrayList<ItemPromotionData> itemsData = new ArrayList<ItemPromotionData>();
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            itemsData.addAll(stepRecordNumber.updateItemsPriceAndDiscount(itemsDataMap));
+            itemsData.addAll(stepRecordNumber.updateItemsPriceAndDiscount(itemsDataMap, promotionsDataManager));
         }
         return itemsData;
     }
 
-    public ArrayList<StepDescription> getStepDescription(String itemCode) {
+    public synchronized ArrayList<StepDescription> getStepDescription(String itemCode) {
         ArrayList<StepDescription> stepDescription = new ArrayList<StepDescription>();
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             boolean isItemExist = stepRecordNumber.isItemExist(itemCode);
@@ -83,7 +85,7 @@ public class PromotionStepManager {
         return stepDescription;
     }
 
-    public StepDescription getSelectedStepDetailDescription(String itemCode) {
+    public synchronized StepDescription getSelectedStepDetailDescription(String itemCode) {
         StepDescription description = null;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             boolean isItemExist = stepRecordNumber.isItemExist(itemCode);
@@ -95,7 +97,7 @@ public class PromotionStepManager {
         return description;
     }
 
-    public StepRecordNumber getActiveStepRecordNumber() {
+    public synchronized StepRecordNumber getActiveStepRecordNumber() {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             APromotionStep promotionStep = stepRecordNumber.getActivePromotionStep();
             if (promotionStep != null) return stepRecordNumber;
@@ -103,7 +105,7 @@ public class PromotionStepManager {
         return null;
     }
 
-    public APromotionStep getActivePromotionStep() {
+    public synchronized APromotionStep getActivePromotionStep() {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             APromotionStep promotionStep = stepRecordNumber.getActivePromotionStep();
             if (promotionStep != null) return promotionStep;
@@ -111,31 +113,31 @@ public class PromotionStepManager {
         return null;
     }
 
-    public void blockPromotion(String itemCode) {
+    public synchronized void blockPromotion(String itemCode, PromotionsDataManager promotionsDataManager) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            stepRecordNumber.blockPromotion();
+            stepRecordNumber.blockPromotion(promotionsDataManager);
         }
     }
 
-    public void blockAllPromotion() {
+    public synchronized void blockAllPromotion(PromotionsDataManager promotionsDataManager) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            stepRecordNumber.blockPromotion();
+            stepRecordNumber.blockPromotion(promotionsDataManager);
         }
     }
 
-    public void unBlockPromotion(String itemCode, boolean excludeDiscount) {
+    public synchronized void unBlockPromotion(String itemCode, boolean excludeDiscount, PromotionsDataManager promotionsDataManager) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            stepRecordNumber.unBlockPromotion(PCTotalQty, KARTotalQty, totalVal, excludeDiscount);
+            stepRecordNumber.unBlockPromotion(PCTotalQty, KARTotalQty, totalVal, excludeDiscount, promotionsDataManager);
         }
     }
 
-    public void unBlockAllPromotion(boolean excludeDiscount) {
+    public synchronized void unBlockAllPromotion(boolean excludeDiscount, PromotionsDataManager promotionsDataManager) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            stepRecordNumber.unBlockPromotion(PCTotalQty, KARTotalQty, totalVal, excludeDiscount);
+            stepRecordNumber.unBlockPromotion(PCTotalQty, KARTotalQty, totalVal, excludeDiscount, promotionsDataManager);
         }
     }
 
-    public int getNextStepDiff(String itemCode) {
+    public synchronized int getNextStepDiff(String itemCode) {
         int nextStepDiff = -1;
         StepRecordNumber selectedStepRecordNumber = null;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
@@ -151,7 +153,7 @@ public class PromotionStepManager {
         return nextStepDiff;
     }
 
-    public int getMinimumRemainForPopulationItems(String itemCode) {
+    public synchronized int getMinimumRemainForPopulationItems(String itemCode) {
         int minimumRemainForPopulationItems = -1;
         StepRecordNumber selectedStepRecordNumber = null;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
@@ -167,7 +169,7 @@ public class PromotionStepManager {
         return minimumRemainForPopulationItems;
     }
 
-    public int getPromotionStatus() {
+    public synchronized int getPromotionStatus() {
         int status = -1;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             if (stepRecordNumber.getPromotionStatus() == 1) {
@@ -180,13 +182,13 @@ public class PromotionStepManager {
         return status;
     }
 
-    public void updateItemPricing(String itemCode, int uiIndex, double price, double discount, String unitType) {
+    public synchronized void updateItemPricing(String itemCode, int uiIndex, double price, double discount, String unitType) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             stepRecordNumber.updateItemPricing(itemCode, uiIndex, price, discount, unitType);
         }
     }
 
-    public boolean isHaveItems() {
+    public synchronized boolean isHaveItems() {
         boolean isHaveItems = false;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             if (stepRecordNumber.isHaveItems()) {
@@ -197,7 +199,7 @@ public class PromotionStepManager {
         return isHaveItems;
     }
 
-    public boolean isNeedToOpenBonusPopup() {
+    public synchronized boolean isNeedToOpenBonusPopup() {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             if (stepRecordNumber.isNeedToOpenBonusPopup()) {
                 return true;
@@ -206,7 +208,7 @@ public class PromotionStepManager {
         return false;
     }
 
-    public boolean isActivePromotionWasReset(String itemCode) {
+    public synchronized boolean isActivePromotionWasReset(String itemCode) {
         boolean isActivePromotionWasReset = false;
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             boolean isItemExist = stepRecordNumber.isItemExist(itemCode);
@@ -218,7 +220,7 @@ public class PromotionStepManager {
         return isActivePromotionWasReset;
     }
 
-    public void duplicateItem(String itemCode, int quantity) {
+    public synchronized void duplicateItem(String itemCode, int quantity) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
             boolean isItemExist = stepRecordNumber.isItemExist(itemCode);
             if (isItemExist) {
@@ -227,7 +229,7 @@ public class PromotionStepManager {
         }
     }
 
-    public Set<String> getAllPromotionItemCodes() {
+    public synchronized Set<String> getAllPromotionItemCodes() {
         StepRecordNumber stepRecordNumber = getActiveStepRecordNumber();
         if (stepRecordNumber != null) {
             return stepRecordNumber.getAllPromotionItemCodes();
@@ -235,13 +237,13 @@ public class PromotionStepManager {
         return new HashSet<>();
     }
 
-    public void resetPromotions() {
+    public synchronized void resetPromotions(PromotionsDataManager promotionsDataManager) {
         for (StepRecordNumber stepRecordNumber : stepRecordNumbers) {
-            stepRecordNumber.resetPromotions();
+            stepRecordNumber.resetPromotions(promotionsDataManager);
         }
     }
 
-    public void ClearSteps() {
+    public synchronized void ClearSteps() {
         stepRecordNumbers.clear();
     }
 }

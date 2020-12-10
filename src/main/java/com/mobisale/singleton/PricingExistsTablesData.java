@@ -12,11 +12,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class PricingExistsTablesData {
 
-    private HashMap<String, Boolean> pricingExistsTablesMap = new HashMap<String, Boolean>();
+    private ConcurrentHashMap<String, Boolean> pricingExistsTablesMap = new ConcurrentHashMap<String, Boolean>();
     private static PricingExistsTablesData m_instance = null;
 
     SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();

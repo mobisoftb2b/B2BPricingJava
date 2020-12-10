@@ -7,10 +7,11 @@ import com.promotions.models.ItemPricingShow;
 import javax.print.attribute.HashAttributeSet;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PricingProcessData {
     private static PricingProcessData m_instance = null;
-    private HashMap<String, com.promotions.models.ItemPricing> pricingCacheMap = new HashMap<>();
+    private ConcurrentHashMap<String, ItemPricing> pricingCacheMap = new ConcurrentHashMap<>();
     public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
 
     public static PricingProcessData getInstance() {
@@ -26,7 +27,7 @@ public class PricingProcessData {
         pricingCacheMap.clear();
     }
 
-    public void AddItemWithPrice(String custID, com.promotions.models.Item item){
+    public synchronized void AddItemWithPrice(String custID, com.promotions.models.Item item){
            String key = custID + "_" + item.ItemCode;
         item.Pricing.ItemCode = item.ItemCode;
         com.promotions.models.ItemPricing copyItem = new ItemPricing(item.Pricing);
@@ -35,7 +36,7 @@ public class PricingProcessData {
         pricingCacheMap.put(key, copyItem);
     }
 
-    public ItemPricing GetItemWithPrice(String custID, com.promotions.models.Item item)
+    public synchronized ItemPricing GetItemWithPrice(String custID, com.promotions.models.Item item)
     {
         String key = custID + "_" + item.ItemCode;
         com.promotions.models.ItemPricing result = pricingCacheMap.get(key);
@@ -47,7 +48,7 @@ public class PricingProcessData {
             return  null;
     }
 
-    public List<ItemPricingShow> GetAllItemsForCustomer(String custID){
+    public synchronized List<ItemPricingShow> GetAllItemsForCustomer(String custID){
         Set<String> cacheKeySet = pricingCacheMap.keySet();
 
         List<ItemPricingShow> result = new ArrayList<>();

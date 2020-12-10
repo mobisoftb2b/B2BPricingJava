@@ -8,6 +8,9 @@ public class PricingRequest {
     private List<Item> items;
     private String Cust_Key;
     private Boolean showPriceLines;
+    private Boolean fromCache;
+    private String DocNum;
+    private String RequestId;
 
     private String promotions_Cust_Key = "";
 
@@ -18,6 +21,33 @@ public class PricingRequest {
     public Boolean getShowPriceLines(){
         return showPriceLines;
     }
+    public void setShowPriceLines(Boolean showPriceLines){
+        this.showPriceLines = showPriceLines;
+    }
+
+    public String getDocNum(){
+        return DocNum;
+    }
+
+    public void setDocNum(String docNum){
+        this.DocNum = docNum;
+    }
+
+    public String getRequestId(){
+        return RequestId;
+    }
+
+    public void setRequestId(String requestId){
+        this.RequestId = requestId;
+    }
+
+    public Boolean getFromCache(){
+        return fromCache;
+    }
+    public void setFromCache(Boolean fromCache){
+        this.fromCache = fromCache;
+    }
+
     public String getCustomerCode() {
         return customerCode;
     }
@@ -45,6 +75,7 @@ public class PricingRequest {
     public String getpromotions_Cust_Key() {
         return promotions_Cust_Key;
     }
+
 
     public void setpromotions_Cust_Key(String promotions_Cust_Key) {
         this.promotions_Cust_Key = promotions_Cust_Key;

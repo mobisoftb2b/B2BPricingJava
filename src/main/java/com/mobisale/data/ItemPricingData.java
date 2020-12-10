@@ -113,12 +113,13 @@ public class ItemPricingData {
         Quantity = quantity;
     }
 
-    public synchronized void initPricing(boolean forceUpdate) {
+    public synchronized void initPricing(boolean forceUpdate, String DocNum, String RequestId, ActiveSelectionData activeSelectionData) {
 
         if (!forceUpdate && itemPricingLines.size() > 0) {
             return;
         }
         clearPricing();
+        PricingSequenceData pricingSequence  = new PricingSequenceData();
         //LogUtil.LOG.info("initPricing 1");
         PricingProcedureListData pricingProcedureListData = PricingProceduresData.getInstance().getPricingProcedureDataByProcedureName(PricingProcedureName);
         //LogUtil.LOG.info("initPricing 2");
@@ -129,9 +130,14 @@ public class ItemPricingData {
        // LogUtil.LOG.info("initPricing 3");
         String conditionTypeToSkip = null;
         for (PricingProcedureData pricingProcedureData : pricingProcedureListData.pricingProcedureDatas) {
+            if (pricingProcedureData.ConditionType == null)
+            {
+                //continue;
+                LogUtil.LOG.info("condition null");
+            }
             String accessSequence = ConditionsAccessData.getInstance().getAccessSequence(pricingProcedureData.ConditionType);
-            LogUtil.LOG.info("stepNumber=" + pricingProcedureData.StepNumber + " ConditionType=" + pricingProcedureData.ConditionType + " access Sequence=" + accessSequence);
-            ConditionReturnListData conditionReturnListData = PricingSequenceData.getInstance().getAccessSequenceData(pricingProcedureData.ConditionType, accessSequence, pricingProcedureData.ManualOnly);
+            LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " itemCode=" + ItemID  + " stepNumber=" + pricingProcedureData.StepNumber + " ConditionType=" + pricingProcedureData.ConditionType + " access Sequence=" + accessSequence);
+            ConditionReturnListData conditionReturnListData = pricingSequence.getAccessSequenceData(pricingProcedureData.ConditionType, accessSequence, pricingProcedureData.ManualOnly, ItemID, DocNum, RequestId, activeSelectionData);
 //            if ((pricingProcedureData.ConditionType == null || pricingProcedureData.ConditionType.isEmpty()) && (pricingProcedureData.Subtotal == null || pricingProcedureData.Subtotal.isEmpty()) && !pricingProcedureData.Statistical) {
 //                continue;
 //            }
@@ -162,11 +168,11 @@ public class ItemPricingData {
             }
         }
 
-        LogUtil.LOG.info("PricingProcedure " + PricingProcedure);
+        LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " itemCode=" + ItemID  + " PricingProcedure " + PricingProcedure);
         for(ItemPricingLine line : itemPricingLines)
         {
             if (line.ConditionReturnValue != 0) {
-                LogUtil.LOG.info("ConditionValue " + line.ConditionValue + " Result " + line.ConditionReturnValue);
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " itemCode=" + ItemID  +  " ConditionValue " + line.ConditionValue + " Result " + line.ConditionReturnValue);
                 if (line.UnitType != null)
                     UnitType = line.UnitType;
             }
@@ -180,7 +186,7 @@ public class ItemPricingData {
         SubTotalsPromotionDiscountValue = NumberUtil.roundDoublePrecisionByParameter((1 - (getSubTotal999() / TotalStartValue)) * 100, false);
     }
 
-    public void updatePricing(boolean isNeedToUpdateAgentDiscountManually, float quantity) {
+    public synchronized void updatePricing(boolean isNeedToUpdateAgentDiscountManually, float quantity) {
         TotalValue = 0;
         TotalValueUrounded = 0;
         TotalStartValue = 0;
@@ -210,7 +216,7 @@ public class ItemPricingData {
         SubTotalsPromotionDiscountValue = NumberUtil.roundDoublePrecisionByParameter((1 - (getSubTotal999() / TotalStartValue)) * 100, false);
     }
 
-    public void clearPricing() {
+    public synchronized  void clearPricing() {
         lineCounter = 0;
         TotalValue = 0;
         TotalValueUrounded = 0;
@@ -467,7 +473,7 @@ public class ItemPricingData {
         return value == null || value.isEmpty();
     }
 
-    private double getSubTotal999() {
+    private synchronized double getSubTotal999() {
         double retValue = 0;
         for (ItemPricingLine itemPricingLine : itemPricingLines) {
             if (itemPricingLine.Subtotal.equalsIgnoreCase("1") || itemPricingLine.Subtotal.equalsIgnoreCase("5") || itemPricingLine.Subtotal.equalsIgnoreCase("6")) {
@@ -481,7 +487,7 @@ public class ItemPricingData {
         return retValue;
     }
 
-    private double getSubTotal992() {
+    private synchronized double getSubTotal992() {
         double retValue = 0;
         for (ItemPricingLine itemPricingLine : itemPricingLines) {
             if (itemPricingLine.Subtotal.equalsIgnoreCase("F") || itemPricingLine.Subtotal.equalsIgnoreCase("1") || itemPricingLine.Subtotal.equalsIgnoreCase("5") || itemPricingLine.Subtotal.equalsIgnoreCase("6")) {
@@ -495,7 +501,7 @@ public class ItemPricingData {
         return retValue;
     }
 
-    private double getSubTotal997() {
+    private synchronized double getSubTotal997() {
         double retValue = 0;
         for (ItemPricingLine itemPricingLine : itemPricingLines) {
             if (itemPricingLine.Subtotal.equalsIgnoreCase("F") || itemPricingLine.Subtotal.equalsIgnoreCase("1") || itemPricingLine.Subtotal.equalsIgnoreCase("5") || itemPricingLine.Subtotal.equalsIgnoreCase("6")) {
@@ -510,7 +516,7 @@ public class ItemPricingData {
         return retValue;
     }
 
-    private double getConditionReturnCalculateValueForPromotionLine(boolean isUnRound) {
+    private synchronized double getConditionReturnCalculateValueForPromotionLine(boolean isUnRound) {
         double conditionReturnCalculateValueForPromotionLine = 0;
         for (ItemPricingLine itemPricingLine : itemPricingLines) {
             int type = -1;
@@ -532,7 +538,7 @@ public class ItemPricingData {
         return conditionReturnCalculateValueForPromotionLine;
     }
 
-    private boolean isUpdateAgentDiscountPrice() {
+    private synchronized boolean isUpdateAgentDiscountPrice() {
         boolean isUpdateAgentDiscountPrice = false;
         for (ItemPricingLine itemPricingLine : itemPricingLines) {
             int type = -1;
@@ -609,7 +615,7 @@ public class ItemPricingData {
             //    UnitType = ConditionData.UnitType;
         }
 
-        private void updatePricing(float quantity) {
+        private synchronized void updatePricing(float quantity) {
             Quantity = quantity;
             if (ConditionValue.equalsIgnoreCase("ZCP1")) {
                 return;
@@ -674,7 +680,7 @@ public class ItemPricingData {
             }
         }
 
-        private void updateFixedPriceStat() {
+        private synchronized void updateFixedPriceStat() {
             if (ConditionData != null) {
                 IsFixedPrice = true;
                 ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, true);
@@ -710,7 +716,7 @@ public class ItemPricingData {
             }
         }
 
-        private void updateFixedPrice() {
+        private synchronized void updateFixedPrice() {
             if (FromStep > 0) {
                 ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(0, true);
                 ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter(0, false);
@@ -783,7 +789,7 @@ public class ItemPricingData {
 
         }
 
-        private void updateFreezePrice() {
+        private synchronized void updateFreezePrice() {
             ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, true);
             ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, false);
             TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnCalculateValueUnrounded * Quantity, true);
@@ -800,7 +806,7 @@ public class ItemPricingData {
             }
         }
 
-        private void updateBasePrice() {
+        private synchronized void updateBasePrice() {
             if (ConditionData != null) {
                 if (UnitType == null || UnitType.isEmpty()) {
                     if (ConditionData.UnitType == ConditionReturnData.UNIT_TYPE_PC) {
@@ -842,7 +848,7 @@ public class ItemPricingData {
             }
         }
 
-        private void updateBasePriceAfterFreeze() {
+        private synchronized void updateBasePriceAfterFreeze() {
             if (FreezeValue == 0) {
                 ConditionReturnValue = NumberUtil.roundDoublePrecisionByParameter(FreezeValue, false);
                 ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, true);
@@ -867,12 +873,12 @@ public class ItemPricingData {
             }
         }
 
-        private void updateBasketDiscount(){
+        private synchronized void updateBasketDiscount(){
             updateStepPrice();
             ConditionReturnCalculateValueBasket = Math.abs(ConditionReturnValue);
         }
 
-        private void updateStepPrice() {
+        private synchronized void updateStepPrice() {
             if (ConditionData != null) {
                 if (ManualOnly) {
                     ManualPercentFrom = NumberUtil.roundDoublePrecisionByParameter(ConditionData.DiscountFrom, true);
@@ -981,7 +987,7 @@ public class ItemPricingData {
             }
         }
 
-        private void updateAgentDiscountPrice() {
+        private synchronized void updateAgentDiscountPrice() {
             int altCondBaseValueAsInt = 0;
             double value = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
             if (AltCondBaseValue != null) {
@@ -1078,7 +1084,7 @@ public class ItemPricingData {
             TotalQuantityAndValue = NumberUtil.roundDoublePrecisionByParameter(TotalQuantityAndValueForLine, true);
         }
 
-        private void updatePromotionPrice() {
+        private synchronized void updatePromotionPrice() {
             int altCondBaseValueAsInt = 0;
             double value = NumberUtil.roundDoublePrecisionByParameter(TotalValue, false);
             if (AltCondBaseValue != null && !AltCondBaseValue.isEmpty()) {
@@ -1115,7 +1121,7 @@ public class ItemPricingData {
             }
         }
 
-        private void updateMaamPrice() {
+        private synchronized void updateMaamPrice() {
             ConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter((ConditionReturnValue / 100) * TotalValue, true);
             ConditionReturnCalculateValueUnrounded = NumberUtil.roundDoublePrecisionByParameter((ConditionReturnValue / 100) * TotalValueUrounded, false);
             TotalQuantityConditionReturnCalculateValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnCalculateValueUnrounded * Quantity, true);
@@ -1125,7 +1131,7 @@ public class ItemPricingData {
             MaamDiscountValue = NumberUtil.roundDoublePrecisionByParameter(ConditionReturnValue, true);
         }
 
-        private void updateCreditPrice() {
+        private synchronized void updateCreditPrice() {
             if (ConditionData != null) {
                 CreditValue = ConditionData.CreditTerms;
             }

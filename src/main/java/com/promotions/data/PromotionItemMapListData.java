@@ -4,6 +4,8 @@ package com.promotions.data;
 import com.promotions.manager.PromotionsDataManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -11,7 +13,7 @@ import java.util.Set;
  */
 public class PromotionItemMapListData {
     public final int PopulationCode;
-    public final ArrayList<PromotionItemMapData> PromotionItemMapDatas = new ArrayList<PromotionItemMapData>();
+    public final List<PromotionItemMapData> PromotionItemMapDatas = Collections.synchronizedList(new ArrayList<PromotionItemMapData>());
 
     public PromotionItemMapListData(int populationCode) {
         PopulationCode = populationCode;
@@ -36,14 +38,14 @@ public class PromotionItemMapListData {
         return query.toString();
     }
 
-    public ArrayList<String> getItems(String whereCode, Set<String> possibleItemIDs) {
+    public ArrayList<String> getItems(String whereCode, Set<String> possibleItemIDs, PromotionsDataManager promotionsDataManager) {
         ArrayList<String> items = new ArrayList<String>();
         PromotionItemMapData promotionItemMapData = PromotionItemMapDatas.get(0);
         if (promotionItemMapData.PopulationCode == 0) {
             items.addAll(PromotionsDataManager.getAllItemsCode());
         } else {
             for (PromotionItemMapData promotionItemData : PromotionItemMapDatas) {
-                items.addAll(PromotionsDataManager.getItemCodesFromField(promotionItemData.ItemFiledCode, whereCode, possibleItemIDs));
+                items.addAll(promotionsDataManager.getItemCodesFromField(promotionItemData.ItemFiledCode, whereCode, possibleItemIDs));
             }
         }
         return items;

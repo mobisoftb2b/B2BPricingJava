@@ -11,15 +11,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 ;
 
 
 public class MtnMappingData {
 
-    private HashMap<String, ArrayList<FieldMapData>> mtnMappingData = new HashMap<String, ArrayList<FieldMapData>>();
-    private HashMap<String, String> sapToMtnData = new HashMap<String, String>();
+    private ConcurrentHashMap<String, List<FieldMapData>> mtnMappingData = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, String> sapToMtnData = new ConcurrentHashMap<>();
     private static MtnMappingData m_instance = null;
     //private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
@@ -35,11 +38,11 @@ public class MtnMappingData {
     private MtnMappingData() {
     }
 
-    public void clearResources(){
+    public synchronized void clearResources(){
         mtnMappingData.clear();
         sapToMtnData.clear();
     }
-    public void executeQuery() {
+    public synchronized void executeQuery() {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
@@ -68,9 +71,9 @@ public class MtnMappingData {
                 String tableName = rs.getString("TABLEName");   //cursor.getString(cursor.getColumnIndex(PricingContract.MtnMapping.MTN_MAPPING_TABLE_NAME));
                 String fieldType = rs.getString("FieldType");   //cursor.getString(cursor.getColumnIndex(PricingContract.MtnMapping.MTN_MAPPING_FIELD_TYPE));
                 FieldMapData fieldMapData = new FieldMapData(sapField, mtnField, tableName, fieldType);
-                ArrayList<FieldMapData> mtnMapDatas = mtnMappingData.get(tableName);
+                List<FieldMapData> mtnMapDatas = mtnMappingData.get(tableName);
                 if (mtnMapDatas == null) {
-                    mtnMapDatas = new ArrayList<FieldMapData>();
+                    mtnMapDatas = Collections.synchronizedList(new ArrayList<FieldMapData>());
                 }
                 mtnMapDatas.add(fieldMapData);
                 mtnMappingData.put(tableName, mtnMapDatas);
@@ -86,11 +89,11 @@ public class MtnMappingData {
         }
     }
 
-    public HashMap<String, ArrayList<FieldMapData>> getMtnMappingData() {
+    public synchronized ConcurrentHashMap<String, List<FieldMapData>> getMtnMappingData() {
         return mtnMappingData;
     }
 
-    public String getMtnField(String sapFiled) {
+    public synchronized String getMtnField(String sapFiled) {
         String mtnField = sapToMtnData.get(sapFiled);
         return mtnField == null ? "" : mtnField;
     }

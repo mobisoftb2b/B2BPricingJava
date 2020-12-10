@@ -25,12 +25,13 @@ public abstract class APromotionStep {
     protected final int BonusMultipleQty;
     protected final String BonusMultQtyUOM;
     protected final StepDescription StepDescriptionObj;
+    protected final String StepDescriptionStr;
     protected final String m_CustKey;
     protected DecimalFormat dfPercent = new DecimalFormat("#,##0.00");
     protected DecimalFormat dfPrice = new DecimalFormat("#,##0.00");
 
     protected APromotionStep(String Cust_Key,  String espNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double bonusPrice, double bonusDiscount, double priceBasedQty,
-                             String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, StepDescription stepDescription) {
+                             String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, StepDescription stepDescription, String stepDescriptionStr) {
         ESPNumber = espNumber;
         RecordNumber = recordNumber;
         Step = step;
@@ -49,6 +50,7 @@ public abstract class APromotionStep {
         BonusMultipleQty = bonusMultipleQty;
         BonusMultQtyUOM = (bonusMultQtyUOM == null || bonusMultQtyUOM.isEmpty()) ? ItemPromotionData.PC_UNIT : bonusMultQtyUOM;
         StepDescriptionObj = stepDescription;
+        StepDescriptionStr = stepDescriptionStr;
         m_CustKey = Cust_Key;
     }
 

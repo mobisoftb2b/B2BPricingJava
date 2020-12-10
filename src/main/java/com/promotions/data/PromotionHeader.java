@@ -1,5 +1,7 @@
 package com.promotions.data;
 
+import com.promotions.manager.PromotionsDataManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -57,20 +59,20 @@ public class PromotionHeader {
         IsClassification = isClassification;
     }
 
-    public boolean isPromotionHeaderActiveAndOpen(String itemCode, int newQuantity) {
-        return promotionStepManager.isPromotionHeaderActiveAndOpen(itemCode, newQuantity, DefinitionMethod, StepsBasedUOM);
+    public boolean isPromotionHeaderActiveAndOpen(String itemCode, int newQuantity, PromotionsDataManager promotionsDataManager) {
+        return promotionStepManager.isPromotionHeaderActiveAndOpen(itemCode, newQuantity, DefinitionMethod, StepsBasedUOM, promotionsDataManager);
     }
 
-    public void updatePromotionDiscount(String itemCode, float newQuantity) {
-        promotionStepManager.updatePromotionDiscount(itemCode, newQuantity, DefinitionMethod, StepsBasedUOM, ExcludeDiscount, isBlocked);
+    public void updatePromotionDiscount(String itemCode, float newQuantity, PromotionsDataManager promotionsDataManager) {
+        promotionStepManager.updatePromotionDiscount(itemCode, newQuantity, DefinitionMethod, StepsBasedUOM, ExcludeDiscount, isBlocked, promotionsDataManager);
     }
 
     public boolean isItemExist(String itemCode) {
         return promotionStepManager.isItemExist(itemCode);
     }
 
-    public ArrayList<ItemPromotionData> updateItemsPriceAndDiscount(HashMap<String, ItemPromotionData> itemsDataMap) {
-        ArrayList<ItemPromotionData> itemsData = promotionStepManager.updateItemsPriceAndDiscount(itemsDataMap);
+    public ArrayList<ItemPromotionData> updateItemsPriceAndDiscount(HashMap<String, ItemPromotionData> itemsDataMap, PromotionsDataManager promotionsDataManager) {
+        ArrayList<ItemPromotionData> itemsData = promotionStepManager.updateItemsPriceAndDiscount(itemsDataMap, promotionsDataManager);
         for (ItemPromotionData itemPromotionData : itemsData) {
 //            PromotionHeader activePromotionHeader = PromotionsDataManager.getInstance().getPromotionHeader(itemsListData.getItemCode());
 //            if(activePromotionHeader.ESPNumber.equalsIgnoreCase(ESPNumber)){
@@ -96,40 +98,40 @@ public class PromotionHeader {
         return promotionStepManager.getActivePromotionStep();
     }
 
-    public boolean blockPromotion(String itemCode) {
+    public boolean blockPromotion(String itemCode, PromotionsDataManager promotionsDataManager) {
         if (NoBlockESP) {
             return false;
         }
         isBlocked = true;
         if (itemCode == null) {
-            promotionStepManager.blockAllPromotion();
+            promotionStepManager.blockAllPromotion(promotionsDataManager);
         } else {
-            promotionStepManager.blockPromotion(itemCode);
+            promotionStepManager.blockPromotion(itemCode, promotionsDataManager);
         }
         return isBlocked;
     }
 
-    public void unBlockPromotion(String itemCode) {
+    public void unBlockPromotion(String itemCode, PromotionsDataManager promotionsDataManager) {
         isBlocked = false;
         if (itemCode == null) {
-            promotionStepManager.unBlockAllPromotion(ExcludeDiscount);
+            promotionStepManager.unBlockAllPromotion(ExcludeDiscount, promotionsDataManager);
         } else {
-            promotionStepManager.unBlockPromotion(itemCode, ExcludeDiscount);
+            promotionStepManager.unBlockPromotion(itemCode, ExcludeDiscount, promotionsDataManager);
         }
     }
 
-    public boolean blockAllPromotion() {
+    public boolean blockAllPromotion(PromotionsDataManager promotionsDataManager) {
         if (NoBlockESP) {
             return false;
         }
         isBlocked = true;
-        promotionStepManager.blockAllPromotion();
+        promotionStepManager.blockAllPromotion(promotionsDataManager);
         return isBlocked;
     }
 
-    public void unBlockAllPromotion() {
+    public void unBlockAllPromotion(PromotionsDataManager promotionsDataManager) {
         isBlocked = false;
-        promotionStepManager.unBlockAllPromotion(ExcludeDiscount);
+        promotionStepManager.unBlockAllPromotion(ExcludeDiscount, promotionsDataManager);
     }
 
     public boolean isBlockedBySystem() {
@@ -180,8 +182,8 @@ public class PromotionHeader {
         return promotionStepManager.getAllPromotionItemCodes();
     }
 
-    public void resetPromotions() {
-        promotionStepManager.resetPromotions();
+    public void resetPromotions(PromotionsDataManager promotionsDataManager) {
+        promotionStepManager.resetPromotions(promotionsDataManager);
     }
 
 }

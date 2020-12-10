@@ -14,13 +14,14 @@ import com.mobisale.utils.SqlLiteUtil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class PricingProceduresData {
 
     private static PricingProceduresData m_instance = null;
-    private HashMap<String, PricingProcedureListData> pricingProceduresMap = new HashMap<String, PricingProcedureListData>();
-    private HashMap<String, String> pricingProceduresCust = new HashMap<String, String>();
+    private ConcurrentHashMap<String, PricingProcedureListData> pricingProceduresMap = new ConcurrentHashMap<String, PricingProcedureListData>();
+    private ConcurrentHashMap<String, String> pricingProceduresCust = new ConcurrentHashMap<String, String>();
 
     private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
@@ -89,7 +90,7 @@ public class PricingProceduresData {
     public void clearResources(){
         pricingProceduresMap.clear();
     }
-    public void executeQuery() {
+    public synchronized void executeQuery() {
         pricingProceduresMap.clear();
         ResultSet rs = null;
         Statement st = null;
@@ -159,7 +160,7 @@ public class PricingProceduresData {
 
     }
 
-    private String getPricingProcedureNameFromSql(String Cust_Key) {
+    private synchronized String getPricingProcedureNameFromSql(String Cust_Key, String DocNum, String RequestId) {
 
         String Procedure = "";
         if (System.getenv("PROVIDER").equalsIgnoreCase("strauss"))
@@ -181,7 +182,7 @@ public class PricingProceduresData {
                 conn = DbUtil.connect(conn);
                 //String query = "SELECT " + PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE + " FROM [PricingDocProcedure_T683V]";
 
-                LogUtil.LOG.info("call B2B_Pricing_GetPricingProcedure for cust_key=" + Cust_Key);
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " call B2B_Pricing_GetPricingProcedure for cust_key=" + Cust_Key);
                 st = conn.prepareCall("{call B2B_Pricing_GetPricingProcedure(?)}");
                 st.setString(1, Cust_Key);
                 st.execute();
@@ -194,7 +195,7 @@ public class PricingProceduresData {
                 Procedure = rs.getString(PricingDocProcedure.PRICING_DOC_PROCEDURE_VALUE);
 
             } catch (SQLException e) {
-                LogUtil.LOG.error("Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + " 126");
+                LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + " 126");
             } finally {
                 //if (sqlLiteUtil.IsSQlLite())
                 //   sqlLiteUtil.Disconnect(conn);
@@ -205,26 +206,26 @@ public class PricingProceduresData {
         return Procedure;
 
     }
-    public String getPricingProcedureName(String Cust_Key) {
+    public synchronized String getPricingProcedureName(String Cust_Key, String DocNum, String RequestId) {
         String procName = "";
         if (pricingProceduresCust.get(Cust_Key) == null) {
-            procName = getPricingProcedureNameFromSql(Cust_Key);
+            procName = getPricingProcedureNameFromSql(Cust_Key, DocNum, RequestId);
             pricingProceduresCust.put(Cust_Key, procName);
         }
         else
             procName = pricingProceduresCust.get(Cust_Key);
         //LogUtil.LOG.info("pricing procedure name=" + procName);
-        LogUtil.LOG.info("pricing procedure name=" + procName);
+        LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " pricing procedure name=" + procName);
         return procName;
     }
 
-    public PricingProcedureListData getPricingProcedureData(String Cust_Key) {
-        String procName = getPricingProcedureName(Cust_Key);
+    public synchronized PricingProcedureListData getPricingProcedureData(String Cust_Key) {
+        String procName = getPricingProcedureName(Cust_Key, "", "");
         LogUtil.LOG.info("getPricingProcedureData pricing procedure name=" + procName);
         return pricingProceduresMap.get(procName);
     }
 
-    public PricingProcedureListData getPricingProcedureDataByProcedureName(String pricingProcedureName) {
+    public synchronized PricingProcedureListData getPricingProcedureDataByProcedureName(String pricingProcedureName) {
         return pricingProceduresMap.get(pricingProcedureName);
     }
 }

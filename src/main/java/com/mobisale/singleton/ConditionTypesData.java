@@ -12,11 +12,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ConditionTypesData {
 
     private static final String TAG = "ConditionTypesData";
-    private HashMap<String, ConditionTypeData> conditionTypesMap = new HashMap<String, ConditionTypeData>();
+    private ConcurrentHashMap<String, ConditionTypeData> conditionTypesMap = new ConcurrentHashMap<String, ConditionTypeData>();
     private static ConditionTypesData m_instance = null;
     private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
@@ -36,7 +37,7 @@ public class ConditionTypesData {
         conditionTypesMap.clear();
     }
 
-    public void executeQuery() {
+    public synchronized void executeQuery() {
         //conditionTypesMap.clear();
         ResultSet rs = null;
         Statement st = null;

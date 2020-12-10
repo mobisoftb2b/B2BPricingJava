@@ -11,7 +11,7 @@ public class ConditionReturnListData {
     public ConditionReturnListData() {
     }
 
-    public void addConditionReturnData(ConditionReturnData conditionReturnData) {
+    public synchronized void addConditionReturnData(ConditionReturnData conditionReturnData) {
         conditionReturnDatas.add(conditionReturnData);
     }
 }

@@ -1,0 +1,156 @@
+INFO2020-12-07 16:29:09.663 Start app ***************
+INFO2020-12-07 16:29:22.297 SELECT * FROM MTN_Mapping ORDER BY TableName
+INFO2020-12-07 16:29:22.846 SELECT * FROM MTN_Prc_ConditionTypes
+INFO2020-12-07 16:29:22.916 SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM Prc_Condtions_Access_T685 ORDER BY ConditionType ASC
+INFO2020-12-07 16:29:23.035 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-12-07 16:29:23.037 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-12-07 16:29:23.059 SELECT  name  FROM  sqlite_master  WHERE  type ='table' AND name NOT LIKE 'sqlite_%'
+INFO2020-12-07 16:29:23.082 SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM Prc_AccSequence_T682I ORDER BY AccessSequence,Access ASC
+INFO2020-12-07 16:29:23.093 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='CDIS' AND Access=999 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.100 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='K304' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.106 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=8 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.113 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.119 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='MWST' AND Access=20 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.124 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZC99' AND Access=999 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.128 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=2 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.132 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=3 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.135 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=5 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.139 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=7 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.144 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=1 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.149 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.157 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=12 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.162 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=20 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.167 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=21 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.171 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=22 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.176 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=30 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.181 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=40 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.187 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=45 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.193 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=47 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.200 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=48 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.205 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=50 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.209 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=58 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.215 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=90 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.219 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=92 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.224 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=99 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.229 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZCO1' AND Access=999 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.234 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPAY' AND Access=5 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.239 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPAY' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.244 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPAY' AND Access=15 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.249 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPAY' AND Access=21 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.253 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPN0' AND Access=0 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.257 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=5 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.261 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=1 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.267 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.271 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=12 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.277 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=30 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.281 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=40 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.285 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=90 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.290 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR1' AND Access=999 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.294 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=1 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.299 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=45 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.302 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=47 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.306 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=50 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.310 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=52 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.314 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=53 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.317 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=54 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.321 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=56 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.325 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=58 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.329 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=90 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.334 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPR2' AND Access=999 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.338 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='ZPRS' AND Access=5 AND DocField IS NOT NULL
+INFO2020-12-07 16:29:23.395 SELECT * FROM PricingProcedures_T683S ORDER BY 'Procedure',StepNumber ASC
+ERROR2020-12-07 16:29:23.459 SELECT distinct m.SelectedCharacteristics, ItemField FROM PromotionItemMapping m JOIN PromotionItems_zsdt_espmtr i ON m.SelectedCharacteristics=i.SelectedCharacteristics ORDER BY m.SelectedCharacteristics ASC
+ERROR2020-12-07 16:29:23.600 SELECT * FROM PromotionHeader_zsdt_esp WHERE StartDate <= 20201207 AND EndDate >= 20201207 ORDER BY ESPPriority ASC ,ESPNumber DESC
+INFO2020-12-07 16:29:23.709 PROVIDER=tambour
+INFO2020-12-07 16:29:23.715 Start end ***********************
+ERROR2020-12-07 16:30:22.652 Pricing request{"customerCode":"306012","cust_Key":"306012","promotions_Cust_Key":"306012","showPriceLines":false,"items":[{"UnitQuantity":1,"CartQuantity":0}],"fromCache":true,"docNum":"000 products","requestId":"kiemoib8"}
+INFO2020-12-07 16:30:22.848 kiemoib8 DocNum=000 products customerCode:306012,items: [{"ItemCode":null,"UnitInCart":null,"CartQuantity":"0","UnitQuantity":"1","Quantity":null,"Values":null,"Pricing":null,"Promotion":null}]
+WARN2020-12-07 16:30:22.854 kiemoib8 DocNum=000 products GetPricing - before getPricingWithPromotions2020-12-07
+ERROR2020-12-07 16:30:22.855 kiemoib8 DocNum=000 products hasPromotions=true
+INFO2020-12-07 16:30:22.856 kiemoib8 DocNum=000 products getPricingWithPromotions - before getPricing2020-12-07
+INFO2020-12-07 16:30:22.857 kiemoib8 DocNum=000 products getPricing - before 2020-12-07
+INFO2020-12-07 16:30:22.858 kiemoib8 DocNum=000 products getPricing - after updateSupplyDateSelection 2020-12-07
+INFO2020-12-07 16:30:22.912 kiemoib8 DocNum=000 products SELECT *  FROM [dbo].[B2B_Pricing_Customers] WHERE Cust_Key='306012'
+INFO2020-12-07 16:30:22.948 kiemoib8 DocNum=000 products getPricing - after updateCustomerSelection 2020-12-07
+INFO2020-12-07 16:30:22.949 kiemoib8 DocNum=000 products getPricing - objectItems count=1 2020-12-07
+INFO2020-12-07 16:30:22.950 kiemoib8 DocNum=000 products pricing procedure name=MOBI
+ERROR2020-12-07 16:30:22.952 null
+INFO2020-12-07 16:30:22.954 kiemoib8 DocNum=000 products getPricingWithPromotions - after getPricing2020-12-07
+ERROR2020-12-07 16:30:22.956 kiemoib8 DocNum=000 products SELECT distinct ESPNumber FROM v_CustPromotions WHERE Cust_Key IN ('306012','0')
+INFO2020-12-07 16:30:22.958 kiemoib8 DocNum=000 products ESPNumber=3189
+INFO2020-12-07 16:30:22.959 kiemoib8 DocNum=000 products ESPNumber=3191
+INFO2020-12-07 16:30:22.959 kiemoib8 DocNum=000 products ESPNumber=3187
+INFO2020-12-07 16:30:22.962 kiemoib8 DocNum=000 products getPricingWithPromotions - after getPromotions2020-12-07
+ERROR2020-12-07 16:30:22.963 kiemoib8 DocNum=000 products getPricingAfterPromotions - exit2020-12-07
+INFO2020-12-07 16:30:22.964 kiemoib8 DocNum=000 products getPricingWithPromotions - after getPricingAfterPromotions2020-12-07
+INFO2020-12-07 16:30:22.965 kiemoib8 DocNum=000 products getPricingWithPromotions - after getAllItemBonusDataMap2020-12-07
+ERROR2020-12-07 16:30:57.188 Pricing request{"customerCode":"306012","cust_Key":"306012","promotions_Cust_Key":"306012","showPriceLines":false,"items":[{"UnitQuantity":1,"CartQuantity":0}],"fromCache":true,"docNum":"000 products","requestId":"kiemoib8"}
+INFO2020-12-07 16:30:57.202 kiemoib8 DocNum=000 products customerCode:306012,items: [{"ItemCode":null,"UnitInCart":null,"CartQuantity":"0","UnitQuantity":"1","Quantity":null,"Values":null,"Pricing":null,"Promotion":null}]
+WARN2020-12-07 16:30:57.203 kiemoib8 DocNum=000 products GetPricing - before getPricingWithPromotions2020-12-07
+ERROR2020-12-07 16:30:57.204 kiemoib8 DocNum=000 products hasPromotions=true
+INFO2020-12-07 16:30:57.205 kiemoib8 DocNum=000 products getPricingWithPromotions - before getPricing2020-12-07
+INFO2020-12-07 16:30:57.207 kiemoib8 DocNum=000 products getPricing - before 2020-12-07
+INFO2020-12-07 16:30:57.209 kiemoib8 DocNum=000 products getPricing - after updateSupplyDateSelection 2020-12-07
+INFO2020-12-07 16:30:57.211 kiemoib8 DocNum=000 products getPricing - after updateCustomerSelection 2020-12-07
+INFO2020-12-07 16:30:57.212 kiemoib8 DocNum=000 products getPricing - objectItems count=1 2020-12-07
+INFO2020-12-07 16:30:57.213 kiemoib8 DocNum=000 products pricing procedure name=MOBI
+ERROR2020-12-07 17:54:42.078 null
+INFO2020-12-07 17:54:42.119 kiemoib8 DocNum=000 products getPricingWithPromotions - after getPricing2020-12-07
+ERROR2020-12-07 17:54:42.135 kiemoib8 DocNum=000 products SELECT distinct ESPNumber FROM v_CustPromotions WHERE Cust_Key IN ('306012','0')
+INFO2020-12-07 17:54:42.143 kiemoib8 DocNum=000 products ESPNumber=3189
+INFO2020-12-07 17:54:42.144 kiemoib8 DocNum=000 products ESPNumber=3191
+INFO2020-12-07 17:54:42.147 kiemoib8 DocNum=000 products ESPNumber=3187
+INFO2020-12-07 17:54:42.153 kiemoib8 DocNum=000 products getPricingWithPromotions - after getPromotions2020-12-07
+ERROR2020-12-07 17:54:42.155 kiemoib8 DocNum=000 products getPricingAfterPromotions - exit2020-12-07
+INFO2020-12-07 17:54:42.165 kiemoib8 DocNum=000 products getPricingWithPromotions - after getPricingAfterPromotions2020-12-07
+INFO2020-12-07 17:54:42.167 kiemoib8 DocNum=000 products getPricingWithPromotions - after getAllItemBonusDataMap2020-12-07
+INFO2020-12-07 17:59:56.881 Start app ***************
+INFO2020-12-07 18:00:10.859 SELECT * FROM MTN_Mapping ORDER BY TableName
+INFO2020-12-07 18:00:11.217 SELECT * FROM MTN_Prc_ConditionTypes
+INFO2020-12-07 18:00:11.233 SELECT DISTINCT ConditionType,AccessSequence,RefCond FROM Prc_Condtions_Access_T685 ORDER BY ConditionType ASC
+INFO2020-12-07 18:00:11.301 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-12-07 18:00:11.303 SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE'
+INFO2020-12-07 18:00:11.316 SELECT  name  FROM  sqlite_master  WHERE  type ='table' AND name NOT LIKE 'sqlite_%'
+INFO2020-12-07 18:00:11.330 SELECT DISTINCT AccessSequence,Access,TableName,ExclusiveAccess,Requirement FROM Prc_AccSequence_T682I ORDER BY AccessSequence,Access ASC
+INFO2020-12-07 18:00:11.336 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='CDIS' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.340 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.343 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=20 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.346 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=21 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.349 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=22 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.352 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=30 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.355 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=31 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.358 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=32 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.361 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=33 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.364 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=34 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.366 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='DIS' AND Access=35 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.370 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='PRC' AND Access=25 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.375 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='PRC' AND Access=30 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.378 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='PRC_OLD' AND Access=19 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.381 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SDIS' AND Access=40 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.384 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SDIS' AND Access=41 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.387 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.390 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=11 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.392 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=12 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.395 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=20 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.398 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=21 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.401 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=22 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.404 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=23 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.407 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=24 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.409 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='SPRC' AND Access=26 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.412 SELECT ConditionField,DocStruct,DocField FROM Prc_ConditionFields_T682Z WHERE AccessSequence='VAT' AND Access=10 AND DocField IS NOT NULL
+INFO2020-12-07 18:00:11.425 SELECT * FROM PricingProcedures_T683S ORDER BY 'Procedure',StepNumber ASC
+ERROR2020-12-07 18:00:11.442 SELECT distinct m.SelectedCharacteristics, ItemField FROM PromotionItemMapping m JOIN PromotionItems_zsdt_espmtr i ON m.SelectedCharacteristics=i.SelectedCharacteristics ORDER BY m.SelectedCharacteristics ASC
+ERROR2020-12-07 18:00:11.482 SELECT * FROM PromotionHeader_zsdt_esp WHERE StartDate <= 20201207 AND EndDate >= 20201207 ORDER BY ESPPriority ASC ,ESPNumber DESC
+INFO2020-12-07 18:00:11.506 PROVIDER=hcohen
+INFO2020-12-07 18:00:11.513 Start end ***********************
+INFO2020-12-07 18:01:12.060 ********************GetPromotionItems started*************
+ERROR2020-12-07 18:01:20.428  DocNum= SELECT distinct MaterialCharValue FROM PromotionItems_zsdt_espmtr where ESPNumber=10218
+INFO2020-12-07 18:01:20.435  DocNum= found item=113284524

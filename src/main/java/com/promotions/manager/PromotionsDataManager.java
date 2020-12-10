@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,14 +31,14 @@ public class PromotionsDataManager {
     private static final String ITEM_ID = "ItemCode";
     //private static final String TABLE_ITEMS = "Items";
 
-    private static HashMap<String, PromotionsDataManager> instances = new HashMap<>();
+    //private static HashMap<String, PromotionsDataManager> instances = new HashMap<>();
     private String m_custKey;
 
-    private static ArrayList<String> allItemsCode = new ArrayList<>();
+    private static List<String> allItemsCode = Collections.synchronizedList(new ArrayList<>());
     private HashSet<String> dealKeys = new HashSet<>();
-    private static TreeMap<String, PromotionHeader> dealsHeaderByDealKeyMap = new TreeMap<>();
-    private static ArrayList<PromotionHeader> promotionHeaders = new ArrayList<>();
-    private ArrayList<PromotionHeader> currentPromotionHeaders = new ArrayList<>();
+    private static ConcurrentHashMap<String, PromotionHeader> dealsHeaderByDealKeyMap = new ConcurrentHashMap<>();
+    private static List<PromotionHeader> promotionHeaders = Collections.synchronizedList(new ArrayList<>());
+    private List<PromotionHeader> currentPromotionHeaders = Collections.synchronizedList(new ArrayList<>());
     private IOrderObserver observer;
     private HashMap<String, ItemPromotionData> itemsDataMap = new HashMap<>();
     private HashMap<String, ArrayList<ItemBonusData>> itemBonusDataMap = new HashMap<>();
@@ -46,7 +47,7 @@ public class PromotionsDataManager {
 
     private static HashMap<String, ArrayList<String>> itemsSqlQueryMap = new HashMap<>();
 
-
+    /*
     public static PromotionsDataManager getInstance(String customerKey) {
         PromotionsDataManager instance = instances.get(customerKey);
         if (instance == null){
@@ -56,9 +57,10 @@ public class PromotionsDataManager {
         // Return the instance
         return instance;
     }
+     */
 
-    private PromotionsDataManager() {
-
+    public PromotionsDataManager(String Cust_Key) {
+        m_custKey = Cust_Key;
     }
 
 
@@ -95,8 +97,8 @@ public class PromotionsDataManager {
 
             //setAllItems();
             queryForDealHeader();
-
-            Set<String> keySet = ActiveSelectionData.getInstance().getAllItemCodes();
+            ActiveSelectionData activeSelectionData = new ActiveSelectionData();
+            Set<String> keySet = activeSelectionData.getAllItemCodes();
             for (String itemCode: keySet) {
                 allItemsCode.add(itemCode);
             }
@@ -113,7 +115,7 @@ public class PromotionsDataManager {
     }
 
 
-    public void startQueryForCustomer(String customerKey) {
+    public void startQueryForCustomer(String customerKey, ActiveSelectionData activeSelectionData) {
         // clean all at start
         //clearResources();
         try {
@@ -121,7 +123,7 @@ public class PromotionsDataManager {
 
             if (m_custKey == null) {
                 m_custKey = customerKey;
-                setAllItems();
+                setAllItems(activeSelectionData);
             }
 
             /*queryForDeals();
@@ -137,7 +139,7 @@ public class PromotionsDataManager {
 
 
 
-    public void queryForDealKeys(String customerKey) {
+    public synchronized void queryForDealKeys(String customerKey, String DocNum, String RequestId) {
 
         dealKeys.clear();
         m_custKey = customerKey;
@@ -155,7 +157,7 @@ public class PromotionsDataManager {
                 conn = DbUtil.connect(conn);
 
             st = conn.createStatement();
-            LogUtil.LOG.error(rawQuery);
+            LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " " + rawQuery);
             rs = st.executeQuery(rawQuery);
             if (rs == null) {
                 return;
@@ -165,9 +167,13 @@ public class PromotionsDataManager {
                 columnIndex = rs.findColumn(PromotionsContract.PromotionCustomers.PROMOTION_CUSTOMERS_ESP_NUMBER);
                 String dealCode = rs.getString(columnIndex);
                 dealKeys.add(dealCode);
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum + " ESPNumber=" + dealCode);
+            }
+            if (dealKeys.size() == 0) {
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum + " Zero results");
             }
         } catch (Exception e) {
-            LogUtil.LOG.error("error query for promotion-keys :"+e.getMessage());
+            LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " error query for promotion-keys :"+e.getMessage());
         } finally {
             if (sqlLiteUtil.IsSQlLite())
                 sqlLiteUtil.Disconnect(conn);
@@ -176,7 +182,7 @@ public class PromotionsDataManager {
         }
     }
 
-    public static ArrayList<String> GetPromotionItemsForESPNumber(String ESPNumber){
+    public synchronized ArrayList<String> GetPromotionItemsForESPNumber(String ESPNumber, String DocNum, String RequestId){
 
         String rawQuery = "SELECT distinct " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE
                 + " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS + " where " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_ESP_NUMBER + "=" + ESPNumber;
@@ -191,7 +197,7 @@ public class PromotionsDataManager {
                 conn = DbUtil.connect(conn);
 
             st = conn.createStatement();
-            LogUtil.LOG.error(rawQuery);
+            LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " " + rawQuery);
             rs = st.executeQuery(rawQuery);
             if (rs == null) {
                 return ItemCodes;
@@ -202,10 +208,13 @@ public class PromotionsDataManager {
                 columnIndex = rs.findColumn(PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE);
                 String matCharValue = rs.getString(columnIndex);
                 ItemCodes.add(matCharValue);
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " found item=" + matCharValue);
             }
+            if (ItemCodes.size() == 0)
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " Zero results");
             return ItemCodes;
         } catch (Exception e) {
-            LogUtil.LOG.error("error for query in promotion header array :"+e.getMessage());
+            LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " error for query in promotion header array :"+e.getMessage());
             return ItemCodes;
         } finally {
             if (sqlLiteUtil.IsSQlLite())
@@ -215,7 +224,7 @@ public class PromotionsDataManager {
         }
     }
 
-    private static void queryForDealHeader() {
+    private synchronized static void queryForDealHeader() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String supplyDate = sdf.format(Calendar.getInstance().getTimeInMillis());
 
@@ -314,7 +323,7 @@ public class PromotionsDataManager {
     }
     //dealKeys.add(dealCode);
 
-    public Boolean queryForDealsByCustomer(String Cust_Key, HashMap<String, ItemPromotionData> itemsDataMapArg) {
+    public synchronized Boolean queryForDealsByCustomer(String Cust_Key, HashMap<String, ItemPromotionData> itemsDataMapArg, String DocNum, String RequestId,  ActiveSelectionData activeSelectionData, PromotionPopulationMapData promotionPopulationMapData) {
         //if (dataExistMap.get(Cust_Key) != null)
         //    return false;
         //SQLiteDatabase db = new PromotionsDatabase(MTNApplication.getContext()).getReadableDatabase();
@@ -338,10 +347,10 @@ public class PromotionsDataManager {
             if (itemsDataMap.size() == 0)
                 return true;
 
-            Set<Integer> itemsMapKeys = PromotionPopulationMapData.getInstance().GetPromotionMappingItems().keySet();
+            Set<Integer> itemsMapKeys = promotionPopulationMapData.GetPromotionMappingItems().keySet();
             for (Integer itemKey : itemsMapKeys)
             {
-                ArrayList<String> mappingItems = PromotionPopulationMapData.getInstance().GetPromotionMappingItems().get(itemKey);
+                List<String> mappingItems = promotionPopulationMapData.GetPromotionMappingItems().get(itemKey);
                 for(String mappingItemField : mappingItems)
                 {
                     itemCodesSql.put(mappingItemField, "SelectedCharacteristics=" + itemKey + " AND " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE + " IN (");
@@ -357,7 +366,7 @@ public class PromotionsDataManager {
                     if (itemCodeSql == "ItemID")
                         itemCodeStr += "'" + itemCode + "', ";
                     else {
-                        String targetValue = ActiveSelectionData.getInstance().itemsAllDataMap.get(itemCode).get(itemCodeSql);
+                        String targetValue =  activeSelectionData.itemsAllDataMap.get(itemCode).get(itemCodeSql);
                         if (targetValue != null && targetValue.trim() != "")
                             itemCodeStr += "'" + targetValue + "', ";
                         else
@@ -405,7 +414,7 @@ public class PromotionsDataManager {
                         + " AND (" + allWhereIn + ") "
                         //+  " AND " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_MATERIAL_CHAR_VALUE + " IN (" + itemCodesSql + ")
                         + " ORDER BY " + PromotionsContract.PromotionItems.PROMOTION_ITEMS_RECORD_NUMBER + " ASC";
-                LogUtil.LOG.error(rawQuery);
+                LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " " + rawQuery);
                 rs = st.executeQuery(rawQuery);
                 if (rs == null) {
                     return true;
@@ -447,16 +456,17 @@ public class PromotionsDataManager {
                     int MinTotVal = rs.getInt(columnIndex);
                     //
                     if (IncludeExcludeSign != null && IncludeExcludeSign.equalsIgnoreCase("E")) {
-                        ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(SelectedCharacteristics, MaterialCharValue, itemsDataMapArg.keySet());
+                        ArrayList<String> itemCodes = promotionPopulationMapData.getItems(SelectedCharacteristics, MaterialCharValue, itemsDataMapArg.keySet(), this);
                         excludeItems.addAll(itemCodes);
                     } else {
-                        PromotionPopulationItem promotionPopulationItem = new PromotionPopulationItem(Cust_Key, ESPNumber, RecordNumber, RecordSequence, SelectedCharacteristics, MaterialCharValue, MinVarProd, MinTotQty, !(Mandatory == null || Mandatory.isEmpty() || Mandatory.equalsIgnoreCase("null")), UOMForMinQty, MinTotVal, itemsDataMapArg.keySet());
+                        PromotionPopulationItem promotionPopulationItem = new PromotionPopulationItem(Cust_Key, ESPNumber, RecordNumber, RecordSequence, SelectedCharacteristics, MaterialCharValue, MinVarProd, MinTotQty, !(Mandatory == null || Mandatory.isEmpty() || Mandatory.equalsIgnoreCase("null")), UOMForMinQty, MinTotVal, itemsDataMapArg.keySet(), this);
                         promotionItemHashMap.put(RecordNumber, promotionPopulationItem);
                     }
                 }
-                if (rowcount == 0)
+                if (rowcount == 0) {
+                    LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " Zero results");
                     continue;
-
+                }
                 for (PromotionPopulationItem promotionPopulationItem : promotionItemHashMap.values()) {
                     promotionPopulationItem.excludeIfNeeded(excludeItems);
                 }
@@ -479,13 +489,16 @@ public class PromotionsDataManager {
                                              PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_QUANTITY_UOM + ", " +
                                              PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY + ", " +
                                              PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY_UOM;
+                    if (System.getenv("PROVIDER").equalsIgnoreCase("hcohen")) {
+                        promotionStepsColumns +=", " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_STEP_DESCRIPTION;
+                    }
                 }
                 rawQuery = "SELECT distinct " + promotionStepsColumns
 
                         + " FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_STEPS
 
                         + " WHERE " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_ESP_NUMBER + "=" + "'" + dealKey + "'" + " ORDER BY " + PromotionsContract.PromotionSteps.PROMOTION_STEPS_RECORD_NUMBER + " ASC";
-                LogUtil.LOG.error(rawQuery);
+                LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " " + rawQuery);
                 rs2 = st.executeQuery(rawQuery);
                 if (rs2 == null) {
                     return true;
@@ -546,9 +559,16 @@ public class PromotionsDataManager {
                         columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_MULTIPLE_QTY_UOM);
                         String BonusMultQtyUOM = rs2.getString(columnIndex);
                         //
+
+                        String BonusStepDescriptionStr = null;
+                        if (System.getenv("PROVIDER").equalsIgnoreCase("hcohen")){
+                            columnIndex = rs2.findColumn(PromotionsContract.PromotionSteps.PROMOTION_STEPS_STEP_DESCRIPTION);
+                            BonusStepDescriptionStr = rs2.getString(columnIndex);
+                        }
+
                         double BonusPrice = 0;//rs.getFloat(PromotionsContract.PromotionSteps.PROMOTION_STEPS_BONUS_PRICE);
                         if (PromotionType == 4 || PromotionType == 5) {
-                            promotionStep = new PromotionStepBonus(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, BonusPrice, BonusDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, BonusQuantity, BonusQuantityUOM, BonusMultipleQty, BonusMultQtyUOM, null);
+                            promotionStep = new PromotionStepBonus(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, BonusPrice, BonusDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, BonusQuantity, BonusQuantityUOM, BonusMultipleQty, BonusMultQtyUOM, null, BonusStepDescriptionStr);
                         } else {
                             promotionStep = new PromotionStep(Cust_Key, ESPNumber, RecordNumber, Step, QtyBasedStep, ValBasedStep, PromotionType, PromotionDiscount, PriceBasedQty, PriceBQtyUOM == null ? ItemPromotionData.PC_UNIT : PriceBQtyUOM, PromotionPrice, PromotionPriceCurrency, null);
                         }
@@ -583,7 +603,7 @@ public class PromotionsDataManager {
                         //query for bonus items
                         rawQuery = "SELECT * FROM " + PromotionsDatabase.Tables.TABLE_PROMOTION_ITEMS_BONUSES
                                 + " WHERE " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_ESP_NUMBER + "=" + "'" + dealKey + "'" + " AND " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_RECORD_NUMBER + "=" + "'" + RecordNumber + "'" + " AND " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_STEP + "=" + "'" + Step + "'" + " ORDER BY " + PromotionsContract.PromotionItemsBonus.PROMOTION_BONUS_RECORD_NUMBER + " ASC";
-                        LogUtil.LOG.error(rawQuery);
+                        LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " " + rawQuery);
                         rs3 = st2.executeQuery(rawQuery);
                         if (rs3 == null) {
                             return true;
@@ -599,7 +619,7 @@ public class PromotionsDataManager {
                             String MaterialCharValue = rs3.getString(columnIndex);
                             //
                             if (IncludeExcludeSign != null && IncludeExcludeSign.equalsIgnoreCase("E")) {
-                                ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(SelectedCharacteristics, MaterialCharValue, itemsDataMapArg.keySet());
+                                ArrayList<String> itemCodes = promotionPopulationMapData.getItems(SelectedCharacteristics, MaterialCharValue, itemsDataMapArg.keySet(), this);
                                 excludeItems.addAll(itemCodes);
                             } else {
                                 //Marina - possibleItems are from buy items but materialCharItem is bonus item
@@ -611,7 +631,7 @@ public class PromotionsDataManager {
                                 }
                                 if (!itemsKeySetWithBonus.contains(MaterialCharValue))
                                     itemsKeySetWithBonus.add(MaterialCharValue);
-                                ((PromotionStepBonus)promotionStep).setItems(SelectedCharacteristics, MaterialCharValue, itemsKeySetWithBonus);
+                                ((PromotionStepBonus)promotionStep).setItems(SelectedCharacteristics, MaterialCharValue, itemsKeySetWithBonus, this);
                             }
                         }
                         ((PromotionStepBonus)promotionStep).excludeIfNeeded(excludeItems);
@@ -643,7 +663,7 @@ public class PromotionsDataManager {
             }
             //dataExistMap.put(Cust_Key, true);
         } catch (Exception e) {
-            LogUtil.LOG.error("error in getting deals :"+e.getMessage());
+            LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " error in getting deals :"+e.getMessage());
             // TODO: 2019-07-29 add log "error in getting deals"
         } finally {
             if (sqlLiteUtil.IsSQlLite())
@@ -881,9 +901,9 @@ public class PromotionsDataManager {
     }
     */
 
-    public void setAllItems() {
+    public synchronized void setAllItems( ActiveSelectionData activeSelectionData) {
         itemsDataMap.clear();
-        Set<String> keySet = ActiveSelectionData.getInstance().getAllItemCodes();
+        Set<String> keySet = activeSelectionData.getAllItemCodes();
         for (String itemCode: keySet) {
             ItemPromotionData itemPromotionData = new ItemPromotionData(itemCode);
             itemsDataMap.put(itemCode, itemPromotionData);
@@ -934,11 +954,11 @@ public class PromotionsDataManager {
         return itemsCode;
     }
 
-    public static ArrayList<String> getItemCodesFromField(String itemFieldCode, String whereCode, Set<String> possibleItemIDs) {
+    public synchronized ArrayList<String> getItemCodesFromField(String itemFieldCode, String whereCode, Set<String> possibleItemIDs) {
         return getItemsCodeWithBindArgs(ITEM_ID, itemFieldCode, whereCode, possibleItemIDs);
     }
 
-    private static ArrayList<String> getItemsCodeWithBindArgs(String columnName, String itemFieldCode, String whereCode, Set<String> possibleItemIDs) {
+    private  synchronized ArrayList<String> getItemsCodeWithBindArgs(String columnName, String itemFieldCode, String whereCode, Set<String> possibleItemIDs) {
         ArrayList<String> columnValues;
         ResultSet rs = null;
         Statement st = null;
@@ -1037,11 +1057,11 @@ public class PromotionsDataManager {
         return activePromotionHeader;
     }
 
-    public static PromotionHeader getPromotionHeaderByESPNumber(String ESPNumber) {
+    public synchronized static PromotionHeader getPromotionHeaderByESPNumber(String ESPNumber) {
         return dealsHeaderByDealKeyMap.get(ESPNumber);
     }
 
-    public ArrayList<PromotionHeader> getPromotionsHeader() {
+    public synchronized ArrayList<PromotionHeader> getPromotionsHeader() {
         ArrayList<PromotionHeader> promotionHeadersForCurrentCustomer = new ArrayList<>();
         for (PromotionHeader promotionHeader : currentPromotionHeaders) {
             if (dealKeys.contains(promotionHeader.ESPNumber))
@@ -1050,19 +1070,19 @@ public class PromotionsDataManager {
         return promotionHeadersForCurrentCustomer;
     }
 
-    public void updateItemPricing(String itemCode, int uiIndex, double price, double discount, String unitType) {
+    public synchronized void updateItemPricing(String itemCode, int uiIndex, double price, double discount, String unitType) {
         ArrayList<PromotionHeader> headers = getPromotionsHeader();
         for (PromotionHeader promotionHeader : headers) {
             promotionHeader.updateItemPricing(itemCode, uiIndex, price, discount, unitType);
         }
     }
 
-    public void updateDealForItemCode(int position, String itemCode, float newQuantity) {
+    public synchronized void updateDealForItemCode(int position, String itemCode, float newQuantity, PromotionsDataManager promotionsDataManager) {
         PromotionHeader activePromotionHeader = null;
         ArrayList<PromotionHeader> promotionHeaders = getPromotionHeadersForItem(itemCode);
         while (promotionHeaders.size() > 0) {
             activePromotionHeader = promotionHeaders.get(0);
-            activePromotionHeader.updatePromotionDiscount(itemCode, newQuantity);
+            activePromotionHeader.updatePromotionDiscount(itemCode, newQuantity, promotionsDataManager);
             //here is the problem
             if (activePromotionHeader.getPromotionStatus() < 2) //1 - we found the the rule, 2 -blocked, 3 - not found the rule
                 break;
@@ -1070,7 +1090,7 @@ public class PromotionsDataManager {
         }
         //if (observer != null) {
             if (activePromotionHeader != null) {
-                activePromotionHeader.updateItemsPriceAndDiscount(getItemsDataMap());
+                activePromotionHeader.updateItemsPriceAndDiscount(getItemsDataMap(), promotionsDataManager);
                 ItemPromotionData itemPromotionData = getOrderUIItem(itemCode);
                 if (itemPromotionData != null) {
                     itemPromotionData.setStepDescriptions(activePromotionHeader.getStepDescriptions(itemCode));
@@ -1206,7 +1226,7 @@ public class PromotionsDataManager {
         return size;
     }
 
-    public ArrayList<PromotionHeader> getPromotionHeadersForItem(String itemCode) {
+    public synchronized ArrayList<PromotionHeader> getPromotionHeadersForItem(String itemCode) {
         ArrayList<PromotionHeader> promotionHeaders = new ArrayList<>();
         for (PromotionHeader promotionHeader : getPromotionsHeader()) {
             boolean isItemExist = promotionHeader.isItemExist(itemCode);
@@ -1217,7 +1237,7 @@ public class PromotionsDataManager {
         return promotionHeaders;
     }
 
-    public void updatePromotionPriorityForItem(ItemPromotionData selectedItemPromotionData, PromotionHeader firstPromotionHeader, PromotionHeader secondPromotionHeader, IOrderObserver promotionHeaderSelectedListener) {
+    public void updatePromotionPriorityForItem(ItemPromotionData selectedItemPromotionData, PromotionHeader firstPromotionHeader, PromotionHeader secondPromotionHeader, IOrderObserver promotionHeaderSelectedListener, PromotionsDataManager promotionsDataManager) {
         int priorityCounter = 0;
         for (PromotionHeader promotionHeader : getPromotionsHeader()) {
             priorityCounter++;
@@ -1238,7 +1258,7 @@ public class PromotionsDataManager {
             }
         });
 
-        firstPromotionHeader.updatePromotionDiscount(selectedItemPromotionData.getItemCode(), 0);
+        firstPromotionHeader.updatePromotionDiscount(selectedItemPromotionData.getItemCode(), 0, promotionsDataManager);
         /*if (observer != null) {
             observer.onDealsUpdate(-1,null, firstPromotionHeader);
         }*/
@@ -1252,7 +1272,7 @@ public class PromotionsDataManager {
                     updateItemPricing(itemPromotionData.getItemCode(), itemPromotionData.getUiIndex(), itemPromotionData.getItemPricingData().getTotalStartValue(), itemPromotionData.getItemPricingData().getTotalDiscountValue(), itemPromotionData.getItemPricingData().getPriceUnitType());
                 }
                 if (itemPromotionData.isHaveAmount()) {
-                    secondPromotionHeader.updatePromotionDiscount(itemPromotionData.getItemCode(), itemPromotionData.getTotalQuantityByUnitType());
+                    secondPromotionHeader.updatePromotionDiscount(itemPromotionData.getItemCode(), itemPromotionData.getTotalQuantityByUnitType(), promotionsDataManager);
                 }
             }
         }
@@ -1273,28 +1293,28 @@ public class PromotionsDataManager {
         }
     }
 
-    public void resetPromotions() {
+    public synchronized void resetPromotions(PromotionsDataManager promotionsDataManager) {
         ArrayList<PromotionHeader> headers = getPromotionsHeader();
         for (PromotionHeader promotionHeader : headers) {
-            promotionHeader.resetPromotions();
+            promotionHeader.resetPromotions(promotionsDataManager);
         }
 
     }
 
 
-    public ItemPromotionData getOrderUIItem(String itemCode) {
+    public synchronized ItemPromotionData getOrderUIItem(String itemCode) {
         return itemsDataMap.get(itemCode);
     }
 
-    public HashMap<String, ItemPromotionData> getItemsDataMap() {
+    public synchronized HashMap<String, ItemPromotionData> getItemsDataMap() {
         return itemsDataMap;
     }
 
-    public void addItemPromotionData(String itemCode, ItemPromotionData itemPromotionData) {
+    public synchronized void addItemPromotionData(String itemCode, ItemPromotionData itemPromotionData) {
         itemsDataMap.put(itemCode, itemPromotionData);
     }
 
-    public void updateBonusData(String itemCode, String ESPNumber, String ESPDescription, int itemBonusPCQuantity, int itemBonusKARQuantity, String bonusQuantityUOM, double itemBonusPercent, long updateTime) {
+    public synchronized void updateBonusData(String itemCode, String ESPNumber, String ESPDescription, int itemBonusPCQuantity, int itemBonusKARQuantity, String bonusQuantityUOM, double itemBonusPercent, long updateTime) {
         ItemBonusData itemBonusData = new ItemBonusData(itemCode, ESPNumber, ESPDescription, itemBonusPCQuantity, itemBonusKARQuantity, bonusQuantityUOM, itemBonusPercent, updateTime);
         ArrayList<ItemBonusData> bonusData = itemBonusDataMap.get(ESPNumber);
         if (bonusData == null) {
@@ -1316,15 +1336,15 @@ public class PromotionsDataManager {
         itemBonusDataMap.put(ESPNumber, bonusData);
     }
 
-    public void resetBonusData(String ESPNumber) {
+    public synchronized void resetBonusData(String ESPNumber) {
         itemBonusDataMap.remove(ESPNumber);
     }
 
-    public void resetAllBonusData() {
+    public synchronized void resetAllBonusData() {
         itemBonusDataMap.clear();
     }
 
-    public  HashMap<String, ArrayList<ItemBonusData>> getAllItemBonusDataMap() {
+    public  synchronized HashMap<String, ArrayList<ItemBonusData>> getAllItemBonusDataMap() {
         return itemBonusDataMap;
     }
 }

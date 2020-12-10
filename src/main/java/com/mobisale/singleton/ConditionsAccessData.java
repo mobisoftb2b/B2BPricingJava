@@ -12,10 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ConditionsAccessData {
 
-    private HashMap<String, ConditionAccessData> conditionsAccessMap = new HashMap<String, ConditionAccessData>();
+    private ConcurrentHashMap<String, ConditionAccessData> conditionsAccessMap = new ConcurrentHashMap<String, ConditionAccessData>();
     private static ConditionsAccessData m_instance = null;
     private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
@@ -34,7 +35,7 @@ public class ConditionsAccessData {
     public void clearResources(){
         conditionsAccessMap.clear();
     }
-    public void executeQuery() {
+    public synchronized void executeQuery() {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
@@ -80,10 +81,10 @@ public class ConditionsAccessData {
         }
     }
 
-    public String getAccessSequence(String conditionType) {
+    public synchronized String getAccessSequence(String conditionType) {
         String accessSequence = conditionType;
         try {
-            if (conditionsAccessMap.containsKey(conditionType))
+            if (conditionType != null && conditionsAccessMap.containsKey(conditionType))
                 accessSequence = conditionsAccessMap.get(conditionType).AccessSequence;
         } catch (Exception e) {
             LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + " 122");
@@ -91,10 +92,11 @@ public class ConditionsAccessData {
         return accessSequence == null ? "" : accessSequence;
     }
 
-    public String getRefCond(String conditionType) {
+    public synchronized String getRefCond(String conditionType) {
         String refCond = conditionType;
         try {
-            refCond = conditionsAccessMap.get(conditionType).RefCond;
+            if (conditionType != null)
+                refCond = conditionsAccessMap.get(conditionType).RefCond;
         } catch (Exception e) {
             LogUtil.LOG.error("Error in line: "+e.getStackTrace()[0].getLineNumber()+", Error Message:"+e.getMessage() + "123");
         }

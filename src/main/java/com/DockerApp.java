@@ -75,17 +75,21 @@ public class DockerApp {
 		newenv.put("HAS_BONUSES", "false");
         */
 
+		/*
 		//monte
-		/*newenv.put("DB_SERVER", "10.0.0.5\\mobi2017");
+		newenv.put("DB_SERVER", "10.0.0.5\\mobi2017");
 		newenv.put("DB_PORT", "1433");
 		newenv.put("DB_USER", "sa");
 		newenv.put("DB_PASSWORD", "wiz");
 		newenv.put("PRICING_DB_SQLITE", "monte_pricing.db");
+		newenv.put("PROMOTIONS_DB_SQLITE", "monte_promotions.db");
 		newenv.put("DB_DB", "Montecchio_B2B");
 		newenv.put("PROVIDER", "montecchio");
-		newenv.put("HAS_PROMOTIONS", "false");
+		newenv.put("HAS_PROMOTIONS", "true");
 		newenv.put("HAS_BONUSES", "false");
+		newenv.put("UNIT_CARTON", "true");
         */
+
         /*
 		//strauss
 		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
@@ -99,8 +103,9 @@ public class DockerApp {
 		newenv.put("HAS_PROMOTIONS", "true");
 		newenv.put("HAS_BONUSES", "false");
 		newenv.put("UNIT_CARTON", "true");
-		newenv.put("UNIT_CARTON", "false");
+		//newenv.put("UNIT_CARTON", "false");
         */
+
 
 
         /*
@@ -118,7 +123,8 @@ public class DockerApp {
         */
 
 
-        /*
+
+
 		//hcohen
 		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
 		newenv.put("DB_PORT", "1433");
@@ -131,7 +137,7 @@ public class DockerApp {
 		newenv.put("HAS_PROMOTIONS", "true");
 		newenv.put("HAS_BONUSES", "true");
 		newenv.put("UNIT_CARTON", "true");
-         */
+
 
         /*
         //tambour
@@ -145,7 +151,9 @@ public class DockerApp {
 		newenv.put("PROVIDER", "tambour");//noa
 		newenv.put("HAS_PROMOTIONS", "true");//false
 		newenv.put("HAS_BONUSES", "true");//false
-         */
+        */
+
+
 
 		//taamei asia
         /*
@@ -164,7 +172,7 @@ public class DockerApp {
 
 
 		//laben
-
+        /*
 		newenv.put("DB_SERVER", "10.0.0.5\\b2b2016");
 		newenv.put("DB_PORT", "1433");
 		newenv.put("DB_USER", "sa");
@@ -175,13 +183,13 @@ public class DockerApp {
 		newenv.put("HAS_PROMOTIONS", "false");
 		newenv.put("HAS_BONUSES", "false");
 		newenv.put("UNIT_CARTON", "true");
-
+        */
 
 
 		newenv.put("VERSION", "DEV");
 		newenv.put("SQLITE", "true");
 		newenv.put("SQLITE_TABLET", "true");
-		newenv.put("PRICING_CACHE", "true");
+		newenv.put("PRICING_CACHE", "false");
 		setEnv(newenv);
 	}
 
@@ -226,8 +234,9 @@ public class DockerApp {
 		PricingExistsTablesData.getInstance().executeQuery();
 		PricingExistsTablesData.getInstance().executeQuerySqlLite();
 
-		PricingSequenceData.getInstance().clearResources();
-		PricingSequenceData.getInstance().executeQuery();
+		PricingSequenceData pricingSequenceData = new PricingSequenceData();
+		pricingSequenceData.clearResources();
+		PricingSequenceData.executeQuery();
 		//if (System.getenv("PROVIDER").equalsIgnoreCase("strauss")
 		//		&& System.getenv("SQLITE").equalsIgnoreCase("true") && System.getenv("SQLITE_TABLET").equalsIgnoreCase("true")) {
 		//	PricingProceduresData.getInstance().updateSubtotalPricingProcedure();
@@ -243,8 +252,9 @@ public class DockerApp {
 			PricingProceduresData.getInstance().executeQuery();
 
 		if (System.getenv("HAS_PROMOTIONS").equalsIgnoreCase("true")) {
-			PromotionPopulationMapData.getInstance().clearResources();
-			PromotionPopulationMapData.getInstance().executeQuery();
+			PromotionPopulationMapData promotionPopulationMapData = new PromotionPopulationMapData();
+			promotionPopulationMapData.clearResources();
+			promotionPopulationMapData.executeQuery();
 			PromotionsDataManager.initStaticResources();
 		}
 		System.out.println(System.getenv("PROVIDER"));

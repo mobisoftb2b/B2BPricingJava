@@ -5,25 +5,25 @@ import com.promotions.database.PromotionsContract;
 import com.promotions.database.PromotionsDatabase;
 import com.mobisale.utils.DbUtil;
 import com.mobisale.utils.LogUtil;
+import com.promotions.manager.PromotionsDataManager;
 import org.sqlite.SQLiteException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PromotionPopulationMapData {
 
     private static final String TAG = "PromotionPopulationMapData";
-    private HashMap<Integer, PromotionItemMapListData> promotionItemsMap = new HashMap<>();
-    private HashMap<Integer, ArrayList<String>> promotionMappingItems = new HashMap<>();
+    private static ConcurrentHashMap<Integer, PromotionItemMapListData> promotionItemsMap = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Integer, List<String>> promotionMappingItems = new ConcurrentHashMap<>();
     private static PromotionPopulationMapData m_instance = null;
     private SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
-
+   /*
     public static PromotionPopulationMapData getInstance() {
         if (m_instance == null) {
             m_instance = new PromotionPopulationMapData();
@@ -31,18 +31,22 @@ public class PromotionPopulationMapData {
         // Return the instance
         return m_instance;
     }
+    */
 
-    public HashMap<Integer, ArrayList<String>> GetPromotionMappingItems() {
+
+    public ConcurrentHashMap<Integer, List<String>> GetPromotionMappingItems() {
         return promotionMappingItems;
     }
 
-    private PromotionPopulationMapData() {
+
+
+    public PromotionPopulationMapData() {
     }
 
-    public void clearResources(){
+    public static void clearResources(){
         promotionItemsMap.clear();
     }
-    public void executeQuery() {
+    public synchronized void executeQuery() {
         ResultSet rs = null;
         Statement st = null;
         Connection conn = null;
@@ -75,9 +79,9 @@ public class PromotionPopulationMapData {
                 }
                 promotionItemMapListData.addPromotionItemMapData(promotionItemMapData);
                 promotionItemsMap.put(PopulationCode, promotionItemMapListData);
-                ArrayList<String> mappingValues = promotionMappingItems.get(PopulationCode);
+                List<String> mappingValues = promotionMappingItems.get(PopulationCode);
                 if (mappingValues == null) {
-                    mappingValues = new ArrayList<>();
+                    mappingValues = Collections.synchronizedList(new ArrayList<>());
                 }
                 mappingValues.add(ItemsFiledCode);
                 promotionMappingItems.put(PopulationCode, mappingValues);
@@ -95,7 +99,7 @@ public class PromotionPopulationMapData {
         }
     }
 
-    public String getItemQueryStringFromPopulationCode(int populationCode, String whereCode) {
+    public synchronized String getItemQueryStringFromPopulationCode(int populationCode, String whereCode) {
         String query = "";
         PromotionItemMapListData promotionItemMapListData = promotionItemsMap.get(populationCode);
         if (promotionItemMapListData == null) {
@@ -105,13 +109,13 @@ public class PromotionPopulationMapData {
         return query;
     }
 
-    public ArrayList<String> getItems(int populationCode, String whereCode, Set<String> possibleItemIDs) {
+    public synchronized ArrayList<String> getItems(int populationCode, String whereCode, Set<String> possibleItemIDs, PromotionsDataManager promotionsDataManager) {
         ArrayList<String> items = new ArrayList<String>();
         PromotionItemMapListData promotionItemMapListData = promotionItemsMap.get(populationCode);
         if (promotionItemMapListData == null) {
             return items;
         }
-        items = promotionItemMapListData.getItems(whereCode, possibleItemIDs);
+        items = promotionItemMapListData.getItems(whereCode, possibleItemIDs, promotionsDataManager);
         return items;
     }
 }

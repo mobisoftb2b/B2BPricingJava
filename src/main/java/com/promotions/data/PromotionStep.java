@@ -8,14 +8,14 @@ public class PromotionStep extends APromotionStep {
 
     public PromotionStep(String Cust_Key, String ESPNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double priceBasedQty,
                          String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, StepDescription stepDescription) {
-        super(Cust_Key, ESPNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, 0, 0, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, 0, "", 0, "", stepDescription);
+        super(Cust_Key, ESPNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, 0, 0, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, 0, "", 0, "", stepDescription, null);
     }
 
     //public String getStepDescription(int definitionMethod, String stepsBasedUOM) {
     //    return super.getStepDescription(definitionMethod, stepsBasedUOM);
     //}
     @Override
-    public  StepDescription getStepDescription(int definitionMethod, String stepsBasedUOM)
+    public  synchronized StepDescription getStepDescription(int definitionMethod, String stepsBasedUOM)
     {
         StepDescription stepDesc = new StepDescription();
         StepDescription remoteDescription = super.getStepDescription1(definitionMethod, stepsBasedUOM);
@@ -43,7 +43,7 @@ public class PromotionStep extends APromotionStep {
         return stepDesc;
     }
 
-    public String getStepDescriptionDesc(int definitionMethod, String stepsBasedUOM) {
+    public synchronized String getStepDescriptionDesc(int definitionMethod, String stepsBasedUOM) {
         String description = "";
         String buyBoxOrUnit = "";
         String getBoxOrUnit = "";
@@ -74,7 +74,7 @@ public class PromotionStep extends APromotionStep {
     }
 
     @Override
-    public boolean isPromotionStepBonus() {
+    public synchronized boolean isPromotionStepBonus() {
         return false;
     }
 }

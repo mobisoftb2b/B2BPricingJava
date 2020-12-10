@@ -12,7 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.mobisale.utils.SqlLiteUtil;
 
@@ -24,11 +26,11 @@ public class ActiveSelectionData {
     public static final String TABLE_ITEMS = "B2B_Items";
     public static final String TABLE_ITEMS_TAMBOUR = "Items";
 
-    private static ActiveSelectionData m_instance = null;
-    private HashMap<String, String> activeSelectionMap = new HashMap<String, String>();
-    private HashMap<String, HashMap<String, String>> customersAllDataMap = new HashMap<String, HashMap<String, String>>();
-    private HashMap<String, HashMap<String, String>> customerCategoryAllDataMap = new HashMap<String, HashMap<String, String>>();
-    public HashMap<String, HashMap<String, String>> itemsAllDataMap = new HashMap<String, HashMap<String, String>>();
+    //private static ActiveSelectionData m_instance = null;
+    private ConcurrentHashMap<String, String> activeSelectionMap = new ConcurrentHashMap<String, String>();
+    private static ConcurrentHashMap<String, ConcurrentHashMap<String, String>> customersAllDataMap = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, ConcurrentHashMap<String, String>> customerCategoryAllDataMap = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, String>> itemsAllDataMap = new ConcurrentHashMap<>();
 
     SqlLiteUtil sqlLiteUtil = new SqlLiteUtil();
 
@@ -60,6 +62,7 @@ public class ActiveSelectionData {
         return rs;
     }
 
+    /*
     public static ActiveSelectionData getInstance() {
         if (m_instance == null) {
             m_instance = new ActiveSelectionData();
@@ -67,8 +70,9 @@ public class ActiveSelectionData {
         // Return the instance
         return m_instance;
     }
+     */
 
-    private ActiveSelectionData() {
+    public ActiveSelectionData() {
     }
 
     public void clearSelection() {
@@ -135,29 +139,29 @@ public class ActiveSelectionData {
         }
     }
     */
-    public void UpdateCustomerTablesSelection(String custID, String Cust_Key) {
+    public void UpdateCustomerTablesSelection(String custID, String Cust_Key, String DocNum, String RequestId) {
         //if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
         //    updateCustomerSelection(custID, Tables.TABLE_CUSTOMERS);
         //}
         //else
         //{
-            updateCustomerSelection(Cust_Key, Tables.TABLE_CUSTOMERS_PRICING);
+            updateCustomerSelection(Cust_Key, Tables.TABLE_CUSTOMERS_PRICING, DocNum, RequestId);
         //}
         if (System.getenv("PROVIDER").equalsIgnoreCase("strauss")) {
             updateCustCategorySelection(Cust_Key);
         }
     }
 
-    private void updateCustCategorySelection(String Cust_Key)
+    private synchronized void updateCustCategorySelection(String Cust_Key)
     {
-        ArrayList<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(Tables.TABLE_CUSTCATEGORY);
+        List<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(Tables.TABLE_CUSTCATEGORY);
         if (fieldMappingData == null) {
             return;
         }
-        HashMap<String, String> customerCategoryDataMap = null;
+        ConcurrentHashMap<String, String> customerCategoryDataMap = null;
         customerCategoryDataMap = customerCategoryAllDataMap.get(Cust_Key);
         if (customerCategoryDataMap == null) {
-            customerCategoryDataMap = new HashMap<String, String>();
+            customerCategoryDataMap = new ConcurrentHashMap<String, String>();
             ResultSet rs = null;
             Statement st = null;
             Connection conn = null;
@@ -177,7 +181,7 @@ public class ActiveSelectionData {
                     customerCategoryDataMap.put("CustID", rs.getString("CustID"));
                     for (MtnMappingData.FieldMapData fieldMapData : fieldMappingData) {
                         String fieldValue = rs.getString(fieldMapData.MTNFied);
-                        fieldValue = fieldValue != null ? fieldValue.trim() : fieldValue;
+                        fieldValue = fieldValue != null ? fieldValue.trim() : "null";
                         customerCategoryDataMap.put(fieldMapData.MTNFied, fieldValue);
                     }
                 }
@@ -189,23 +193,27 @@ public class ActiveSelectionData {
             }
         }
         for (MtnMappingData.FieldMapData fieldMapData : fieldMappingData) {
-                activeSelectionMap.put(fieldMapData.MTNFied, customerCategoryDataMap.get(fieldMapData.MTNFied));
+            if (fieldMapData.MTNFied != null) {
+                String valueToPut = customerCategoryDataMap.get(fieldMapData.MTNFied);
+                if (valueToPut == null)
+                    valueToPut = "null";
+                activeSelectionMap.put(fieldMapData.MTNFied, valueToPut);
+            }
         }
-
 
     }
 
-    private void updateCustomerSelection(String Cust_Key, String tableName)
+    private synchronized void updateCustomerSelection(String Cust_Key, String tableName, String DocNum, String RequestId)
     {
-        ArrayList<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(tableName);
+        List<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(tableName);
         if (fieldMappingData == null) {
             return;
         }
 
-        HashMap<String, String> customerDataMap = null;
+        ConcurrentHashMap<String, String> customerDataMap = null;
         customerDataMap = customersAllDataMap.get(Cust_Key);
         if (customerDataMap == null) {
-            customerDataMap = new HashMap<String, String>();
+            customerDataMap = new ConcurrentHashMap<>();
             ResultSet rs = null;
             Statement st = null;
             Connection conn = null;
@@ -215,7 +223,7 @@ public class ActiveSelectionData {
                 conn = DbUtil.connect(conn);
 
                 st = conn.createStatement();
-                LogUtil.LOG.info(query);
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " " + query);
                 // execute the query, and get a java resultset
                 rs = st.executeQuery(query);
 
@@ -224,20 +232,25 @@ public class ActiveSelectionData {
                     //customerDataMap.put("CustID",rs.getString("CustID"));
                     for (MtnMappingData.FieldMapData fieldMapData : fieldMappingData) {
                         String fieldValue = rs.getString(fieldMapData.MTNFied);
-                        fieldValue = fieldValue != null ? fieldValue.trim() : fieldValue;
+                        fieldValue = fieldValue != null ? fieldValue.trim() : "null";
                         customerDataMap.put(fieldMapData.MTNFied, fieldValue);
                     }
                 }
                 customersAllDataMap.put(Cust_Key, customerDataMap);
             } catch (SQLException e) {
-                LogUtil.LOG.error("Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + " 118");
+                LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + " 118");
             } finally {
                 DbUtil.CloseConnection(conn, rs, st);
             }
         }
 
         for (MtnMappingData.FieldMapData fieldMapData : fieldMappingData) {
-                activeSelectionMap.put(fieldMapData.MTNFied, customerDataMap.get(fieldMapData.MTNFied));
+                if (fieldMapData.MTNFied != null) {
+                    String valueToPut = customerDataMap.get(fieldMapData.MTNFied);
+                    if (valueToPut == null)
+                        valueToPut = "null";
+                    activeSelectionMap.put(fieldMapData.MTNFied, valueToPut);
+                }
         }
     }
 
@@ -297,26 +310,26 @@ public class ActiveSelectionData {
         }
     }
     */
-    public void UpdateItemTablesSelection(String itemCode)
+    public void UpdateItemTablesSelection(String itemCode, String DocNum, String RequestId)
     {
         //if (System.getenv("PROVIDER").equalsIgnoreCase("noa")) {
          //   updateItemSelection(itemCode, Tables.TABLE_ITEMS);
         //}
         //else
         //{
-        updateItemSelection(itemCode, Tables.TABLE_ITEMS_PRICING);
+        updateItemSelection(itemCode, Tables.TABLE_ITEMS_PRICING, DocNum, RequestId);
         //}
     }
-    public void updateItemSelection(String itemCode, String tableName) {
-        ArrayList<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(tableName);
+    public synchronized void updateItemSelection(String itemCode, String tableName, String DocNum, String RequestId) {
+        List<MtnMappingData.FieldMapData> fieldMappingData =  MtnMappingData.getInstance().getMtnMappingData().get(tableName);
         if (fieldMappingData == null) {
             return;
         }
 
-        HashMap<String, String> itemsDataMap = null;
+        ConcurrentHashMap<String, String> itemsDataMap = null;
         itemsDataMap = itemsAllDataMap.get(itemCode);
         if (itemsDataMap == null) {
-            itemsDataMap = new HashMap<String, String>();
+            itemsDataMap = new ConcurrentHashMap<>();
             ResultSet rs = null;
             Statement st = null;
             Connection conn = null;
@@ -329,7 +342,7 @@ public class ActiveSelectionData {
 
 
                 st = conn.createStatement();
-                LogUtil.LOG.info(query);
+                LogUtil.LOG.info(RequestId + " " + "DocNum=" + DocNum  + " " + query);
 
                 // execute the query, and get a java resultset
                 rs = st.executeQuery(query);
@@ -337,11 +350,13 @@ public class ActiveSelectionData {
                     itemsDataMap.put("ItemID", rs.getString("ItemCode"));
                     for (MtnMappingData.FieldMapData fieldMapData : fieldMappingData) {
                         String fieldValue = rs.getString(fieldMapData.MTNFied);
-                        fieldValue = fieldValue != null ? fieldValue.trim() : fieldValue;
+                        fieldValue = fieldValue != null ? fieldValue.trim() : "null";
                         itemsDataMap.put(fieldMapData.MTNFied, fieldValue);
                     }
                     if ((System.getenv("PROVIDER").equalsIgnoreCase("strauss") || System.getenv("PROVIDER").equalsIgnoreCase("hcohen") || System.getenv("PROVIDER").equalsIgnoreCase("noa")) || (System.getenv("UNIT_CARTON") != null && System.getenv("UNIT_CARTON").equalsIgnoreCase("true"))) {
-                        itemsDataMap.put("UnitInCart", rs.getString("UnitInCart"));
+                        String fieldValueUnitInCart =  rs.getString("UnitInCart");
+                        fieldValueUnitInCart = fieldValueUnitInCart != null ? fieldValueUnitInCart.trim() : "null";
+                        itemsDataMap.put("UnitInCart", fieldValueUnitInCart);
                     }
                 /*
                 itemsDataMap.put("ItemVatType",rs.getString("ItemVatType"));
@@ -373,7 +388,7 @@ public class ActiveSelectionData {
                 itemsAllDataMap.put(itemCode, itemsDataMap);
             }
             catch (SQLException e) {
-                LogUtil.LOG.error("Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + "119");
+                LogUtil.LOG.error(RequestId + " " + "DocNum=" + DocNum  + " Error in line: " + e.getStackTrace()[0].getLineNumber() + ", Error Message:" + e.getMessage() + "119");
             } finally {
                 DbUtil.CloseConnection(conn, rs, st);
             }
@@ -399,7 +414,7 @@ public class ActiveSelectionData {
     }
 
 
-    public void updateSupplyDateSelection(String supplyDate) {
+    public synchronized void updateSupplyDateSelection(String supplyDate) {
         activeSelectionMap.put(ACTIVE_SELECTION_SUPPLY_DATE, supplyDate);
     }
 
@@ -407,21 +422,21 @@ public class ActiveSelectionData {
         activeSelectionMap.put(ACTIVE_SELECTION_SUPPLY_DATE, null);
     }
 
-    public String getValue(String key) {
+    public synchronized String getValue(String key) {
         String selectedValue = activeSelectionMap.get(key);
-        return selectedValue == null ? "0" : selectedValue;
+        return (selectedValue == null || selectedValue == "null") ? "0" : selectedValue;
     }
 
-    public  String getItemValue(String ItemID, String key)
+    public synchronized String getItemValue(String ItemID, String key)
     {
         String returnValue = null;
-        HashMap<String, String> itemDataMap = itemsAllDataMap.get(ItemID);
+        ConcurrentHashMap<String, String> itemDataMap = itemsAllDataMap.get(ItemID);
         if (itemDataMap != null)
             returnValue = itemsAllDataMap.get(ItemID).get(key);
         return  returnValue;
     }
 
-    public Set<String> getAllItemCodes(){
+    public synchronized Set<String> getAllItemCodes(){
         return  itemsAllDataMap.keySet();
     }
 }

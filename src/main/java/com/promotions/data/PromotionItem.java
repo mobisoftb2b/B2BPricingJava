@@ -63,9 +63,9 @@ public class PromotionItem {
         this.promotionNetoDiscount = promotionNetoDiscount;
     }
 
-    public void resetPriceAndDiscount(String customerKey, String espNumber) {
+    public void resetPriceAndDiscount(String customerKey, String espNumber, PromotionsDataManager promotionsDataManager) {
         PromotionHeader activePromotionHeader = PromotionsDataManager.getPromotionHeaderByESPNumber(espNumber);
-        ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance(customerKey).getOrderUIItem(ItemCode);
+        ItemPromotionData itemPromotionData = promotionsDataManager.getOrderUIItem(ItemCode);
         if (itemPromotionData != null && itemPromotionData.isItemPricingInitialized()) {
 
             promotionNetoDiscount = 0;

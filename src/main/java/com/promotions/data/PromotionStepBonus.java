@@ -1,5 +1,6 @@
 package com.promotions.data;
 
+import com.mobisale.utils.LogUtil;
 import com.promotions.manager.PromotionsDataManager;
 //import org.apache.tomcat.dbcp.dbcp.DelegatingResultSet;
 
@@ -12,19 +13,20 @@ public class PromotionStepBonus extends APromotionStep {
     private int totalQuantity = 0;
     private String stepsBasedUOM = ItemPromotionData.PC_UNIT;
     public HashMap<String, PromotionBonusItem> PromotionBonusItems = new HashMap<>();
+    private PromotionPopulationMapData promotionPopulationMapData = new PromotionPopulationMapData();
     private boolean needToOpenBonusPopup;
 
     public PromotionStepBonus(String Cust_Key, String espNumber, int recordNumber, int step, int qtyBasedStep, int valBasedStep, int promotionType, double promotionDiscount, double bonusPrice, double bonusDiscount, double priceBasedQty,
-                              String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, StepDescription stepDescription) {
-        super(Cust_Key, espNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, bonusPrice, bonusDiscount, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, bonusQuantity, bonusQuantityUOM, bonusMultipleQty, bonusMultQtyUOM, stepDescription);
+                              String priceBQtyUOM, double promotionPrice, String promotionPriceCurrency, int bonusQuantity, String bonusQuantityUOM, int bonusMultipleQty, String bonusMultQtyUOM, StepDescription stepDescription, String stepDescriptionStr) {
+        super(Cust_Key, espNumber, recordNumber, step, qtyBasedStep, valBasedStep, promotionType, promotionDiscount, bonusPrice, bonusDiscount, priceBasedQty, priceBQtyUOM, promotionPrice, promotionPriceCurrency, bonusQuantity, bonusQuantityUOM, bonusMultipleQty, bonusMultQtyUOM, stepDescription, stepDescriptionStr);
     }
 
-    public void setItems(int selectedCharacteristics, String materialCharValue, Set<String> possibleItems) {
+    public synchronized void setItems(int selectedCharacteristics, String materialCharValue, Set<String> possibleItems, PromotionsDataManager promotionsDataManager) {
         //Marina - possibleItems are from buy items but materialCharItem is bonus item
-        ArrayList<String> itemCodes = PromotionPopulationMapData.getInstance().getItems(selectedCharacteristics, materialCharValue, possibleItems);
+        ArrayList<String> itemCodes = promotionPopulationMapData.getItems(selectedCharacteristics, materialCharValue, possibleItems, promotionsDataManager);
         for (String itemCode : itemCodes) {
             try {
-                ItemPromotionData itemPromotionData = PromotionsDataManager.getInstance(m_CustKey).getOrderUIItem(itemCode);
+                ItemPromotionData itemPromotionData = promotionsDataManager.getOrderUIItem(itemCode);
                 //Marina here we check if bonus item is in buy items
                 //I say let's return it anyway
                 //uncomment following 2 lines if we want to check
@@ -43,7 +45,7 @@ public class PromotionStepBonus extends APromotionStep {
         }
     }
 
-    public void excludeIfNeeded(ArrayList<String> excludeItemCodes) {
+    public synchronized void excludeIfNeeded(ArrayList<String> excludeItemCodes) {
         for (String excludeItemCode : excludeItemCodes) {
             boolean isRemoved = PromotionBonusItems.remove(excludeItemCode) != null;
             if (isRemoved) {
@@ -56,13 +58,13 @@ public class PromotionStepBonus extends APromotionStep {
         }
     }
 
-    public void updateTotalQuantity(int totalQty, String stepsBasedUOM) {
+    public synchronized void updateTotalQuantity(int totalQty, String stepsBasedUOM) {
         totalQuantity = totalQty;
         this.stepsBasedUOM = stepsBasedUOM;
     }
 
 
-    public void updateBonusDiscount(HashMap<String, ItemPromotionData> itemsDataMap) {
+    public synchronized void updateBonusDiscount(HashMap<String, ItemPromotionData> itemsDataMap, PromotionsDataManager promotionsDataManager) {
         if (PromotionBonusItems.size() == 0) return;
 
         int total = getTotalCalculatedBonusQuantity();
@@ -71,7 +73,7 @@ public class PromotionStepBonus extends APromotionStep {
             for(Map.Entry<String, PromotionBonusItem> bonusItem : PromotionBonusItems.entrySet()){
                 PromotionBonusItem promotionBonusItem = bonusItem.getValue();
                 promotionBonusItem.updateQuantity(total);
-                updateCurrentTotalBonusQuantityForUIItem(promotionBonusItem);
+                updateCurrentTotalBonusQuantityForUIItem(promotionBonusItem, promotionsDataManager);
             }
 
       //  } /*else {
@@ -84,28 +86,26 @@ public class PromotionStepBonus extends APromotionStep {
 
     }
 
-    public void resetPromotionDiscount() {
-        PromotionsDataManager promotionsDataManagerInstance = PromotionsDataManager.getInstance(m_CustKey);
+    public synchronized void resetPromotionDiscount(PromotionsDataManager promotionsDataManager) {
         if (PromotionBonusItems.size() == 0) return;
         needToOpenBonusPopup = false;
         for (Map.Entry<String, PromotionBonusItem> stringPromotionBonusItemEntry : PromotionBonusItems.entrySet()) {
             PromotionBonusItem promotionBonusItem = stringPromotionBonusItemEntry.getValue();
             promotionBonusItem.resetQuantity();
-            ItemPromotionData itemPromotionData = promotionsDataManagerInstance.getOrderUIItem(promotionBonusItem.ItemCode);
+            ItemPromotionData itemPromotionData = promotionsDataManager.getOrderUIItem(promotionBonusItem.ItemCode);
             if (itemPromotionData != null) {
-                promotionsDataManagerInstance.resetBonusData(ESPNumber);
+                promotionsDataManager.resetBonusData(ESPNumber);
             }
         }
     }
 
-    public void updateCurrentTotalBonusQuantityForUIItem(PromotionBonusItem promotionBonusItem) {
+    public synchronized void updateCurrentTotalBonusQuantityForUIItem(PromotionBonusItem promotionBonusItem, PromotionsDataManager promotionsDataManager) {
         PromotionHeader promotionHeader = PromotionsDataManager.getPromotionHeaderByESPNumber(ESPNumber);
         String description = "";
         if (promotionHeader != null) {
             description = promotionHeader.ESPDescription;
         }
-        PromotionsDataManager promotionsDataManagerInstance = PromotionsDataManager.getInstance(m_CustKey);
-        ItemPromotionData itemPromotionData = promotionsDataManagerInstance.getOrderUIItem(promotionBonusItem.ItemCode);
+        ItemPromotionData itemPromotionData = promotionsDataManager.getOrderUIItem(promotionBonusItem.ItemCode);
 
         long updateTime;
         if (PromotionBonusItems.size() == 1) {
@@ -141,17 +141,17 @@ public class PromotionStepBonus extends APromotionStep {
              */
         }
         if (total == 0) {
-            promotionsDataManagerInstance.resetBonusData(ESPNumber);
+            promotionsDataManager.resetBonusData(ESPNumber);
         } else {
             if (!BonusQuantityUOM.isEmpty() && BonusQuantityUOM.equalsIgnoreCase("KAR")) {
-                promotionsDataManagerInstance.updateBonusData(promotionBonusItem.ItemCode, ESPNumber, description, 0, total, BonusQuantityUOM, discount, updateTime);
+                promotionsDataManager.updateBonusData(promotionBonusItem.ItemCode, ESPNumber, description, 0, total, BonusQuantityUOM, discount, updateTime);
             } else {
-                promotionsDataManagerInstance.updateBonusData(promotionBonusItem.ItemCode, ESPNumber, description, total, 0, BonusQuantityUOM, discount, updateTime);
+                promotionsDataManager.updateBonusData(promotionBonusItem.ItemCode, ESPNumber, description, total, 0, BonusQuantityUOM, discount, updateTime);
             }
         }
     }
 
-    private int getCurrentTotalBonusQuantity() {
+    private synchronized int getCurrentTotalBonusQuantity() {
         int total = 0;
         for (Map.Entry<String, PromotionBonusItem> stringPromotionBonusItemEntry : PromotionBonusItems.entrySet()) {
             PromotionBonusItem promotionBonusItem = stringPromotionBonusItemEntry.getValue();
@@ -160,11 +160,17 @@ public class PromotionStepBonus extends APromotionStep {
         return total;
     }
 
-    public int getTotalCalculatedBonusQuantity() {
-        return (((totalQuantity - QtyBasedStep) / BonusMultipleQty) + 1) * BonusQuantity;
+    public synchronized int getTotalCalculatedBonusQuantity() {
+        if (BonusMultipleQty == 0) {
+            LogUtil.LOG.error("Trying to divide by BonusMultipleQuantity=0");
+            return  0;
+        }
+        else {
+                return (((totalQuantity - QtyBasedStep) / BonusMultipleQty) + 1) * BonusQuantity;
+        }
     }
 
-    public boolean isNeedToOpenBonusPopup() {
+    public synchronized boolean isNeedToOpenBonusPopup() {
         return needToOpenBonusPopup;
     }
 
@@ -172,7 +178,7 @@ public class PromotionStepBonus extends APromotionStep {
         this.needToOpenBonusPopup = needToOpenBonusPopup;
     }
 
-    public boolean isTotalBonusAmountChanged() {
+    public synchronized boolean isTotalBonusAmountChanged() {
         return getTotalCalculatedBonusQuantity() != getCurrentTotalBonusQuantity();
     }
 
@@ -183,14 +189,17 @@ public class PromotionStepBonus extends APromotionStep {
     //    return "";
     //}
     @Override
-    public  StepDescription getStepDescription(int definitionMethod, String stepsBasedUOM)
+    public  synchronized StepDescription getStepDescription(int definitionMethod, String stepsBasedUOM)
     {
         StepDescription stepDesc = new StepDescription();
         StepDescription remoteDescription = super.getStepDescription1(definitionMethod, stepsBasedUOM);
         if (remoteDescription != null) {
             return remoteDescription;
         }
-        stepDesc.Description =  getStepDescriptionDesc(definitionMethod, stepsBasedUOM);
+        if (this.StepDescriptionStr == null || this.StepDescriptionStr == "")
+            stepDesc.Description =  getStepDescriptionDesc(definitionMethod, stepsBasedUOM);
+        else
+            stepDesc.Description = StepDescriptionStr;
         stepDesc.IsBonus = true;
         if (stepsBasedUOM.equalsIgnoreCase(ItemPromotionData.PC_UNIT))
             stepDesc.BuyBoxOrUnit = ItemPromotionData.PC_UNIT;
@@ -221,7 +230,7 @@ public class PromotionStepBonus extends APromotionStep {
     }
 
 
-    public String getStepDescriptionDesc(int definitionMethod, String stepsBasedUOM) {
+    public synchronized String getStepDescriptionDesc(int definitionMethod, String stepsBasedUOM) {
         String description = "";
         String buyBoxOrUnit = "";
         String getBoxOrUnit = "";
@@ -267,11 +276,11 @@ public class PromotionStepBonus extends APromotionStep {
     }
 
     @Override
-    public boolean isPromotionStepBonus() {
+    public synchronized boolean isPromotionStepBonus() {
         return true;
     }
 
-    public boolean inventoryValidation() {
+    public synchronized boolean inventoryValidation() {
        return true;
     }
 }
